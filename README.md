@@ -164,7 +164,6 @@ Vanini, C., Hargreaves, C. and Breitinger, F. (2024) 'Tamper resistance of Windo
 Zhu, Y., Gladyshev, P. and James, J. (2009) 'Using ShellBag information to reconstruct user activities'.
 Case, A., Cristina, A., Marziale, L., Richard, G.G. and Roussev, V. (2008) 'FACE: Automated digital evidence discovery and correlation'.
  
-Full bibliography in `lit-review/references.bib` and in the final report.
 
 
 ## Licence
