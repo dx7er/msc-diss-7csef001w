@@ -1,0 +1,57 @@
+# VM images and hypervisor state
+*.vmdk
+*.vmx
+*.vmxf
+*.vmsd
+*.vmss
+*.vmem
+*.nvram
+*.log
+*.scoreboard
+DISS-Win11-Testbed-VM/
+*-flat.vmdk
+
+# Raw artefacts (usually too large or PII-adjacent; keep hashes only)
+artefacts/raw/**
+!artefacts/raw/.gitkeep
+
+# Office lock files and temporary drafts
+~$*.docx
+~$*.xlsx
+~$*.pptx
+*.tmp
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+env/
+.ipynb_checkpoints/
+
+# Node
+node_modules/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Secrets
+.env
+.env.*
+*.key
+*.pem
+credentials.json
+
+# Large forensic binaries - keep hashes, not blobs
+*.evtx
+*.pf
+!scenarios/**/samples/*.evtx
+!scenarios/**/samples/*.pf
