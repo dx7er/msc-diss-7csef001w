@@ -22,7 +22,18 @@ All timestamps are UTC in ISO 8601 format (`2026-07-14T15:34:21.382Z`).
 - Create a new VM in VMware Workstation Pro 17.
 - Allocate 4 vCPU, 7 GB RAM, 80 GB dynamic disk (split), vTPM enabled.
 - Install Windows 11 Pro 25H2 from official ISO.
-- Complete OOBE with a local account (no Microsoft account). Suggested name: `DISSUser`.
+- Complete OOBE with a local account (no Microsoft account). Account used in this build: `dfanalyst`.
+
+**Post-install check for leftover installation trees.** If C:\ contains `Windows.old`, `$WINDOWS.~BT`, or `$WINDOWS.~WS` from a prior install attempt, note them here and delete them before Step 11 (candidate snapshot). Windows.old contains a full prior Windows tree with its own Prefetch, event logs and registry hives, and would contaminate baseline artefacts if left in place.
+
+```powershell
+# Remove leftover Windows.old (run once, only before candidate baseline)
+if (Test-Path C:\Windows.old) {
+    takeown /F C:\Windows.old /R /D Y | Out-Null
+    icacls C:\Windows.old /grant administrators:F /T | Out-Null
+    Remove-Item -Path C:\Windows.old -Recurse -Force
+}
+```
 
 **Records.** Note ISO SHA-256 and installation date in `vm-specification.md`.
 
@@ -406,8 +417,8 @@ Copy the entire VM directory, not one `.vmdk`. Split disks and snapshot deltas m
 - Test collection of:
   - `C:\Windows\Prefetch\`
   - `C:\Windows\System32\winevt\Logs\`
-  - `C:\Users\DISSUser\NTUSER.DAT*`
-  - `C:\Users\DISSUser\AppData\Local\Microsoft\Windows\UsrClass.dat*`
+  - `C:\Users\dfanalyst\NTUSER.DAT*`
+  - `C:\Users\dfanalyst\AppData\Local\Microsoft\Windows\UsrClass.dat*`
 
 For ShellBags, retain the main hives plus `.LOG1`, `.LOG2`, `.TM.blf` and `.regtrans-ms` companions when present. Never mount the only copy read/write.
 

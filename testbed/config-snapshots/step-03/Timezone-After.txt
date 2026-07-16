@@ -1,0 +1,12 @@
+﻿
+
+Id                         : UTC
+DisplayName                : (UTC) Coordinated Universal Time
+StandardName               : Coordinated Universal Time
+DaylightName               : Coordinated Universal Time
+BaseUtcOffset              : 00:00:00
+SupportsDaylightSavingTime : False
+
+
+
+2026-07-14T10:38:31.4932303Z

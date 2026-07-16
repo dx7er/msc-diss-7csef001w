@@ -7,9 +7,9 @@ Hardware and hypervisor state for the forensic testbed. Fields marked `TBD` are 
 | Field | Value |
 |-------|-------|
 | Testbed identifier | TB-W11-25H2-01 |
-| Computer name | DISS-W11-25H2 |
-| Primary account | DISSUser (local, no Microsoft Account) |
-| Account SID | TBD (captured in Step 2) |
+| Computer name | disstestbedvm |
+| Primary account | dfanalyst (local, no Microsoft Account) |
+| Account SID | `S-1-5-21-4209295338-567392030-2519289182-1001` |
 | VM directory (host) | `D:\UOW\SEM3\DISS-Win11-Testbed-VM\` |
 
 ## Hypervisor
@@ -19,7 +19,7 @@ Hardware and hypervisor state for the forensic testbed. Fields marked `TBD` are 
 | Product | VMware Workstation Pro 17 |
 | Exact version | TBD (record from `Help -> About`) |
 | Host OS | TBD (Windows 11 on host machine) |
-| VMware Tools version | TBD (captured in Step 4) |
+| VMware Tools version | 12.4.5.49651 (build 23787635) |
 | Snapshot mode | Power off (not suspend) |
 | AutoProtect | Disabled |
 
@@ -29,9 +29,10 @@ Hardware and hypervisor state for the forensic testbed. Fields marked `TBD` are 
 |-------|-------|
 | Product | Windows 11 Pro |
 | Display version | 25H2 |
-| CurrentBuild | TBD (captured in Step 2) |
-| UBR | TBD (captured in Step 2) |
-| Locale | TBD (captured in Step 3) |
+| CurrentBuild | 26200 |
+| UBR | 6584 |
+| ProductName (registry, legacy) | `Windows 10 Pro` (known Win11 quirk; DisplayVersion is authoritative) |
+| Locale | en-US (LCID 1033) |
 | Timezone | UTC |
 
 ## Virtual hardware

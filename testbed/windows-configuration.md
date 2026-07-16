@@ -6,22 +6,29 @@ Non-default settings applied to the guest for forensic instrumentation. Every en
 
 | Setting | Value | Set in step |
 |---------|-------|-------------|
-| Computer name | DISS-W11-25H2 | Step 3 |
-| Primary account | DISSUser (local) | Step 1 |
-| Timezone | UTC | Step 3 |
-| System locale | TBD | Step 3 |
-| User language list | TBD | Step 3 |
-| Culture | TBD | Step 3 |
+| Computer name | disstestbedvm | Set during OOBE (Step 1) |
+| Primary account | dfanalyst (local) | Step 1 |
+| Account SID | `S-1-5-21-4209295338-567392030-2519289182-1001` | Step 2 |
+| Windows 11 build | 26200.6584 (DisplayVersion 25H2) | Step 2 |
+| Windows updates installed (Step 4) | KB5094126, KB5094135, KB5095189, KB5087051, KB5054156 (all 14/07/2026), plus KB5064531 from ISO. No Preview updates. | Step 4 |
+| VMware Tools | 12.4.5.49651 (build 23787635) | Step 4 |
+| Windows Update service | Disabled (`wuauserv`, `UsoSvc`) after stable updates installed | Step 4 (end) |
+| Timezone | UTC (BaseUtcOffset 00:00:00) | Step 3 |
+| System locale | en-US (LCID 1033) | Step 3 |
+| User language list | en-US | Step 3 |
+| Culture | en-US | Step 3 |
+| Windows.old removed | Yes, deleted before Step 3 | Post-Step 2 |
 
 ## Encryption and power
 
 | Setting | Value | Set in step |
 |---------|-------|-------------|
-| BitLocker on C: | Off | Step 5 |
+| BitLocker on C: | Off (verified: Version None, Fully Decrypted, Protection Off, no Key Protectors) | Step 5 |
 | vTPM | Present but unused | Step 1 |
-| Hibernation | Off (`powercfg /hibernate off`) | Step 5 |
-| Standby timeout on AC | Never | Step 5 |
+| Hibernation | Off (`powercfg /hibernate off`); `hiberfil.sys` absent | Step 5 |
+| Standby timeout on AC | 0 (never sleep) | Step 5 |
 | Fast Startup | Off (implied by hibernation off) | Step 5 |
+| Active power scheme | Balanced (`381b4222-f694-41f0-9685-ff5bb260df2e`) | Step 5 |
 
 ## Audit policy
 

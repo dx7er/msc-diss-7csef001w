@@ -1,0 +1,22 @@
+﻿
+
+LanguageTag     : en-GB
+Autonym         : English (United Kingdom)
+EnglishName     : English
+LocalizedName   : English (United Kingdom)
+ScriptName      : Latin
+InputMethodTips : {0809:00000809}
+Spellchecking   : True
+Handwriting     : False
+
+LanguageTag     : en-US
+Autonym         : English (United States)
+EnglishName     : English
+LocalizedName   : English (United States)
+ScriptName      : Latin
+InputMethodTips : {0409:00000409}
+Spellchecking   : True
+Handwriting     : False
+
+
+
