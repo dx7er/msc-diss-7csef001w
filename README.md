@@ -182,5 +182,5 @@ Machine-readable citation in `CITATION.cff`.
 
 ## Contact
 
-Author: dx73r@protonmail.com<br>
+Author: w2163454@westminster.ac.uk<br>
 Supervisor: j.james@westminster.ac.uk
