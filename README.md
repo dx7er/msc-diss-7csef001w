@@ -48,25 +48,20 @@ The report cites this repository for reproducibility. This repository does not r
 ## Repository structure
 ```
 msc-diss-7csef001w/
-|-- README.md
-|-- LICENSE.md
-|-- CITATION.cff
-|-- .gitignore
-|
-|-- testbed/                         # Windows 11 machine preparation and spec
-|   |-- vm-specification.md          # VM hardware and Windows configuration state
-|   |-- testbed-checklist.md         # Reproducible build steps in order
-|   |-- snapshots.md                 # Snapshot names, timestamps, SHA-256
-|   |-- evidence/                    # Captured configuration artefacts per step
-|   `-- scripts/                     # PowerShell scripts to reproduce configuration
-|
-`-- artefacts/                       # Per-artefact-class findings and parsed output
-    |-- prefetch/
-    |   `-- findings.md
-    |-- event-logs/
-    |   `-- findings.md
-    `-- shellbags/
-        `-- findings.md
+├── README.md
+├── LICENSE.md
+├── CITATION.cff
+├── .gitignore
+├── artefacts/
+│   ├── prefetch/findings.md
+│   ├── event-logs/findings.md
+│   └── shellbags/findings.md
+└── testbed/
+    ├── testbed-checklist.md
+    ├── vm-specification.md
+    ├── snapshots.md
+    ├── evidence/            (config artefacts)
+    └── scripts/             (build/pilot scripts)
 ```
 
 ## Methodology
