@@ -1,0 +1,23 @@
+RunId,ActionID,ActualAction,HostUTCStart,HostUTCEnd,TargetExecutable,TargetPath,ClockOffsetBefore,ClockOffsetAfter,ObservedOutcome,Deviation
+P00-R01,A01,VM boot from B00-CANDIDATE,,,vmware-vmx,,,,Boot completed,None
+P00-R01,A02,Wait 60s for VMware time correction,,,,,,,Waited,None
+P00-R01,A03,Record clock offset,,,,,,,Recorded,None
+P00-R01,A04,Open Notepad first time,,,notepad.exe,,,,Notepad opened,None
+P00-R01,A05,Close Notepad first time,,,notepad.exe,,,,Notepad closed,None
+P00-R01,A06,Open Notepad second time,,,notepad.exe,,,,Notepad opened,None
+P00-R01,A07,Close Notepad second time,,,notepad.exe,,,,Notepad closed,None
+P00-R01,A08,Explorer navigate to P00R01_BROWSED_A7K9,,,explorer.exe,C:\DISS_TESTDATA\PILOT\P00R01_BROWSED_A7K9,,,Folder shown,None
+P00-R01,A09,Explorer navigate to ALPHA,,,explorer.exe,C:\DISS_TESTDATA\PILOT\P00R01_BROWSED_A7K9\ALPHA,,,Folder shown,None
+P00-R01,A10,Explorer navigate to BRAVO,,,explorer.exe,C:\DISS_TESTDATA\PILOT\P00R01_BROWSED_A7K9\ALPHA\BRAVO,,,Folder shown,None
+P00-R01,A11,Explorer navigate to CHARLIE,,,explorer.exe,C:\DISS_TESTDATA\PILOT\P00R01_BROWSED_A7K9\ALPHA\BRAVO\CHARLIE,,,Folder shown,None
+P00-R01,A12,Press Win+L to lock,,,,,,,Locked,None
+P00-R01,A13,Wait 30 seconds,,,,,,,Waited,None
+P00-R01,A14,Unlock with password,,,,,,,Unlocked,None
+P00-R01,A15,Connect controlled USB (optional),,,,,,,USB inserted,None
+P00-R01,A16,Browse USB drive (optional),,,explorer.exe,,,,USB shown,None
+P00-R01,A17,Copy synthetic file from USB (optional),,,explorer.exe,,,,File copied,None
+P00-R01,A18,Safely eject USB (optional),,,,,,,USB ejected,None
+P00-R01,A19,Close Explorer,,,,,,,Closed,None
+P00-R01,A20,Wait 60-120 seconds,,,,,,,Waited,None
+P00-R01,A21,Record final clock offset,,,,,,,Recorded,None
+P00-R01,A22,Shutdown Windows normally,,,,,,,Shut down,None
