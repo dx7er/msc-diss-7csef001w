@@ -1,0 +1,23 @@
+﻿=== Network adapters ===
+
+Name      InterfaceDescription                       Status LinkSpeed MacAddress       
+----      --------------------                       ------ --------- ----------       
+Ethernet0 Intel(R) 82574L Gigabit Network Connection Up     1 Gbps    00-0C-29-74-00-23
+
+
+=== IP configuration ===
+
+InterfaceAlias IPAddress       PrefixLength AddressState
+-------------- ---------       ------------ ------------
+Ethernet0      192.168.110.231           24    Preferred
+
+
+=== Default routes ===
+
+InterfaceAlias NextHop       RouteMetric
+-------------- -------       -----------
+Ethernet0      192.168.110.2           0
+
+
+=== Reachability test (should fail if isolated) ===
+True

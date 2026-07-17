@@ -20,7 +20,7 @@ Roles:
 
 | Snapshot name | Type | Created (UTC) | Backup manifest | Notes |
 |---------------|------|---------------|-----------------|-------|
-| (none yet) | | | | Baseline not yet taken |
+| B00-CANDIDATE-W11-25H2-26200.6584-20260717 | Baseline candidate | 2026-07-17T19:30:58Z (host local: 20:30:58 BST) | Deferred until promotion | Windows 26200.6584, VMware Tools 12.4.5, 4 vCPU / 7 GB RAM / 80 GB, UTC, audit on, WU disabled, NAT connected, BitLocker off. Network isolation (Host-only + disconnect) deferred pending Jade sign-off. |
 
 ## Off-VM backups
 
@@ -29,4 +29,4 @@ Manifest: `<snapshot-name>-SHA256.csv` alongside.
 
 | Backup | Snapshot mirrored | Manifest SHA-256 lines | Total size | Verified |
 |--------|-------------------|------------------------|------------|----------|
-| (none yet) | | | | |
+| (none yet) | | | | Deferred: candidate not yet promoted. Independent backup planned post-promotion. |

@@ -1,0 +1,65 @@
+﻿
+Microsoft-Windows-DriverFrameworks-UserMode/Operational
+Microsoft-Windows-EnhancedStorage-EhStorClass/Operational
+Microsoft-Windows-EnhancedStorage-EhStorTcgDrv/Analytic
+Microsoft-Windows-Kernel-CPU-Partition/Analytic
+Microsoft-Windows-Kernel-PnP/Boot Diagnostic
+Microsoft-Windows-Kernel-PnP/Configuration
+Microsoft-Windows-Kernel-PnP/Configuration Diagnostic
+Microsoft-Windows-Kernel-PnP/Device Enumeration Diagnostic
+Microsoft-Windows-Kernel-PnP/Device Management
+Microsoft-Windows-Kernel-PnP/Driver Diagnostic
+Microsoft-Windows-Kernel-PnP/Driver Watchdog
+Microsoft-Windows-Partition/Analytic
+Microsoft-Windows-Partition/Debug
+Microsoft-Windows-Partition/Diagnostic
+Microsoft-Windows-Storage-ATAPort/Admin
+Microsoft-Windows-Storage-ATAPort/Analytic
+Microsoft-Windows-Storage-ATAPort/Debug
+Microsoft-Windows-Storage-ATAPort/Diagnose
+Microsoft-Windows-Storage-ATAPort/Operational
+Microsoft-Windows-Storage-ClassPnP/Admin
+Microsoft-Windows-Storage-ClassPnP/Analytic
+Microsoft-Windows-Storage-ClassPnP/Debug
+Microsoft-Windows-Storage-ClassPnP/Diagnose
+Microsoft-Windows-Storage-ClassPnP/Operational
+Microsoft-Windows-Storage-Disk/Admin
+Microsoft-Windows-Storage-Disk/Analytic
+Microsoft-Windows-Storage-Disk/Debug
+Microsoft-Windows-Storage-Disk/Diagnose
+Microsoft-Windows-Storage-Disk/Operational
+Microsoft-Windows-Storage-NvmeDisk/Analytic
+Microsoft-Windows-Storage-NvmeDisk/Diagnose
+Microsoft-Windows-Storage-NvmeDisk/Operational
+Microsoft-Windows-Storage-Storport/Admin
+Microsoft-Windows-Storage-Storport/Analytic
+Microsoft-Windows-Storage-Storport/Debug
+Microsoft-Windows-Storage-Storport/Diagnose
+Microsoft-Windows-Storage-Storport/Health
+Microsoft-Windows-Storage-Storport/Operational
+Microsoft-Windows-Storage-Tiering-IoHeat/Heat
+Microsoft-Windows-Storage-Tiering/Admin
+Microsoft-Windows-StorageManagement-PartUtil/Operational
+Microsoft-Windows-StorageManagement/Debug
+Microsoft-Windows-StorageManagement/Operational
+Microsoft-Windows-StorageSettings/Diagnostic
+Microsoft-Windows-StorageSpaces-Api/Operational
+Microsoft-Windows-StorageSpaces-Driver/Diagnostic
+Microsoft-Windows-StorageSpaces-Driver/Operational
+Microsoft-Windows-StorageSpaces-Driver/Performance
+Microsoft-Windows-StorageSpaces-Driver/Verbose
+Microsoft-Windows-StorageSpaces-ManagementAgent/WHC
+Microsoft-Windows-StorageSpaces-Parser/Diagnostic
+Microsoft-Windows-StorageSpaces-Parser/Operational
+Microsoft-Windows-StorageSpaces-SpaceManager/Diagnostic
+Microsoft-Windows-StorageSpaces-SpaceManager/Operational
+Microsoft-Windows-StorageVolume/Diagnostic
+Microsoft-Windows-StorageVolume/Operational
+Microsoft-Windows-UserPnp/ActionCenter
+Microsoft-Windows-UserPnp/DeviceInstall
+Microsoft-Windows-UserPnp/DeviceMetadata/Debug
+Microsoft-Windows-UserPnp/Performance
+Microsoft-Windows-UserPnp/SchedulerOperations
+Microsoft-Windows-WebPlatStorage-Server
+
+

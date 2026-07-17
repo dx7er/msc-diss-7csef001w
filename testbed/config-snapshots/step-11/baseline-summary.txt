@@ -1,0 +1,8 @@
+﻿=== Baseline capture summary ===
+Captured UTC        : 2026-07-17T13:58:34.0440562Z
+Computer name       : DISSTESTBEDVM
+User (running)      : dfanalyst
+OS build            : 10.0.26200
+Last boot UTC       : 2026-07-17T13:45:58.5000000Z
+Uptime (minutes)    : 12.6
+C: free (GB)        : 54.08

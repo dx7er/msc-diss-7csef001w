@@ -1,0 +1,24 @@
+﻿=== Test data manifest ===
+Created UTC : 2026-07-16T10:29:25.2288322Z
+
+=== Browsed (positive) tree ===
+
+FullName                                                                                   Length LastWriteTimeUtc   
+--------                                                                                   ------ ----------------   
+C:\DISS_TESTDATA\PILOT\P00R01_BROWSED_A7K9\S01_ProjectNotes_A7K9.txt                          152 16/07/2026 10:29:25
+C:\DISS_TESTDATA\PILOT\P00R01_BROWSED_A7K9\ALPHA\S01_ProjectNotes_A7K9_a.txt                  160 16/07/2026 10:29:25
+C:\DISS_TESTDATA\PILOT\P00R01_BROWSED_A7K9\ALPHA\BRAVO\S01_ProjectNotes_A7K9_b.txt            166 16/07/2026 10:29:25
+C:\DISS_TESTDATA\PILOT\P00R01_BROWSED_A7K9\ALPHA\BRAVO\CHARLIE\S01_ProjectNotes_A7K9_c.txt    174 16/07/2026 10:29:25
+
+
+
+=== Unbrowsed (negative) tree ===
+
+FullName                                                                                  Length LastWriteTimeUtc   
+--------                                                                                  ------ ----------------   
+C:\DISS_TESTDATA\PILOT\P00R01_UNBROWSED_Q4M2\S01_UNBROWSED_Q4M2.txt                          148 16/07/2026 10:29:25
+C:\DISS_TESTDATA\PILOT\P00R01_UNBROWSED_Q4M2\ALPHA\S01_UNBROWSED_Q4M2_a.txt                  156 16/07/2026 10:29:25
+C:\DISS_TESTDATA\PILOT\P00R01_UNBROWSED_Q4M2\ALPHA\BRAVO\S01_UNBROWSED_Q4M2_b.txt            162 16/07/2026 10:29:25
+C:\DISS_TESTDATA\PILOT\P00R01_UNBROWSED_Q4M2\ALPHA\BRAVO\CHARLIE\S01_UNBROWSED_Q4M2_c.txt    170 16/07/2026 10:29:25
+
+

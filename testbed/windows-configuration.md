@@ -80,7 +80,7 @@ Stored in `testbed/config-snapshots/step-07/`.
 |---------|-------|-------------|
 | `HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management\PrefetchParameters\EnablePrefetcher` | 3 | Verified Step 8 |
 | SysMain service | Running | Verified Step 8 |
-| Disk media type (guest view) | TBD | Step 8 |
+| Disk media type (guest view) | SSD, BusType NVMe (VMware Virtual NVMe Disk, 80 GB) | Step 8 |
 
 Prefetch was not modified. If the registry value is missing on first boot, the pilot (Step 14) determines whether Prefetch is being generated in practice.
 
@@ -104,7 +104,7 @@ Applied in Step 10:
 - Shared folders: disabled, none configured
 - CD/DVD: disconnected, no ISO
 - USB controller: present, "Ask me what to do", no auto-connect
-- Network adapter: Host-only, disconnected at power on
+- Network adapter: **NAT, connected** (isolation to Host-only + disconnected deferred pending Jade sign-off; baseline captured in NAT state, decision recorded in snapshots.md)
 - VMware Tools updates: manual
 - AutoProtect: disabled
 - Snapshot mode: power off, not suspend

@@ -1,0 +1,45 @@
+﻿=== PrefetchParameters registry ===
+
+
+EnablePrefetcher : 3
+EnableSuperfetch : 
+
+
+
+=== SysMain service ===
+
+
+Name      : SysMain
+Status    : Running
+StartType : Automatic
+
+
+
+=== Physical disks ===
+
+FriendlyName             MediaType BusType        Size
+------------             --------- -------        ----
+VMware Virtual NVMe Disk SSD       NVMe    85899345920
+
+
+=== Prefetch directory contents (top 15 by write time) ===
+
+Name                               Length LastWriteTimeUtc   
+----                               ------ ----------------   
+SEARCHPROTOCOLHOST.EXE-69C456C3.pf   5675 16/07/2026 08:39:22
+AUDIODG.EXE-AB22E9A6.pf              8651 16/07/2026 08:39:21
+DLLHOST.EXE-074772BA.pf              9037 16/07/2026 08:39:14
+DLLHOST.EXE-7D5CE0CA.pf              4120 16/07/2026 08:39:03
+RUNTIMEBROKER.EXE-2C5A250C.pf        4673 16/07/2026 08:38:19
+SVCHOST.EXE-9A28EB78.pf             16526 16/07/2026 08:38:19
+MOUSOCOREWORKER.EXE-3EF8346A.pf     15735 16/07/2026 08:38:19
+SVCHOST.EXE-852EC587.pf             13685 16/07/2026 08:38:18
+BACKGROUNDTASKHOST.EXE-CAD1DF16.pf  13462 16/07/2026 08:38:09
+SMARTSCREEN.EXE-EACC1250.pf          9034 16/07/2026 08:36:51
+TASKHOSTW.EXE-2E5D4B75.pf           14472 16/07/2026 08:36:49
+SVCHOST.EXE-3CF81F86.pf              6453 16/07/2026 08:36:10
+SOFTLANDINGTASK.EXE-A93C9879.pf     30126 16/07/2026 08:33:01
+POWERSHELL.EXE-CA1AE517.pf         109353 16/07/2026 08:31:12
+WEVTUTIL.EXE-1E154F39.pf             7849 16/07/2026 08:31:12
+
+

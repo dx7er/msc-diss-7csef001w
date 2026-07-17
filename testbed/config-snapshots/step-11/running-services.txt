@@ -1,0 +1,98 @@
+﻿
+Name                       DisplayName                                             StartType
+----                       -----------                                             ---------
+AppIDSvc                   Application Identity                                       Manual
+Appinfo                    Application Information                                    Manual
+AppXSvc                    AppX Deployment Service (AppXSVC)                       Automatic
+AudioEndpointBuilder       Windows Audio Endpoint Builder                          Automatic
+Audiosrv                   Windows Audio                                           Automatic
+BFE                        Base Filtering Engine                                   Automatic
+BrokerInfrastructure       Background Tasks Infrastructure Service                 Automatic
+camsvc                     Capability Access Manager Service                       Automatic
+cbdhsvc_48a64              cbdhsvc_48a64                                           Automatic
+CDPSvc                     Connected Devices Platform Service                      Automatic
+CDPUserSvc_48a64           CDPUserSvc_48a64                                        Automatic
+COMSysApp                  COM+ System Application                                    Manual
+CoreMessagingRegistrar     CoreMessaging                                           Automatic
+CryptSvc                   Cryptographic Services                                  Automatic
+DcomLaunch                 DCOM Server Process Launcher                            Automatic
+dcsvc                      Declared Configuration(DC) service                         Manual
+defragsvc                  Optimize drives                                            Manual
+Dhcp                       DHCP Client                                             Automatic
+DiagTrack                  Connected User Experiences and Telemetry                Automatic
+DispBrokerDesktopSvc       Display Policy Service                                  Automatic
+Dnscache                   DNS Client                                              Automatic
+DoSvc                      Delivery Optimization                                   Automatic
+DPS                        Diagnostic Policy Service                               Automatic
+DusmSvc                    Data Usage                                              Automatic
+EventLog                   Windows Event Log                                       Automatic
+EventSystem                COM+ Event System                                       Automatic
+FontCache                  Windows Font Cache Service                              Automatic
+gpsvc                      Group Policy Client                                     Automatic
+InstallService             Microsoft Store Install Service                            Manual
+InventorySvc               Inventory and Compatibility Appraisal service           Automatic
+iphlpsvc                   IP Helper                                               Automatic
+KeyIso                     CNG Key Isolation                                          Manual
+LanmanServer               Server                                                  Automatic
+LanmanWorkstation          Workstation                                             Automatic
+lfsvc                      Geolocation Service                                        Manual
+lmhosts                    TCP/IP NetBIOS Helper                                      Manual
+LSM                        Local Session Manager                                   Automatic
+MDCoreSvc                  Microsoft Defender Core Service                         Automatic
+mpssvc                     Windows Defender Firewall                               Automatic
+MSDTC                      Distributed Transaction Coordinator                        Manual
+NcbService                 Network Connection Broker                                  Manual
+netprofm                   Network List Service                                       Manual
+NetSetupSvc                Network Setup Service                                      Manual
+NPSMSvc_48a64              NPSMSvc_48a64                                              Manual
+nsi                        Network Store Interface Service                         Automatic
+PcaSvc                     Program Compatibility Assistant Service                 Automatic
+PlugPlay                   Plug and Play                                              Manual
+Power                      Power                                                   Automatic
+ProfSvc                    User Profile Service                                    Automatic
+RasMan                     Remote Access Connection Manager                           Manual
+RmSvc                      Radio Management Service                                   Manual
+RpcEptMapper               RPC Endpoint Mapper                                     Automatic
+RpcSs                      Remote Procedure Call (RPC)                             Automatic
+SamSs                      Security Accounts Manager                               Automatic
+Schedule                   Task Scheduler                                          Automatic
+SecurityHealthService      Windows Security Service                                   Manual
+SENS                       System Event Notification Service                       Automatic
+ShellHWDetection           Shell Hardware Detection                                Automatic
+Spooler                    Print Spooler                                           Automatic
+SSDPSRV                    SSDP Discovery                                             Manual
+SstpSvc                    Secure Socket Tunneling Protocol Service                   Manual
+StateRepository            State Repository Service                                Automatic
+StorSvc                    Storage Service                                         Automatic
+SysMain                    SysMain                                                 Automatic
+SystemEventsBroker         System Events Broker                                    Automatic
+TextInputManagementService Text Input Management Service                           Automatic
+Themes                     Themes                                                  Automatic
+TimeBrokerSvc              Time Broker                                                Manual
+TokenBroker                Web Account Manager                                        Manual
+TrkWks                     Distributed Link Tracking Client                        Automatic
+TrustedInstaller           Windows Modules Installer                                  Manual
+UdkUserSvc_48a64           UdkUserSvc_48a64                                           Manual
+UserManager                User Manager                                            Automatic
+UsoSvc                     Update Orchestrator Service                             Automatic
+VGAuthService              VMware Alias Manager and Ticket Service                 Automatic
+vm3dservice                VMware SVGA Helper Service                              Automatic
+VMTools                    VMware Tools                                            Automatic
+WaaSMedicSvc               WaaSMedicSvc                                               Manual
+Wcmsvc                     Windows Connection Manager                              Automatic
+WdiSystemHost              Diagnostic System Host                                     Manual
+WdNisSvc                   Microsoft Defender Antivirus Network Inspection Service    Manual
+webthreatdefsvc            Web Threat Defense Service                                 Manual
+webthreatdefusersvc_48a64  webthreatdefusersvc_48a64                               Automatic
+whesvc                     Windows Health and Optimized Experiences                Automatic
+WinDefend                  Microsoft Defender Antivirus Service                    Automatic
+WinHttpAutoProxySvc        WinHTTP Web Proxy Auto-Discovery Service                   Manual
+Winmgmt                    Windows Management Instrumentation                      Automatic
+WpnService                 Windows Push Notifications System Service               Automatic
+WpnUserService_48a64       WpnUserService_48a64                                    Automatic
+WSAIFabricSvc              WSAIFabricSvc                                           Automatic
+wscsvc                     Security Center                                         Automatic
+WSearch                    Windows Search                                          Automatic
+wuauserv                   Windows Update                                             Manual
+
+

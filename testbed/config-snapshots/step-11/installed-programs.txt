@@ -1,0 +1,14 @@
+﻿
+DisplayName                                                        DisplayVersion  Publisher             InstallDate
+-----------                                                        --------------  ---------             -----------
+Microsoft Edge                                                     150.0.4078.65   Microsoft Corporation 20260714   
+Microsoft Edge WebView2 Runtime                                    150.0.4078.65   Microsoft Corporation 20260714   
+Microsoft Visual C++ 2015-2022 Redistributable (x64) - 14.36.32532 14.36.32532.0   Microsoft Corporation            
+Microsoft Visual C++ 2015-2022 Redistributable (x86) - 14.36.32532 14.36.32532.0   Microsoft Corporation            
+Microsoft Visual C++ 2022 X64 Additional Runtime - 14.36.32532     14.36.32532     Microsoft Corporation 20260714   
+Microsoft Visual C++ 2022 X64 Minimum Runtime - 14.36.32532        14.36.32532     Microsoft Corporation 20260714   
+Microsoft Visual C++ 2022 X86 Additional Runtime - 14.36.32532     14.36.32532     Microsoft Corporation 20260714   
+Microsoft Visual C++ 2022 X86 Minimum Runtime - 14.36.32532        14.36.32532     Microsoft Corporation 20260714   
+VMware Tools                                                       12.4.5.23787635 VMware, Inc.          20260714   
+
+

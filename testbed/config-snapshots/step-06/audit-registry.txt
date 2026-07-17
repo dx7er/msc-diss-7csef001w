@@ -1,0 +1,15 @@
+﻿=== HKLM\SYSTEM\CurrentControlSet\Control\Lsa ===
+
+
+SCENoApplyLegacyAuditPolicy : 1
+
+
+
+
+=== HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System\Audit ===
+
+
+ProcessCreationIncludeCmdLine_Enabled : 1
+
+
+
