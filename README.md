@@ -49,45 +49,24 @@ The report cites this repository for reproducibility. This repository does not r
 ```
 msc-diss-7csef001w/
 |-- README.md
-|-- LICENSE
+|-- LICENSE.md
 |-- CITATION.cff
 |-- .gitignore
-|-- .gitattributes
 |
 |-- testbed/                         # Windows 11 machine preparation and spec
-|   |-- vm-specification.md          # Hypervisor, vCPU, RAM, disk, network mode
-|   |-- windows-configuration.md     # Registry keys, disabled services, timezone
-|   |-- setup-checklist.md           # Reproducible build steps in order
-|   |-- baseline-manifest.csv        # Files/hashes captured at baseline snapshot
+|   |-- vm-specification.md          # VM hardware and Windows configuration state
+|   |-- testbed-checklist.md         # Reproducible build steps in order
 |   |-- snapshots.md                 # Snapshot names, timestamps, SHA-256
-|   `-- scripts/                     # PowerShell/batch scripts to reproduce config
+|   |-- evidence/                    # Captured configuration artefacts per step
+|   `-- scripts/                     # PowerShell scripts to reproduce configuration
 |
-|-- scenarios/                       # Executed user-activity scenarios (ground truth)
-|   |-- README.md                    # Scenario catalogue
-|   |-- S1-file-access/
-|   |   |-- steps.md                 # Human-readable execution steps
-|   |   |-- ground-truth.csv         # Externally logged expected events
-|   |   `-- run-log.md               # Actual execution wall-clock log
-|   |-- S2-usb-insertion/
-|   |-- S3-application-launch/
-|   |-- S4-folder-navigation/
-|   `-- S5-file-deletion/
-|
-|-- artefacts/                       # Collected and parsed evidence
-|   |-- raw/                         # Prefetch/EVTX/ShellBags copies (gitignored if large)
-|   |-- parsed/                      # PECmd/EvtxECmd/SBECmd CSV output
-|   `-- hashes.csv                   # SHA-256 of every raw and parsed file
-|
-|-- analysis/                        # Correlation and timeline reconstruction
-|   |-- schema.md                    # Unified timeline column schema
-|   |-- scripts/                     # Python wrappers (parse, normalise, merge)
-|   |-- notebooks/                   # Jupyter notebooks (correlation, validation)
-|   `-- output/                      # Correlated timelines per scenario
-|
-`-- findings/                        # Results of correlation against ground truth
-    |-- per-scenario/                # Per-scenario reconstruction vs ground truth
-    |-- metrics.csv                  # Completeness and accuracy scores
-    `-- summary.md                   # High-level findings referenced by the report
+`-- artefacts/                       # Per-artefact-class findings and parsed output
+    |-- prefetch/
+    |   `-- findings.md
+    |-- event-logs/
+    |   `-- findings.md
+    `-- shellbags/
+        `-- findings.md
 ```
 
 ## Methodology
@@ -117,7 +96,7 @@ Evaluation draws on the TER-Model (Breitinger, Studiawan and Hargreaves, 2025) a
 | Prefetch registry | `HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management\PrefetchParameters\EnablePrefetcher = 3` (verified) |
 | Baseline snapshot | `BASELINE-PRE-SCENARIO-20260624` |
 
-Full setup steps in `testbed/setup-checklist.md`.
+Full setup steps in `testbed/testbed-checklist.md`.
 
 ## Toolchain
 
@@ -131,25 +110,24 @@ Full setup steps in `testbed/setup-checklist.md`.
 | Jupyter | Analysis notebooks |
 | Magnet AXIOM (student licence) | Commercial baseline comparison (optional) |
 
-Command-line arguments and versions used for each parser are recorded alongside the wrapper scripts in `analysis/scripts/`.
+Command-line arguments and versions used for each parser are recorded alongside the corresponding `findings.md` in `artefacts/`.
 
 ## Reproducibility and integrity
 
-- Every artefact source is SHA-256 hashed on collection and again before parsing (`artefacts/hashes.csv`).
+- Every artefact source is SHA-256 hashed on collection and again before parsing.
 - Snapshot names encode ISO-8601 date; snapshot log lives in `testbed/snapshots.md`.
-- Ground truth for each scenario is logged **externally** in `scenarios/S*/ground-truth.csv` at the moment of execution, independent of the artefacts being tested.
-- Parser versions, CLI flags and wrapper commands are stored in `analysis/scripts/`.
-- Baseline VM manifest (`testbed/baseline-manifest.csv`) allows any reviewer to verify the starting state.
+- Ground truth for each scenario is logged **externally** at the moment of execution, independent of the artefacts being tested.
+- Parser versions and CLI flags used for each artefact class are recorded alongside `findings.md` in `artefacts/prefetch/`, `artefacts/event-logs/` and `artefacts/shellbags/`.
+- Baseline VM configuration state is captured in `testbed/evidence/` and summarised in `testbed/vm-specification.md`.
 
 ## How to reproduce
 
-1. Build the VM per `testbed/setup-checklist.md`.
-2. Take the baseline snapshot; record hash in `testbed/snapshots.md`.
-3. Execute a scenario per `scenarios/S*/steps.md`; log wall-clock in `run-log.md`.
-4. Take post-scenario snapshot; collect artefacts into `artefacts/raw/`.
-5. Run the parsers via `analysis/scripts/`; output lands in `artefacts/parsed/`.
-6. Run the correlation notebooks in `analysis/notebooks/`; output lands in `analysis/output/`.
-7. Compare against ground truth in `findings/per-scenario/`.
+1. Build the VM per `testbed/testbed-checklist.md`.
+2. Take the baseline snapshot; record it in `testbed/snapshots.md`.
+3. Execute a scenario against the baseline snapshot; log wall-clock UTC alongside the scenario ground truth.
+4. Take post-scenario snapshot; extract artefacts offline from the guest disk.
+5. Parse with PECmd, EvtxECmd and SBECmd; output lands in `artefacts/prefetch/`, `artefacts/event-logs/` and `artefacts/shellbags/`.
+6. Compare parsed output against ground truth; record findings in each `findings.md`.
 
 ## Ethics
 
@@ -168,7 +146,7 @@ Case, A., Cristina, A., Marziale, L., Richard, G.G. and Roussev, V. (2008) 'FACE
 
 ## Licence
 
-Source code and scripts in this repository are released under the MIT Licence (see `LICENSE`).
+Source code and scripts in this repository are released under the MIT Licence (see `LICENSE.md`).
 Text content (setup notes, scenario steps, findings write-ups) is released under CC BY 4.0.
 The dissertation report itself is not in this repository and is not covered by these licences; it is the intellectual property of the author and the University of Westminster.
 

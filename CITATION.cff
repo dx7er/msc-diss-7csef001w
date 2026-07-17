@@ -1,0 +1,41 @@
+cff-version: 1.2.0
+message: If you use or reference this work, please cite it as below.
+title: >-
+  Correlating Windows Artifacts Evidence to Reconstruct User Activity:
+  A Forensic Analysis of Prefetch, Event Logs and ShellBags
+type: software
+authors:
+  - family-names: Abbas
+    given-names: Syed Muhammad Saqlain
+    affiliation: University of Westminster
+    email: w2163454@westminster.ac.uk
+version: "0.1.0"
+date-released: "2026-07-17"
+license: MIT
+repository-code: https://github.com/dx7er/msc-diss-7csef001w
+url: https://github.com/dx7er/msc-diss-7csef001w
+abstract: >-
+  Practical companion repository to an MSc dissertation investigating the
+  evidential value of Windows 11 Prefetch, Event Logs and ShellBags and
+  developing a methodology for correlating them to reconstruct user activity
+  against ground truth.
+keywords:
+  - digital forensics
+  - Windows 11
+  - Prefetch
+  - Windows Event Logs
+  - ShellBags
+  - event reconstruction
+  - user activity
+preferred-citation:
+  type: thesis
+  title: >-
+    Correlating Windows Artifacts Evidence to Reconstruct User Activity:
+    A Forensic Analysis of Prefetch, Event Logs and ShellBags
+  authors:
+    - family-names: Abbas
+      given-names: Syed Muhammad Saqlain
+  year: 2026
+  institution:
+    name: University of Westminster
+  thesis-type: MSc dissertation

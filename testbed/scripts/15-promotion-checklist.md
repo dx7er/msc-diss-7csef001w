@@ -47,7 +47,7 @@ Once every box is ticked for BOTH P00-R01 and P00-R02:
      `Formal baseline`, created UTC, description (mirror the candidate
      description plus "promoted after P00-R01 and P00-R02 passed").
    - Link the backup manifest path.
-5. Update the top of `testbed/setup-checklist.md`:
+5. Update the top of `testbed/testbed-checklist.md`:
 
    ```
    Formal baseline: B00-FORMAL-W11-25H2-26200.6584-20260717

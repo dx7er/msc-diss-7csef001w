@@ -19,7 +19,7 @@
            (VM menu > Install VMware Tools, then run setup64 in the guest).
         5. Install every scenario application needed. For this study,
            Notepad ships by default. If you add other apps, note them in
-           windows-configuration.md.
+           vm-specification.md.
         6. Restart the VM twice (two clean reboots).
 
     Run:

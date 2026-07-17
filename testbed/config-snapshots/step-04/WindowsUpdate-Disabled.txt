@@ -1,8 +1,0 @@
-﻿
-Name         StartType  Status
-----         ---------  ------
-UsoSvc       Automatic Running
-WaaSMedicSvc    Manual Stopped
-wuauserv      Disabled Stopped
-
-

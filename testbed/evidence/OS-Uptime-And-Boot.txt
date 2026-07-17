@@ -1,0 +1,13 @@
+﻿
+
+LastBootUpTimeUTC : 2026-07-14T11:37:50.5000000Z
+CurrentTimeUTC    : 2026-07-14T11:54:24.1507119Z
+UptimeMinutes     : 16.6
+Caption           : Microsoft Windows 11 Pro
+Version           : 10.0.26200
+BuildNumber       : 26200
+OSArchitecture    : 64-bit
+InstallDateUTC    : 2026-07-14T08:07:41.0000000Z
+
+
+

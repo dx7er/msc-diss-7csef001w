@@ -10,7 +10,7 @@
         The rest of Step 10 (drag-drop, copy-paste, shared folders, CD/DVD,
         network to Host-only, AutoProtect off, snapshot mode power-off,
         USB controller behaviour) is done in VMware Workstation UI on the
-        host while the VM is shut down. See setup-checklist.md.
+        host while the VM is shut down. See testbed-checklist.md.
 
     Run:
         Open PowerShell as Administrator inside the guest VM and execute:

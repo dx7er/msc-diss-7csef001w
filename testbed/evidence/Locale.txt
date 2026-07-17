@@ -1,0 +1,26 @@
+﻿
+
+Parent                         : en
+LCID                           : 1033
+KeyboardLayoutId               : 1033
+Name                           : en-US
+IetfLanguageTag                : en-US
+DisplayName                    : English (United States)
+NativeName                     : English (United States)
+EnglishName                    : English (United States)
+TwoLetterISOLanguageName       : en
+ThreeLetterISOLanguageName     : eng
+ThreeLetterWindowsLanguageName : ENU
+CompareInfo                    : CompareInfo - en-US
+TextInfo                       : TextInfo - en-US
+IsNeutralCulture               : False
+CultureTypes                   : SpecificCultures, InstalledWin32Cultures, FrameworkCultures
+NumberFormat                   : System.Globalization.NumberFormatInfo
+DateTimeFormat                 : System.Globalization.DateTimeFormatInfo
+Calendar                       : System.Globalization.GregorianCalendar
+OptionalCalendars              : {System.Globalization.GregorianCalendar, System.Globalization.GregorianCalendar}
+UseUserOverride                : True
+IsReadOnly                     : False
+
+
+

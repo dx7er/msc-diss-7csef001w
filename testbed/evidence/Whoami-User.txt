@@ -1,0 +1,6 @@
+﻿
+USER INFORMATION
+----------------
+
+User Name: disstestbedvm\dfanalyst
+SID:       S-1-5-21-4209295338-567392030-2519289182-1001

@@ -1,0 +1,10 @@
+﻿
+
+ProductName    : Windows 10 Pro
+EditionID      : Professional
+DisplayVersion : 25H2
+CurrentBuild   : 26200
+UBR            : 6584
+
+
+
