@@ -19,8 +19,8 @@ Companion evidence for each control (audit CSVs, log config XMLs, Prefetch regis
 | Field | Value |
 |-------|-------|
 | Product | VMware Workstation Pro 17 |
-| Exact version | TBD (record from `Help -> About`) |
-| Host OS | Windows 11 on host machine |
+| Exact version | 17.6.2 build-24409262 |
+| Host OS | Windows 11 Pro 64-bit, build 26200.8973 |
 | VMware Tools version | 12.4.5.49651 (build 23787635) |
 | Snapshot mode | Power off (not suspend) |
 | AutoProtect | Disabled |
