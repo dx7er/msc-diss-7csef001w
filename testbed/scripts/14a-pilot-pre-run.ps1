@@ -9,7 +9,8 @@
 
     When to run:
         First thing after the VM boots from the restored B00-CANDIDATE
-        snapshot, and BEFORE performing any scenario action.
+        snapshot, and BEFORE performing any evidential scenario action.
+        The host-side 14c ground-truth logger must already be running.
 
     Run:
         Open PowerShell as Administrator inside the guest VM and execute:
@@ -62,13 +63,13 @@ Write-Host ""
 Write-Host "[Pilot $RunId] Pre-run capture complete." -ForegroundColor Green
 Write-Host ""
 Write-Host "Now perform the pilot scenario:" -ForegroundColor Yellow
-Write-Host "  1. Open Notepad. Close it. Open Notepad. Close it."
+Write-Host "  1. Keep 14c-log-ground-truth-HOST.ps1 running on the host."
 Write-Host "  2. Open File Explorer. Browse:"
 Write-Host "     C:\DISS_TESTDATA\PILOT\P00R01_BROWSED_A7K9\ALPHA\BRAVO\CHARLIE"
 Write-Host "     Wait 15-30 seconds at each level. Do NOT navigate elsewhere."
 Write-Host "  3. NEVER open C:\DISS_TESTDATA\PILOT\P00R01_UNBROWSED_Q4M2 (negative control)."
-Write-Host "  4. Press Win+L. Wait 30 seconds. Unlock."
-Write-Host "  5. Optional: connect controlled USB, browse it, copy 1 file, safe-eject."
-Write-Host "  6. Close Explorer. Wait 60-120 seconds."
-Write-Host "  7. Fill in ground-truth log with actions and UTC timestamps as you go."
-Write-Host "  8. When done, run: 14b-pilot-post-run.ps1 -RunId $RunId"
+Write-Host "  4. Open Notepad. Close it. Open Notepad. Close it."
+Write-Host "  5. Press Win+L with the guest focused. Wait 30 seconds. Unlock."
+Write-Host "  6. Connect the controlled USB, browse it, copy 1 synthetic file, and safely eject."
+Write-Host "  7. Close Explorer. Wait 60-120 seconds."
+Write-Host "  8. When prompted by the host logger, run: 14b-pilot-post-run.ps1 -RunId $RunId"

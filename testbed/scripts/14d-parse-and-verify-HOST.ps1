@@ -27,6 +27,7 @@
 
 param(
     [Parameter(Mandatory=$true)]
+    [ValidatePattern('^P\d{2}-R\d{2}$')]
     [string]$RunId,
 
     [Parameter(Mandatory=$true)]
@@ -48,25 +49,51 @@ foreach ($t in @($pecmd,$evtxecmd,$sbecmd)) {
 }
 
 $out = Join-Path $SourceDir 'parsed'
-New-Item -ItemType Directory -Path $out -Force | Out-Null
+if (Test-Path -LiteralPath $out) {
+    $existingOutput = @(Get-ChildItem -LiteralPath $out -Force -ErrorAction SilentlyContinue)
+    if ($existingOutput.Count -gt 0) {
+        throw "Parsed output directory is not empty: $out. Preserve it or use a fresh acquisition directory."
+    }
+}
+else {
+    New-Item -ItemType Directory -Path $out | Out-Null
+}
 
 $prefDir  = Join-Path $SourceDir 'Windows\Prefetch'
 $evtxDir  = Join-Path $SourceDir 'Windows\System32\winevt\Logs'
 $hivesDir = Join-Path $SourceDir "Users\$GuestUser"
 
+foreach ($requiredDirectory in @($prefDir, $evtxDir, $hivesDir)) {
+    if (-not (Test-Path -LiteralPath $requiredDirectory -PathType Container)) {
+        throw "Required acquisition directory is missing: $requiredDirectory"
+    }
+}
+
+function Invoke-Parser {
+    param(
+        [Parameter(Mandatory=$true)][string]$Executable,
+        [Parameter(Mandatory=$true)][string[]]$Arguments
+    )
+
+    & $Executable @Arguments | Out-Host
+    if ($LASTEXITCODE -ne 0) {
+        throw "$Executable failed with exit code $LASTEXITCODE."
+    }
+}
+
 Write-Host "[$RunId] Parsing Prefetch" -ForegroundColor Cyan
-& $pecmd -d $prefDir --csv $out --csvf "$RunId-prefetch.csv" | Out-Host
+Invoke-Parser -Executable $pecmd -Arguments @('-d', $prefDir, '--csv', $out, '--csvf', "$RunId-prefetch.csv")
 
 Write-Host "[$RunId] Parsing Event Logs (Security, System, DriverFrameworks)" -ForegroundColor Cyan
-foreach ($log in @('Security.evtx','System.evtx','Microsoft-Windows-DriverFrameworks-UserMode%4Operational.evtx')) {
+foreach ($log in @('Security.evtx','System.evtx','Application.evtx','Microsoft-Windows-DriverFrameworks-UserMode%4Operational.evtx')) {
     $path = Join-Path $evtxDir $log
     if (Test-Path $path) {
-        & $evtxecmd -f $path --csv $out --csvf "$RunId-$($log -replace '\.evtx$').csv" | Out-Host
+        Invoke-Parser -Executable $evtxecmd -Arguments @('-f', $path, '--csv', $out, '--csvf', "$RunId-$($log -replace '\.evtx$').csv")
     }
 }
 
 Write-Host "[$RunId] Parsing ShellBags" -ForegroundColor Cyan
-& $sbecmd -d $hivesDir --csv $out --nl | Out-Host
+Invoke-Parser -Executable $sbecmd -Arguments @('-d', $hivesDir, '--csv', $out, '--csvf', "$RunId-shellbags.csv")
 
 Write-Host ""
 Write-Host "[$RunId] Verification checks:" -ForegroundColor Green
@@ -93,9 +120,10 @@ if ($secCsv) {
 }
 
 # ShellBag entries
-$sbCsvs = Get-ChildItem $out -Filter "*ShellBags*.csv" -ErrorAction SilentlyContinue
-if ($sbCsvs) {
-    $sb = $sbCsvs | ForEach-Object { Import-Csv $_.FullName }
+$sbCsv = Get-ChildItem $out -Filter "$RunId-shellbags.csv" -ErrorAction SilentlyContinue |
+    Select-Object -First 1
+if ($sbCsv) {
+    $sb = Import-Csv $sbCsv.FullName
     $browsed   = $sb | Where-Object { $_.AbsolutePath -match 'A7K9' }
     $unbrowsed = $sb | Where-Object { $_.AbsolutePath -match 'Q4M2' }
     Write-Host ("  ShellBag BROWSED (A7K9)    : {0}" -f $(if ($browsed)   { 'FOUND (expected)' }   else { 'MISSING (unexpected)' }))
