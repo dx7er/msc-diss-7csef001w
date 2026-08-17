@@ -11,9 +11,11 @@
 DISS-Win11-Testbed-VM/
 *-flat.vmdk
 
-# Raw artefacts (usually too large or PII-adjacent; keep hashes only)
-artefacts/raw/**
-!artefacts/raw/.gitkeep
+# Raw acquisition outputs under scenarios/scenario_N/run_M/artefacts/{class}/
+# Evidence blobs are too large and PII adjacent for git; only the SHA 256
+# manifest per run is committed for chain of custody documentation.
+scenarios/*/*/artefacts/**
+!scenarios/*/*/artefacts/**/acquisition_manifest.csv
 
 # Office lock files and temporary drafts
 ~$*.docx
@@ -50,8 +52,10 @@ desktop.ini
 *.pem
 credentials.json
 
-# Large forensic binaries - keep hashes, not blobs
+# Large forensic binaries anywhere (belt and braces alongside scenarios/*/*/artefacts/**)
 *.evtx
 *.pf
-!scenarios/**/samples/*.evtx
-!scenarios/**/samples/*.pf
+
+# Housekeeping folders local to scripts (never committed)
+scripts/**/_to_delete/
+_to_delete/
