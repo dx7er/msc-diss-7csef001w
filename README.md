@@ -57,17 +57,22 @@ msc-diss-7csef001w/
 ├── scenarios/
 │   ├── catalogue.md
 │   ├── testbed_evidence/           (baseline VM configuration outputs)
-│   ├── scenario_1/
-│   │   └── run_1/
-│   │       ├── artefacts/
-│   │       │   ├── prefetch/
-│   │       │   ├── event_logs/
-│   │       │   ├── shellbags/
-│   │       │   └── supporting/     (SYSTEM, SOFTWARE, Amcache.hve, acquisition_manifest.csv)
-│   │       └── evaluation/         (ground_truth.csv, per run notes)
-│   ├── scenario_2/
-│   │   └── run_1/ ...
-│   └── ...
+│   ├── scenario_1/                 (single run: artefacts land flat under scenario)
+│   │   ├── artefacts/
+│   │   │   ├── prefetch/
+│   │   │   ├── event_logs/
+│   │   │   ├── shellbags/
+│   │   │   └── supporting/         (SYSTEM, SOFTWARE, Amcache.hve, acquisition_manifest.csv)
+│   │   └── evaluation/             (ground_truth.csv, per run notes)
+│   ├── scenario_2/                 (single run, same layout as scenario_1)
+│   ├── scenario_4/                 (multi run: 3 reps, each in run_N/)
+│   │   ├── run_1/
+│   │   │   ├── artefacts/{prefetch,event_logs,shellbags,supporting}/
+│   │   │   └── evaluation/
+│   │   ├── run_2/ ...
+│   │   └── run_3/ ...
+│   ├── scenario_7/                 (multi run, same layout as scenario_4)
+│   └── ... (scenarios 3, 5, 6, 8, 9, 10 all single run)
 └── scripts/
     ├── testbed/                    (Windows setup scripts, 01 to 12)
     ├── scenarios/                  (log_action.ps1, acquire_artefacts.ps1)
@@ -79,7 +84,7 @@ msc-diss-7csef001w/
 Framing is forensic analysis, not software engineering. The candidate acts as the documented user on a controlled Windows 11 testbed, generating known input activity that produces artefacts of known provenance.
 <br>Approach:
 1. Snapshot a clean Windows 11 baseline before any scenario runs.
-2. Execute scripted user activity scenarios (S1 to S10) with timestamps logged externally.
+2. Execute scripted user activity scenarios (Scenario 1 to Scenario 10) with timestamps logged externally.
 3. Snapshot post scenario state; compute SHA 256 hashes for each artefact source.
 4. Parse artefacts with open source tools; export structured CSV/JSON output.
 5. Correlate across artefact classes using a shared timeline schema.
@@ -99,7 +104,7 @@ Evaluation draws on the TER Model (Breitinger, Studiawan and Hargreaves, 2025) a
 | Windows Update | Disabled after baseline |
 | Network | NAT (approved by Jade 2026-08-06) |
 | Prefetch registry | `HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management\PrefetchParameters\EnablePrefetcher = 3` (verified) |
-| Baseline snapshot | `B00-CANDIDATE-W11-25H2-26200.6584-20260717` |
+| Baseline snapshot | `baseline_candidate` (Windows 26200.6584, taken 2026-07-17) |
 
 Full setup in `vm_testbed.md`.
 
@@ -123,19 +128,24 @@ Parser versions and CLI flags used for each artefact class are recorded per run 
 - Every artefact source is SHA 256 hashed on collection and again before parsing.
 - Snapshot names encode ISO 8601 date; snapshot log lives in `vm_testbed.md`.
 - Ground truth for each scenario is logged externally at the moment of execution, independent of the artefacts being tested.
-- Per run acquisition manifests live at `scenarios/scenario_N/run_M/artefacts/supporting/acquisition_manifest.csv`.
+- Per run acquisition manifests live at `scenarios/scenario_N/artefacts/supporting/acquisition_manifest.csv` (single run scenarios) or `scenarios/scenario_N/run_M/artefacts/supporting/acquisition_manifest.csv` (multi run scenarios 4 and 7).
 - Baseline VM configuration state is captured in `scenarios/testbed_evidence/` and summarised in `vm_testbed.md`.
 
 ## How to reproduce
 
 1. Build the VM per `vm_testbed.md` using the scripts in `scripts/testbed/`.
 2. Take the baseline snapshot; record it in `vm_testbed.md`.
-3. Execute a scenario against `S00-UNIVERSAL-PRE`; log wall clock UTC via `scripts/scenarios/log_action.ps1`.
-4. Take the `SNN-RNN-POST` snapshot.
-5. From the host, close VMware Workstation, then run
-   `scripts\scenarios\acquire_artefacts.ps1 -Scenario SNN -Run RNN`.
-6. Outputs land under `scenarios/scenario_N/run_M/artefacts/{prefetch,event_logs,shellbags,supporting}/`.
-7. Parse with PECmd, EvtxECmd and SBECmd; write findings into `scenarios/scenario_N/run_M/evaluation/`.
+3. Execute a scenario against `baseline_pre_scenarios`; log wall clock UTC via `scripts/scenarios/log_action.ps1`.
+4. Take the post scenario snapshot. Naming: `scenario1_post` for single run scenarios, `scenario4_run1_post` for multi run scenarios.
+5. From the host, close VMware Workstation, then run one of:
+   ```powershell
+   # Single run scenario
+   scripts\scenarios\acquire_artefacts.ps1 -Scenario 1
+   # Multi run scenario
+   scripts\scenarios\acquire_artefacts.ps1 -Scenario 4 -Run 1
+   ```
+6. Outputs land under `scenarios/scenario_N/artefacts/{prefetch,event_logs,shellbags,supporting}/` (single run) or `scenarios/scenario_N/run_M/artefacts/...` (multi run).
+7. Parse with PECmd, EvtxECmd and SBECmd; write findings into the same run's `evaluation/` folder.
 8. Compare parsed output against ground truth; update the master evaluation matrix under `scripts/evaluation/`.
 
 ## Ethics

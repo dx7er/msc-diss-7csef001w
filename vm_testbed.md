@@ -151,24 +151,21 @@ Steps 1 to 11 of the original setup checklist were performed against `C:\DISS_Co
 8. **Prefetch readiness.** `EnablePrefetcher = 3`, `SysMain` running. `Prefetch-Config.txt` captured.
 9. **Staged synthetic test data** under `C:\DISS_TESTDATA\`. Per scenario tokens and folder trees defined in `scenarios/catalogue.md`.
 10. **VMware isolation applied.** Network switched to NAT (per Jade approval), guest isolation options set (no drag drop, no copy paste, no shared folders, CD/DVD disconnected, AutoProtect off, snapshot mode "power off"). VMware periodic timesync disabled; one off timesync at boot retained.
-11. **Candidate baseline snapshot** taken from powered off state: `B00-CANDIDATE-W11-25H2-26200.6584-20260717` (2026-07-17T19:30:58Z).
+11. **Candidate baseline snapshot** taken from powered off state: `baseline_candidate` (2026-07-17T19:30:58Z). Underlying Windows build recorded in the snapshot description as `Windows 25H2 26200.6584`; the previous name string encoded this in the snapshot name itself, which was retired 2026-08-17 for readability.
 
 ## Snapshot log
 
-Naming convention:
+Naming convention (locked 2026-08-17):
 
-```
-<ROLE>-W11-25H2-<CurrentBuild.UBR>-<YYYYMMDD>
-```
+| Role                       | Name                              | Meaning                                                                                                     |
+|----------------------------|-----------------------------------|-------------------------------------------------------------------------------------------------------------|
+| Baseline candidate         | `baseline_candidate`              | Produced in Step 11; treated as the working baseline. Underlying build details recorded in the description. |
+| Universal pre scenario     | `baseline_pre_scenarios`          | Child of `baseline_candidate`; the single revert point at the start of every scenario run so the candidate itself is never mutated. |
+| Post scenario (single run) | `scenario{N}_post`                | Post scenario state before evidence acquisition. Scenarios 1, 2, 3, 5, 6, 8, 9, 10.                        |
+| Post scenario (multi run)  | `scenario{N}_run{M}_post`         | One per repetition. Only Scenarios 4 and 7 use this pattern.                                                |
 
-Roles:
-
-- `B00-CANDIDATE`: baseline candidate produced in Step 11; treated as the working baseline.
-- `S00-UNIVERSAL-PRE`: child of `B00-CANDIDATE`, used as the single revert point at the start of every scenario run so the original candidate is never mutated.
-- `S{NN}-R{NN}-POST`: post scenario state before evidence acquisition, one per scenario per repetition.
-
-| Snapshot name | Type | Created (UTC) | Notes |
-|---------------|------|---------------|-------|
-| B00-CANDIDATE-W11-25H2-26200.6584-20260717 | Baseline candidate (working baseline) | 2026-07-17T19:30:58Z (host local: 20:30:58 BST) | Windows 26200.6584, VMware Tools 12.4.5, 4 vCPU / 7 GB RAM / 80 GB, UTC, audit on, WU disabled, NAT connected, BitLocker off. NAT approved by Jade 2026-08-06. |
-| S00-UNIVERSAL-PRE | Universal pre scenario restore point | 2026-08-12T09:26:54Z (host local: 10:26:54 BST) | Child of B00-CANDIDATE; single revert point used before every scenario run. |
-| S01-R01-POST | Post scenario, S01 R01 | 2026-08-17 | Six application installs (Chrome, WinRAR, VLC, Adobe Reader, Zoom, Notepad++). Acquired 2026-08-17. |
+| Snapshot name           | Type                                  | Created (UTC)                                          | Notes |
+|-------------------------|---------------------------------------|--------------------------------------------------------|-------|
+| baseline_candidate      | Baseline candidate (working baseline) | 2026-07-17T19:30:58Z (host local: 20:30:58 BST)        | Windows 25H2 26200.6584, VMware Tools 12.4.5, 4 vCPU / 7 GB RAM / 80 GB, UTC, audit on, WU disabled, NAT connected, BitLocker off. NAT approved by Jade 2026-08-06. Renamed from `B00-CANDIDATE-W11-25H2-26200.6584-20260717` on 2026-08-17. |
+| baseline_pre_scenarios  | Universal pre scenario restore point  | 2026-08-12T09:26:54Z (host local: 10:26:54 BST)        | Child of `baseline_candidate`; single revert point used before every scenario run. Renamed from `S00-UNIVERSAL-PRE` on 2026-08-17. |
+| scenario1_post          | Post scenario, Scenario 1             | 2026-08-17                                             | Six application installs (Chrome, WinRAR, VLC, Adobe Reader, Zoom, Notepad++). Acquired 2026-08-17. Renamed from `S01-R01-POST` on 2026-08-17. |

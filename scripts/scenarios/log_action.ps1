@@ -11,7 +11,7 @@ polluting the guest with a persistent log file until export.
 .NOTES
 Dot-source this script at the start of every scenario run in guest PowerShell:
 
-    . C:\Path\To\Log-Action.ps1
+    . C:\Path\To\log_action.ps1
 
 Then per action:
 
@@ -19,10 +19,16 @@ Then per action:
     # ... perform the GUI action ...
     Log-Action A01 end
 
-At end of run:
+At end of run, save under the new naming scheme:
 
-    Save-Log -Scenario S01 -Run R01
-        # -> writes C:\DISS_TESTDATA\S01-R01-action-log.csv
+    # Single run scenario (Scenario 1, Scenario 2, Scenario 3, Scenario 5,
+    # Scenario 6, Scenario 8, Scenario 9, Scenario 10):
+    Save-Log -Scenario 2
+        # -> writes C:\DISS_TESTDATA\scenario2_actions.csv
+
+    # Multi run scenario (Scenario 4 and Scenario 7 only):
+    Save-Log -Scenario 4 -Run 1
+        # -> writes C:\DISS_TESTDATA\scenario4_run1_actions.csv
 
 Ground-truth CSV columns match the testbed template at
 `testbed/scripts/14c-ground-truth-template.csv`.
@@ -74,29 +80,42 @@ function Log-Action {
 function Save-Log {
     <#
     .SYNOPSIS
-    Export the in-memory scenario log to a CSV named for the scenario and run.
+    Export the in-memory scenario log to a CSV named for the scenario (and run,
+    for multi-run scenarios).
 
     .PARAMETER Scenario
-    Scenario ID, e.g. S01.
+    Scenario number as an integer, e.g. 2 for Scenario 2.
 
     .PARAMETER Run
-    Repetition ID, e.g. R01.
+    Optional repetition number as an integer, e.g. 1 for Run 1. Omit for
+    single-run scenarios (Scenarios 1, 2, 3, 5, 6, 8, 9, 10). Provide for
+    multi-run scenarios (Scenarios 4 and 7).
 
     .PARAMETER Path
     Optional override for output directory (default C:\DISS_TESTDATA).
 
     .EXAMPLE
-    Save-Log -Scenario S01 -Run R01
+    Save-Log -Scenario 2
+        # -> C:\DISS_TESTDATA\scenario2_actions.csv
+
+    .EXAMPLE
+    Save-Log -Scenario 4 -Run 1
+        # -> C:\DISS_TESTDATA\scenario4_run1_actions.csv
     #>
     param(
-        [Parameter(Mandatory)][string]$Scenario,
-        [Parameter(Mandatory)][string]$Run,
+        [Parameter(Mandatory)][int]$Scenario,
+        [int]$Run = 0,
         [string]$Path = 'C:\DISS_TESTDATA'
     )
     if (-not (Test-Path $Path)) {
         New-Item -ItemType Directory -Path $Path -Force | Out-Null
     }
-    $file = Join-Path $Path "$Scenario-$Run-action-log.csv"
+    if ($Run -eq 0) {
+        $filename = "scenario${Scenario}_actions.csv"
+    } else {
+        $filename = "scenario${Scenario}_run${Run}_actions.csv"
+    }
+    $file = Join-Path $Path $filename
     $script:log | Export-Csv -Path $file -NoTypeInformation
     Write-Host "Wrote $($script:log.Count) rows to $file"
 }

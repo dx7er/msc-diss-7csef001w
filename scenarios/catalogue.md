@@ -1,14 +1,14 @@
 # Scenario Catalogue
 
-Formal set of user activity scenarios executed against the working baseline (`S00-UNIVERSAL-PRE`, child of `B00-CANDIDATE-W11-25H2-26200.6584-20260717`) to generate ground truth artefacts for Prefetch, Windows Event Logs, and ShellBags correlation.
+Formal set of user activity scenarios executed against the working baseline (`baseline_pre_scenarios`, child of `baseline_candidate`) to generate ground truth artefacts for Prefetch, Windows Event Logs, and ShellBags correlation.
 
 Designed to Jade's 2026-08-06 guidance: 10 scenarios total, 5 to 10 per artefact class, 3 headline scenarios in main body, remaining in appendix, every scenario has a row in the [evaluation matrix](../scripts/evaluation/evaluation_matrix_template.md).
 
 ## Constraints
 
 - Anti forensic behaviour is out of scope.
-- Each scenario begins from a clean revert of `S00-UNIVERSAL-PRE` and ends with a `SNN-RNN-POST` snapshot before acquisition.
-- Ground truth per run is recorded by the `Log-Action` helper (see `scripts/scenarios/log_action.ps1`) and exported to `scenarios/scenario_N/run_M/evaluation/ground_truth.csv`.
+- Each scenario begins from a clean revert of `baseline_pre_scenarios` and ends with a post scenario snapshot before acquisition. Snapshot names: `scenario{N}_post` for single run scenarios; `scenario{N}_run{M}_post` for multi run scenarios (Scenarios 4 and 7 only).
+- Ground truth per run is recorded by the `Log-Action` helper (see `scripts/scenarios/log_action.ps1`) and exported to `scenarios/scenario_N/evaluation/ground_truth.csv` (single run) or `scenarios/scenario_N/run_M/evaluation/ground_truth.csv` (multi run).
 - Repetition count per scenario is tiered. See "Repetitions" below.
 
 ## Repetitions
@@ -17,14 +17,14 @@ Tiered per scenario based on where reproducibility genuinely strengthens the fin
 
 | Scenario | Reps | Rationale |
 |----------|:----:|-----------|
-| S01 Install applications | 1 | Installer output is deterministic; three repetitions would just repeat known Windows install behaviour without strengthening the correlation claim. |
-| S04 USB attach and execute | 3 | PnP timing and enumeration order can vary; three attaches meaningfully confirm the same VID, PID, serial reliably appears. |
-| S07 Save As from Notepad++ | 3 | The Save As common dialog "writes to ShellBags" behaviour has historical Windows edge cases; three reps confirm the pattern is stable. |
-| S02, S03, S05, S06, S08, S09, S10 | 1 each | Qualitative pass or fail in the evaluation matrix is sufficient for appendix scenarios. |
+| Scenario 1 Install applications | 1 | Installer output is deterministic; three repetitions would just repeat known Windows install behaviour without strengthening the correlation claim. |
+| Scenario 4 USB attach and execute | 3 | PnP timing and enumeration order can vary; three attaches meaningfully confirm the same VID, PID, serial reliably appears. |
+| Scenario 7 Save As from Notepad++ | 3 | The Save As common dialog "writes to ShellBags" behaviour has historical Windows edge cases; three reps confirm the pattern is stable. |
+| Scenario 2, Scenario 3, Scenario 5, Scenario 6, Scenario 8, Scenario 9, Scenario 10 | 1 each | Qualitative pass or fail in the evaluation matrix is sufficient for appendix scenarios. |
 
 Total runs: 1 + 3 + 3 + 7 = 14 runs.
 
-Evaluation matrix rows for S04 and S07 report `N/3` reproducibility; all other rows are `PASS`, `PART`, or `FAIL` qualitative only.
+Evaluation matrix rows for Scenario 4 and Scenario 7 report `N/3` reproducibility; all other rows are `PASS`, `PART`, or `FAIL` qualitative only.
 
 ## Coverage matrix
 
@@ -32,22 +32,22 @@ Main body scenarios are all three artefact by design (correlation across `PF + E
 
 | ID  | Scenario                                       | PF | EVTX | SBags | Placement |
 |-----|------------------------------------------------|:--:|:----:|:-----:|:---------:|
-| S01 | Install 6 applications                         | X  | X    | X     | Main      |
-| S04 | USB attach, browse, execute from USB           | X  | X    | X     | Main      |
-| S07 | Save As from Notepad++ to new subfolder        | X  | X    | X     | Main      |
-| S02 | Application execution baseline                 | X  | X    |       | Appendix  |
-| S03 | Nested folder navigation                       |    |      | X     | Appendix  |
-| S05 | File deletion via Explorer + Recycle Bin       | X  | X    | X     | Appendix  |
-| S06 | Logon, lock, unlock, logoff cycle              |    | X    |       | Appendix  |
-| S08 | Command line execution (cmd, PowerShell)       | X  | X    |       | Appendix  |
-| S09 | Web browsing session with download             | X  | X    | X     | Appendix  |
-| S10 | System shutdown and power on                   | X  | X    |       | Appendix  |
+| Scenario 1 | Install 6 applications                         | X  | X    | X     | Main      |
+| Scenario 4 | USB attach, browse, execute from USB           | X  | X    | X     | Main      |
+| Scenario 7 | Save As from Notepad++ to new subfolder        | X  | X    | X     | Main      |
+| Scenario 2 | Application execution baseline                 | X  | X    |       | Appendix  |
+| Scenario 3 | Nested folder navigation                       |    |      | X     | Appendix  |
+| Scenario 5 | File deletion via Explorer + Recycle Bin       | X  | X    | X     | Appendix  |
+| Scenario 6 | Logon, lock, unlock, logoff cycle              |    | X    |       | Appendix  |
+| Scenario 8 | Command line execution (cmd, PowerShell)       | X  | X    |       | Appendix  |
+| Scenario 9 | Web browsing session with download             | X  | X    | X     | Appendix  |
+| Scenario 10 | System shutdown and power on                   | X  | X    |       | Appendix  |
 
 Per artefact totals:
 
-- Prefetch: S01, S02, S04, S05, S07, S08, S09, S10 = 8
-- Event Logs: S01, S02, S04, S05, S06, S07, S08, S09, S10 = 9
-- ShellBags: S01, S03, S04, S05, S07, S09 = 6
+- Prefetch: Scenario 1, Scenario 2, Scenario 4, Scenario 5, Scenario 7, Scenario 8, Scenario 9, Scenario 10 = 8
+- Event Logs: Scenario 1, Scenario 2, Scenario 4, Scenario 5, Scenario 6, Scenario 7, Scenario 8, Scenario 9, Scenario 10 = 9
+- ShellBags: Scenario 1, Scenario 3, Scenario 4, Scenario 5, Scenario 7, Scenario 9 = 6
 
 All three fall in the 5 to 10 band.
 
@@ -55,8 +55,8 @@ All three fall in the 5 to 10 band.
 
 NAT is approved by Jade (meeting 2026-08-06). Two scenarios need internet:
 
-- S01 (download 6 installers)
-- S09 (real web browsing and download)
+- Scenario 1 (download 6 installers)
+- Scenario 9 (real web browsing and download)
 
 Other scenarios can run with NAT or host only, with no operational difference for their target artefacts.
 
@@ -64,8 +64,10 @@ Other scenarios can run with NAT or host only, with no operational difference fo
 
 Per run outputs land under the numbered scenario and run folders:
 
+Single run scenarios (Scenarios 1, 2, 3, 5, 6, 8, 9, 10) land flat under the scenario folder:
+
 ```
-scenarios/scenario_N/run_M/
+scenarios/scenario_N/
     artefacts/prefetch/
     artefacts/event_logs/
     artefacts/shellbags/
@@ -73,32 +75,43 @@ scenarios/scenario_N/run_M/
     evaluation/                    (ground_truth.csv, per run evaluation notes)
 ```
 
+Multi run scenarios (Scenarios 4 and 7) get one `run_M/` subfolder per repetition, with the same internal layout:
+
+```
+scenarios/scenario_N/run_M/
+    artefacts/prefetch/
+    artefacts/event_logs/
+    artefacts/shellbags/
+    artefacts/supporting/
+    evaluation/
+```
+
 Raw binary artefacts (`.pf`, `.evtx`, hive files) are not committed to git; only the SHA 256 `acquisition_manifest.csv` per run is committed for chain of custody documentation.
 
 ## Execution order
 
-Executed in numeric order (S01 to S10) per repetition. Each run is preceded by a revert to `S00-UNIVERSAL-PRE` (working baseline) and followed by an `SNN-RNN-POST` snapshot per `vm_testbed.md` naming.
+Executed in numeric order (Scenario 1 to Scenario 10) per repetition. Each run is preceded by a revert to `baseline_pre_scenarios` (working baseline) and followed by a post scenario snapshot per `vm_testbed.md` naming.
 
 For every scenario, in every repetition:
 
-1. Pre run. Revert the VM to `S00-UNIVERSAL-PRE`. Power on, sign in as `dfanalyst`, wait 60 s for background settle.
+1. Pre run. Revert the VM to `baseline_pre_scenarios`. Power on, sign in as `dfanalyst`, wait 60 s for background settle.
 2. Load the log helper. In guest PowerShell, dot source `scripts/scenarios/log_action.ps1` (or paste the function inline). Call `Log-Action A0N start "description"` before each action and `Log-Action A0N end` after.
 3. Execute steps in the order given for the scenario.
-4. Post run. Wait 90 s for background settle. Export the action log to CSV. Shut down the guest cleanly (Start, Power, Shut down).
-5. Snapshot. Take `SNN-RNN-POST` snapshot in VMware from the powered off state.
-6. Acquire. From the host, run `scripts/scenarios/acquire_artefacts.ps1 -Scenario SNN -Run RNN`.
-7. File. Raw artefacts land under `scenarios/scenario_N/run_M/artefacts/{class}/`; ground truth CSV under `scenarios/scenario_N/run_M/evaluation/ground_truth.csv`.
+4. Post run. Wait 90 s for background settle. Export the action log to CSV via `Save-Log -Scenario N` (single run) or `Save-Log -Scenario N -Run M` (multi run). Shut down the guest cleanly (Start, Power, Shut down).
+5. Snapshot. From the powered off state, take snapshot named `scenario{N}_post` (single run) or `scenario{N}_run{M}_post` (multi run).
+6. Acquire. From the host, run `scripts/scenarios/acquire_artefacts.ps1 -Scenario N` (single run) or `scripts/scenarios/acquire_artefacts.ps1 -Scenario N -Run M` (multi run).
+7. File. Raw artefacts land under `scenarios/scenario_N/artefacts/{class}/` (single run) or `scenarios/scenario_N/run_M/artefacts/{class}/` (multi run); ground truth CSV goes into the same run's `evaluation/ground_truth.csv`.
 
 Cross scenario notes:
 
-- NAT scenarios (S01, S09): NAT is approved by Jade (2026-08-06). No policy switch needed between scenarios; NAT stays on.
-- USB scenario (S04): use the same physical USB stick across all 3 reps so VID, PID, serial are constant and evaluation matrix rows are comparable.
-- S01 dependency for S02, S07, S09: these all depend on apps installed in S01. Simplest workflow is to run S01 first, take a `POST-S01` snapshot, and use that snapshot as the starting point for S02, S07, S09 runs instead of reverting to `S00-UNIVERSAL-PRE` and reinstalling every time.
-- Ordering: run scenarios in the order S01, S07 (all reps), S04 (all reps), S02, S03, S05, S06, S08, S09, S10. S10 last because it changes shutdown and boot logs the analyst wants to reason about after other traces are captured.
+- NAT scenarios (Scenario 1, Scenario 9): NAT is approved by Jade (2026-08-06). No policy switch needed between scenarios; NAT stays on.
+- USB scenario (Scenario 4): use the same physical USB stick across all 3 reps so VID, PID, serial are constant and evaluation matrix rows are comparable.
+- Scenario 1 dependency for Scenarios 2, 7, 9: these all depend on apps installed in Scenario 1. Simplest workflow is to run Scenario 1 first, and use its `scenario1_post` snapshot as the starting point for Scenarios 2, 7, 9 instead of reverting to `baseline_pre_scenarios` and reinstalling every time.
+- Ordering: run scenarios in the order Scenario 1, Scenario 7 (all reps), Scenario 4 (all reps), Scenario 2, Scenario 3, Scenario 5, Scenario 6, Scenario 8, Scenario 9, Scenario 10. Scenario 10 last because it changes shutdown and boot logs the analyst wants to reason about after other traces are captured.
 
 ## Headline scenarios (main body)
 
-### S01. Install 6 applications (main, NAT required, 1 rep)
+### Scenario 1. Install 6 applications (main, NAT required, 1 rep)
 
 Rationale: application install is the richest single event for correlation. It leaves traces in all three artefact classes at once, plus registry uninstall keys and MSI Installer logs that support the discussion.
 
@@ -145,7 +158,7 @@ Post run notes: record the Uninstall registry GUIDs for the six products from `H
 
 Correlation problem: stitch download to install to first run chain per app across three artefact classes.
 
-### S04. USB attach, browse, execute from USB (main, 3 reps)
+### Scenario 4. USB attach, browse, execute from USB (main, 3 reps)
 
 Rationale: Jade's worked example. Loads all three artefact classes in one contained workflow, including PnP events unique to removable media.
 
@@ -173,21 +186,21 @@ Expected artefacts:
 
 Correlation problem: device to file provenance. Map a specific USB hardware ID to specific folders browsed on it to a specific executable run from it.
 
-### S07. Save As from Notepad++ to new Documents subfolder (main, 3 reps)
+### Scenario 7. Save As from Notepad++ to new Documents subfolder (main, 3 reps)
 
-Rationale: hits all three artefact classes with a normal editing and file creation workflow that doesn't overlap S01 (install) or S04 (USB device). Uses Notepad++ installed in S01, no additional software or hardware required.
+Rationale: hits all three artefact classes with a normal editing and file creation workflow that doesn't overlap Scenario 1 (install) or Scenario 4 (USB device). Uses Notepad++ installed in Scenario 1, no additional software or hardware required.
 
-Precondition: Notepad++ installed (from S01). If starting from `S00-UNIVERSAL-PRE`, run S01 once first (single install rep is sufficient for the required Notepad++ presence).
+Precondition: Notepad++ installed (from Scenario 1). If starting from `baseline_pre_scenarios`, run Scenario 1 once first (single install rep is sufficient for the required Notepad++ presence).
 
 Manual steps:
 
 1. A01. From Start, launch `notepad++.exe`. Wait for main window.
-2. A02. In the blank tab, type: `S07 test content <UTC timestamp>` (paste the current UTC as a distinctive marker per rep).
+2. A02. In the blank tab, type: `Scenario 7 test content <UTC timestamp>` (paste the current UTC as a distinctive marker per rep).
 3. A03. Menu File, Save As.
 4. A04. In the Save As dialog, click into the address bar and paste `%USERPROFILE%\Documents`. Press Enter.
-5. A05. Right click empty space in the dialog file area, New, Folder. Name it `S07_Output_R<NN>` where `<NN>` is the repetition number. Press Enter.
-6. A06. Double click `S07_Output_R<NN>` to enter it.
-7. A07. In the filename field, enter `s07_test_R<NN>.txt`. Click Save.
+5. A05. Right click empty space in the dialog file area, New, Folder. Name it `scenario7_output_run<NN>` where `<NN>` is the repetition number. Press Enter.
+6. A06. Double click `scenario7_output_run<NN>` to enter it.
+7. A07. In the filename field, enter `scenario7_test_run<NN>.txt`. Click Save.
 8. A08. Close Notepad++ (X button; if prompted to save, click No, the file is already saved).
 
 Ground truth: launch UTC, save UTC, close UTC, target file full path. Rows A01 to A08; record the exact filename saved in `TargetPath` and the folder name created in `ObservedOutcome`.
@@ -196,17 +209,17 @@ Expected artefacts:
 
 - Prefetch: `NOTEPAD++.EXE-*.pf` with first and last run time matching the launch UTC. Across the 3 reps, run count should equal 3.
 - Event Logs (Security): `4688` process creation for `notepad++.exe` with command line populated.
-- ShellBags (`UsrClass.dat`): entries for `Documents` and for the newly created `S07_Output_R<NN>` subfolder per rep. The Save As common dialog uses `IShellBrowser` and writes ShellBag entries the same way Explorer navigation does.
+- ShellBags (`UsrClass.dat`): entries for `Documents` and for the newly created `scenario7_output_run<NN>` subfolder per rep. The Save As common dialog uses `IShellBrowser` and writes ShellBag entries the same way Explorer navigation does.
 
 Correlation problem: tie application execution (`4688` and Prefetch) to file creation location (ShellBags for the new subfolder). Answers "which running program created which file where".
 
 ## Appendix scenarios
 
-### S02. Application execution baseline (appendix, 1 rep)
+### Scenario 2. Application execution baseline (appendix, 1 rep)
 
-Cleanest Prefetch story. User launches the apps installed in S01 plus two Windows built ins in a controlled sequence. Isolates Prefetch run count and first and last run behaviour.
+Cleanest Prefetch story. User launches the apps installed in Scenario 1 plus two Windows built ins in a controlled sequence. Isolates Prefetch run count and first and last run behaviour.
 
-Precondition: apps installed via S01 (Chrome, WinRAR, VLC, Notepad++ used here; Adobe and Zoom excluded because they auto run background services that pollute the sequence).
+Precondition: apps installed via Scenario 1 (Chrome, WinRAR, VLC, Notepad++ used here; Adobe and Zoom excluded because they auto run background services that pollute the sequence).
 
 Manual steps (repeated internally 3 times within the single run to prove run count):
 
@@ -221,7 +234,7 @@ Repeat A01 to A06 twice more within the same run.
 
 Expected: one `.pf` per unique EXE with run count = 3 and last run time matching the third launch; `Security 4688` per launch with command line. Ground truth CSV: one row per launch and close pair (18 rows total per run); note the third launch UTC per app.
 
-### S03. Nested folder navigation (appendix, 1 rep)
+### Scenario 3. Nested folder navigation (appendix, 1 rep)
 
 Cleanest ShellBags story. User opens Explorer and clicks down a five level nested path with no execution. Provides the "browsed vs not browsed" positive and negative control by leaving sibling folder untouched.
 
@@ -252,23 +265,23 @@ Do not open `LEVEL1_B` at any point.
 
 Expected: one ShellBags entry per folder in `UsrClass.dat`; `LEVEL1_B` absent; `EXPLORER.EXE-*.pf` volume references only. Ground truth CSV: rows A01 to A08.
 
-### S05. File deletion via Explorer and Recycle Bin (appendix, 1 rep)
+### Scenario 5. File deletion via Explorer and Recycle Bin (appendix, 1 rep)
 
 Delete a staged file to Recycle Bin, then empty. Tests correlation across ShellBags (Recycle Bin shell folder), Prefetch (`EXPLORER.EXE` volume refs) and Event Logs.
 
-Precondition: place a staged file at `C:\DISS_TESTDATA\DELETE\S05_target.txt` before starting the run.
+Precondition: place a staged file at `C:\DISS_TESTDATA\DELETE\scenario5_target.txt` before starting the run.
 
 Manual steps:
 
 1. A01. Open File Explorer, navigate to `C:\DISS_TESTDATA\DELETE\`.
-2. A02. Right click `S05_target.txt`, Delete (sends to Recycle Bin).
+2. A02. Right click `scenario5_target.txt`, Delete (sends to Recycle Bin).
 3. A03. Open Recycle Bin (double click desktop icon).
-4. A04. Confirm `S05_target.txt` is listed.
+4. A04. Confirm `scenario5_target.txt` is listed.
 5. A05. Right click Recycle Bin icon on Desktop, Empty Recycle Bin. Confirm.
 
 Expected: `EXPLORER.EXE-*.pf` with `\$Recycle.Bin\` in referenced paths; `Security 4663` if object access auditing is enabled and the SACL applies; ShellBag entry for the source folder and Recycle Bin shell folder. Ground truth CSV: rows A01 to A05.
 
-### S06. Logon, lock, unlock, logoff cycle (appendix, 1 rep)
+### Scenario 6. Logon, lock, unlock, logoff cycle (appendix, 1 rep)
 
 Sign out, sign in, lock (`Win+L`), unlock, sign out. Pure Event Logs scenario: no Prefetch, no ShellBags. Negative control for PF and SBags; tests `Security 4624`, `4634`, `4800`, `4801` including logon type.
 
@@ -284,7 +297,7 @@ Manual steps:
 
 Expected: `4624` logon (type 2 for interactive), `4634` logoff, `4800` workstation locked, `4801` workstation unlocked. Logon type is critical evidence. Ground truth CSV: rows A01 to A07.
 
-### S08. Command line execution (cmd, PowerShell) (appendix, 1 rep)
+### Scenario 8. Command line execution (cmd, PowerShell) (appendix, 1 rep)
 
 Open `cmd.exe`, run `whoami` and `dir`; open `powershell.exe`, run `Get-Process`. Tests Prefetch for shell hosts and `Security 4688` with command line arguments.
 
@@ -300,11 +313,11 @@ Manual steps:
 
 Expected: `CMD.EXE-*.pf`, `POWERSHELL.EXE-*.pf`, `CONHOST.EXE-*.pf`; `Security 4688` process creation with `ProcessCommandLine` populated. Ground truth CSV: rows A01 to A07; record exact command strings in `TargetPath`.
 
-### S09. Web browsing session with download (appendix, NAT required, 1 rep)
+### Scenario 9. Web browsing session with download (appendix, NAT required, 1 rep)
 
 Launch Chrome, visit three URLs, download a small file, open Downloads folder in Explorer, close browser. Tests Prefetch for browser and helper processes, `Security 4688` process creation chain, and ShellBags entry for Downloads folder.
 
-Precondition: Chrome installed (from S01).
+Precondition: Chrome installed (from Scenario 1).
 
 Manual steps:
 
@@ -320,7 +333,7 @@ Manual steps:
 
 Expected: `CHROME.EXE-*.pf` (main and utility processes); `Security 4688` for `chrome.exe` and helper processes; ShellBag entry for `Downloads`. Ground truth CSV: rows A01 to A09; record URLs in `TargetPath`, download filename in a dedicated row.
 
-### S10. System shutdown and power on (appendix, 1 rep)
+### Scenario 10. System shutdown and power on (appendix, 1 rep)
 
 Clean shutdown, power on, log back in. Tests Event Logs shutdown and boot chain and Prefetch layout regeneration.
 

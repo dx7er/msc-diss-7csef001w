@@ -4,15 +4,28 @@ Offline artefact acquisition for one scenario run using Arsenal Image Mounter.
 
 .DESCRIPTION
 Resolves the correct snapshot VMDK from .vmsd, mounts it read only via AIM's
-DiscUtils provider, robocopies the target artefacts into
-scenarios/scenario_N/run_M/artefacts/{class}/, dismounts cleanly, and writes a
-SHA 256 manifest. Idempotent: cleans up any prior AIM mounts on start.
+DiscUtils provider, robocopies the target artefacts into the run's landing
+zone under scenarios\scenario_N\ (single run) or scenarios\scenario_N\run_M\
+(multi run), dismounts cleanly, and writes a SHA 256 manifest. Idempotent:
+cleans up any prior AIM mounts on start.
+
+Naming scheme (locked in 2026-08-17):
+- Snapshots     : scenario1_post, scenario4_run1_post
+- Landing zone  : scenarios\scenario_1\artefacts\   (single run)
+                  scenarios\scenario_4\run_1\artefacts\   (multi run)
+- Baseline      : baseline_candidate, baseline_pre_scenarios
+
+Single vs multi run is chosen by whether -Run is supplied. Scenarios 4 and 7
+have three repetitions each; all others have one. There is no other difference
+in the acquisition logic.
 
 .PARAMETER Scenario
-Scenario ID, e.g. S01.
+Scenario number as an integer, e.g. 2 for Scenario 2.
 
 .PARAMETER Run
-Repetition ID, e.g. R01.
+Optional repetition number as an integer. Omit for single-run scenarios
+(Scenarios 1, 2, 3, 5, 6, 8, 9, 10). Provide for multi-run scenarios
+(Scenarios 4 and 7).
 
 .PARAMETER VmDir
 VM directory containing .vmx, .vmsd, .vmdk. Default D:\UOW\SEM3\DISS-Win11-Testbed-VM.
@@ -27,18 +40,23 @@ Guest username whose profile is extracted. Default dfanalyst.
 Path to aim_cli.exe.
 
 .EXAMPLE
-.\acquire_artefacts.ps1 -Scenario S01 -Run R01
+.\acquire_artefacts.ps1 -Scenario 2
+    # single run: mounts scenario2_post, lands under scenarios\scenario_2\
+
+.EXAMPLE
+.\acquire_artefacts.ps1 -Scenario 4 -Run 1
+    # multi run: mounts scenario4_run1_post, lands under scenarios\scenario_4\run_1\
 
 .NOTES
-Must run elevated. VMware Workstation must be closed. Snapshot named
-S{Scenario}-R{Run}-POST must exist.
+Must run elevated. VMware Workstation must be closed. Snapshot named per the
+scheme above must exist in the .vmsd.
 
 Author: Syed Muhammad Saqlain Abbas (W21634541) | Module 7CSEF001W.2
 #>
 [CmdletBinding()]
 param(
-    [Parameter(Mandatory)][string]$Scenario,
-    [Parameter(Mandatory)][string]$Run,
+    [Parameter(Mandatory)][int]$Scenario,
+    [int]$Run = 0,
     [string]$VmDir     = 'D:\UOW\SEM3\DISS-Win11-Testbed-VM',
     [string]$RepoRoot  = 'D:\UOW\SEM3\msc-diss-7csef001w',
     [string]$GuestUser = 'dfanalyst',
@@ -49,14 +67,23 @@ $ErrorActionPreference = 'Stop'
 # Not using StrictMode: it throws PropertyNotFoundStrict on .Count of empty
 # Get-ChildItem results, which is a normal outcome when a folder is empty.
 
-$runId        = "$Scenario-$Run"
-$snapshotName = "$runId-POST"
-
-# Translate S01 / R01 into scenario_1 / run_1 folder names used under scenarios\.
-$scenarioNum  = [int]($Scenario -replace '^[Ss]','')
-$runNum       = [int]($Run      -replace '^[Rr]','')
-$scenarioDir  = "scenario_$scenarioNum"
-$runDir       = "run_$runNum"
+# ============================================================================
+# 0. Resolve naming for single vs multi run
+# ============================================================================
+if ($Run -eq 0) {
+    $runId        = "scenario$Scenario"
+    $snapshotName = "${runId}_post"
+    $scenarioDir  = "scenario_$Scenario"
+    $runRoot      = Join-Path $RepoRoot "scenarios\$scenarioDir"
+    $mode         = 'single-run'
+} else {
+    $runId        = "scenario${Scenario}_run${Run}"
+    $snapshotName = "${runId}_post"
+    $scenarioDir  = "scenario_$Scenario"
+    $runDir       = "run_$Run"
+    $runRoot      = Join-Path $RepoRoot "scenarios\$scenarioDir\$runDir"
+    $mode         = 'multi-run'
+}
 
 function Info($m) { Write-Host "[Acquire] $m" -ForegroundColor Cyan }
 function Ok($m)   { Write-Host "[Acquire] $m" -ForegroundColor Green }
@@ -65,7 +92,7 @@ function Warn($m) { Write-Warning $m }
 # ============================================================================
 # 1. Preconditions
 # ============================================================================
-Info "$runId offline acquisition starting"
+Info "$runId offline acquisition starting ($mode)"
 
 # Elevation
 $isAdmin = ([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdentity]::GetCurrent()
@@ -162,9 +189,8 @@ if ($listOutput -match 'Device number\s+(\d{6})') {
 }
 
 # ============================================================================
-# 4. Prepare output directories under scenarios\scenario_N\run_M\
+# 4. Prepare output directories under the run root
 # ============================================================================
-$runRoot   = Join-Path $RepoRoot "scenarios\$scenarioDir\$runDir"
 $artRoot   = Join-Path $runRoot 'artefacts'
 $outDirs   = [ordered]@{
     prefetch   = Join-Path $artRoot 'prefetch'

@@ -11,11 +11,15 @@
 DISS-Win11-Testbed-VM/
 *-flat.vmdk
 
-# Raw acquisition outputs under scenarios/scenario_N/run_M/artefacts/{class}/
+# Raw acquisition outputs. Layouts:
+#   Single run scenarios : scenarios/scenario_N/artefacts/{class}/
+#   Multi run scenarios  : scenarios/scenario_N/run_M/artefacts/{class}/
 # Evidence blobs are too large and PII adjacent for git; only the SHA 256
 # manifest per run is committed for chain of custody documentation.
-scenarios/*/*/artefacts/**
-!scenarios/*/*/artefacts/**/acquisition_manifest.csv
+scenarios/scenario_*/artefacts/**
+scenarios/scenario_*/run_*/artefacts/**
+!scenarios/scenario_*/artefacts/supporting/acquisition_manifest.csv
+!scenarios/scenario_*/run_*/artefacts/supporting/acquisition_manifest.csv
 
 # Office lock files and temporary drafts
 ~$*.docx
