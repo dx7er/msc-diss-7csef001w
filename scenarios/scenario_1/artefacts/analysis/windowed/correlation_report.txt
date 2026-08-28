@@ -1,0 +1,311 @@
+# Correlation report: scenario_1
+# Actions: 15 | Prefetch rows: 142 | EVTX rows: 832 | ShellBag rows: 12
+
+## A01  Open Edge   [08:58:57 to 08:59:43]
+  PREFETCH (9):
+    08:59:07  ELEVATION_SERVICE.EXE
+    08:59:06  MSEDGE.EXE
+    08:59:07  MSEDGE.EXE
+    08:59:07  MSEDGE.EXE
+    08:59:07  MSEDGE.EXE
+    08:59:07  MSEDGE.EXE
+    08:59:07  MSEDGE.EXE
+    08:59:37  MSEDGE.EXE
+    08:59:01  SVCHOST.EXE
+  EVTX (62):
+    Security               Microsoft-Windows-Security-Auditing EID 4688   x25  | Parent process: C:\Windows\System32\services.exe
+    Security               Microsoft-Windows-Security-Auditing EID 5379   x17  | {"EventData":{"Data":[{"@Name":"SubjectUserSid","#text":"S-1-5-18"},{"@Name":"Su
+    Security               Microsoft-Windows-Security-Auditing EID 4689   x16  | A process has exited
+    Application            Edge                                EID 256    x1  | {"EventData":{"Data":"[1208:10788:0816/085937.196:INFO:chrome\\browser\\extensio
+    Security               Microsoft-Windows-Security-Auditing EID 4624   x1  | Target: NT AUTHORITY\SYSTEM
+    Security               Microsoft-Windows-Security-Auditing EID 4672   x1  | PrivilegeList: SeAssignPrimaryTokenPrivilege, SeTcbPrivilege, SeSecurityPrivileg
+    Security               Microsoft-Windows-Security-Auditing EID 5381   x1  | {"EventData":{"Data":[{"@Name":"SubjectUserSid","#text":"S-1-5-21-4209295338-567
+  SHELLBAG (0):
+
+## A02  Download Chrome   [09:00:11 to 09:00:52]
+  PREFETCH (2):
+    09:00:29  MSEDGE.EXE
+    09:00:22  MSEDGE.EXE
+  EVTX (20):
+    Security               Microsoft-Windows-Security-Auditing EID 4688   x12  | Parent process: C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe
+    Security               Microsoft-Windows-Security-Auditing EID 4689   x8  | A process has exited
+  SHELLBAG (0):
+
+## A03  Download WinRAR   [09:01:02 to 09:01:42]
+  PREFETCH (6):
+    09:01:24  IDENTITY_HELPER.EXE
+    09:01:18  MSEDGE.EXE
+    09:01:15  MSEDGE.EXE
+    09:01:14  MSEDGE.EXE
+    09:01:15  MSEDGE.EXE
+    09:01:07  MSEDGE.EXE
+  EVTX (26):
+    Security               Microsoft-Windows-Security-Auditing EID 4688   x14  | Parent process: C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe
+    Security               Microsoft-Windows-Security-Auditing EID 4689   x12  | A process has exited
+  SHELLBAG (0):
+
+## A04  Download VLC   [09:01:52 to 09:02:55]
+  PREFETCH (1):
+    09:02:27  IDENTITY_HELPER.EXE
+  EVTX (40):
+    Security               Microsoft-Windows-Security-Auditing EID 4688   x19  | Parent process: C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe
+    Security               Microsoft-Windows-Security-Auditing EID 4689   x19  | A process has exited
+    Application            Microsoft-Windows-CAPI2             EID 4097   x2  | {"EventData":{"Data":"CN=ISRG Root X1, O=Internet Security Research Group, C=US,
+  SHELLBAG (0):
+
+## A05  Download Adobe Reader   [09:03:14 to 09:03:42]
+  PREFETCH (0):
+  EVTX (13):
+    Security               Microsoft-Windows-Security-Auditing EID 4688   x7  | Parent process: C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe
+    Security               Microsoft-Windows-Security-Auditing EID 4689   x5  | A process has exited
+    Application            Microsoft-Windows-CAPI2             EID 4097   x1  | {"EventData":{"Data":"CN=Starfield Services Root Certificate Authority - G2, O=\
+  SHELLBAG (0):
+
+## A06  Download Zoom   [09:03:57 to 09:05:06]
+  PREFETCH (0):
+  EVTX (22):
+    Security               Microsoft-Windows-Security-Auditing EID 4689   x12  | A process has exited
+    Security               Microsoft-Windows-Security-Auditing EID 4688   x9  | Parent process: C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe
+    Application            Microsoft-Windows-CAPI2             EID 4097   x1  | {"EventData":{"Data":"CN=DigiCert High Assurance EV Root CA, OU=www.digicert.com
+  SHELLBAG (0):
+
+## A07  Download Notepad++   [09:05:28 to 09:06:08]
+  PREFETCH (0):
+  EVTX (20):
+    Security               Microsoft-Windows-Security-Auditing EID 4688   x11  | Parent process: C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe
+    Security               Microsoft-Windows-Security-Auditing EID 4689   x7  | A process has exited
+    Application            Microsoft-Windows-CAPI2             EID 4097   x2  | {"EventData":{"Data":"CN=GlobalSign, O=GlobalSign, OU=GlobalSign Root CA - R6, 8
+  SHELLBAG (0):
+
+## A08  Download Close Edge   [09:06:38 to 09:06:53]
+  PREFETCH (1):
+    09:06:44  SMARTSCREEN.EXE
+  EVTX (18):
+    Security               Microsoft-Windows-Security-Auditing EID 4689   x17  | A process has exited
+    Security               Microsoft-Windows-Security-Auditing EID 4688   x1  | Parent process: C:\Windows\System32\svchost.exe
+  SHELLBAG (0):
+
+## A09  Open Downloads   [09:07:16 to 09:07:36]
+  PREFETCH (1):
+    09:07:19  BACKGROUNDTASKHOST.EXE
+  EVTX (5):
+    Security               Microsoft-Windows-Security-Auditing EID 4689   x2  | A process has exited
+    Security               Microsoft-Windows-Security-Auditing EID 4663   x2  | ObjectServer: Security
+    Security               Microsoft-Windows-Security-Auditing EID 4688   x1  | Parent process: C:\Windows\System32\svchost.exe
+  SHELLBAG (0):
+
+## A10  Install Chrome   [09:07:52 to 09:09:22]
+  PREFETCH (40):
+    09:08:51  151.0.7922.138_CHROME_INSTALL
+    09:08:00  AUDIODG.EXE
+    09:09:07  CHRMSTP.EXE
+    09:09:07  CHRMSTP.EXE
+    09:09:07  CHRMSTP.EXE
+    09:08:57  CHROME.EXE
+    09:09:10  CHROME.EXE
+    09:09:10  CHROME.EXE
+    09:09:06  CHROME.EXE
+    09:09:00  CHROME.EXE
+    09:08:57  CHROME.EXE
+    09:09:13  CHROME.EXE
+    09:09:10  CHROME.EXE
+    09:09:00  CHROME.EXE
+    09:09:08  CHROME.EXE
+    09:09:08  CHROME.EXE
+    09:09:07  CHROME.EXE
+    09:09:01  CHROME.EXE
+    09:08:02  CHROMESETUP.EXE
+    09:08:00  CHROMESETUP.EXE
+    09:08:59  COMPATTELRUNNER.EXE
+    09:08:59  CONHOST.EXE
+    09:08:00  CONSENT.EXE
+    09:08:00  CTFMON.EXE
+    09:08:57  DLLHOST.EXE
+    09:09:02  SEARCHPROTOCOLHOST.EXE
+    09:08:56  SETUP.EXE
+    09:08:52  SETUP.EXE
+    09:08:52  SETUP.EXE
+    09:08:56  SETUP.EXE
+    09:08:56  SVCHOST.EXE
+    09:08:58  SVCHOST.EXE
+    09:09:03  SVCHOST.EXE
+    09:08:03  SVCHOST.EXE
+    09:08:29  UPDATER.EXE
+    09:08:29  UPDATER.EXE
+    09:08:03  UPDATER.EXE
+    09:08:02  UPDATER.EXE
+    09:08:02  UPDATER.EXE
+    09:09:03  WMIPRVSE.EXE
+  EVTX (172):
+    Security               Microsoft-Windows-Security-Auditing EID 4688   x76  | Parent process: C:\Windows\explorer.exe
+    Security               Microsoft-Windows-Security-Auditing EID 4689   x68  | A process has exited
+    Security               Microsoft-Windows-Security-Auditing EID 4624   x6  | Target: NT AUTHORITY\SYSTEM
+    Security               Microsoft-Windows-Security-Auditing EID 4672   x6  | PrivilegeList: SeAssignPrimaryTokenPrivilege, SeTcbPrivilege, SeSecurityPrivileg
+    System                 Microsoft-Windows-WindowsUpdateClient EID 44     x5  | {"EventData":{"Data":[{"@Name":"updateTitle","#text":"9NRZT3Q9R3DL-Microsoft.Win
+    Security               Microsoft-Windows-Security-Auditing EID 4798   x4  | Target: disstestbedvm\dfanalyst (S-1-5-21-4209295338-567392030-2519289182-1001)
+    System                 Service Control Manager             EID 7045   x3  | Name: Google Updater Internal Service (GoogleUpdaterInternalService152.0.7933.0)
+    Security               Microsoft-Windows-Security-Auditing EID 5061   x2  | {"EventData":{"Data":[{"@Name":"SubjectUserSid","#text":"S-1-5-18"},{"@Name":"Su
+    Security               Microsoft-Windows-Security-Auditing EID 5058   x1  | {"EventData":{"Data":[{"@Name":"SubjectUserSid","#text":"S-1-5-18"},{"@Name":"Su
+    Security               Microsoft-Windows-Security-Auditing EID 4625   x1  | Target: disstestbedvm\dfanalyst
+  SHELLBAG (0):
+
+## A11  Install WinRAR   [09:09:42 to 09:10:05]
+  PREFETCH (5):
+    09:09:57  RAREXTINSTALLER.EXE
+    09:09:56  RAREXTINSTALLER.EXE
+    09:09:56  RUNDLL32.EXE
+    09:09:50  UNINSTALL.EXE
+    09:09:48  WINRAR-X64-723.EXE
+  EVTX (30):
+    Security               Microsoft-Windows-Security-Auditing EID 4688   x13  | Parent process: C:\Windows\explorer.exe
+    Security               Microsoft-Windows-Security-Auditing EID 4689   x12  | A process has exited
+    Security               Microsoft-Windows-Security-Auditing EID 4798   x3  | Target: disstestbedvm\dfanalyst (S-1-5-21-4209295338-567392030-2519289182-1001)
+    Application            Microsoft-Windows-CAPI2             EID 4097   x1  | {"EventData":{"Data":"CN=Certum Trusted Network CA 2, OU=Certum Certification Au
+    Security               Microsoft-Windows-Security-Auditing EID 4663   x1  | ObjectServer: Security
+  SHELLBAG (0):
+
+## A12  Install VLC   [09:10:23 to 09:11:15]
+  PREFETCH (4):
+    09:10:30  CONSENT.EXE
+    09:10:30  CTFMON.EXE
+    09:10:31  VLC-3.0.23-WIN32.EXE
+    09:10:45  VLC-CACHE-GEN.EXE
+  EVTX (23):
+    Security               Microsoft-Windows-Security-Auditing EID 4689   x12  | A process has exited
+    Security               Microsoft-Windows-Security-Auditing EID 4688   x11  | Parent process: C:\Windows\explorer.exe
+  SHELLBAG (0):
+
+## A13  Install Adobe Reader   [09:11:31 to 09:17:20]
+  PREFETCH (47):
+    09:17:03  ACROBAT.EXE
+    09:16:51  ACROBAT.EXE
+    09:16:52  ACROBAT.EXE
+    09:17:03  ACROBAT.EXE
+    09:17:05  ADNOTIFICATIONMANAGER.EXE
+    09:15:56  ARMSVC.EXE
+    09:15:44  DLLHOST.EXE
+    09:16:53  ELEVATION_SERVICE.EXE
+    09:16:53  EXPLORER.EXE
+    09:14:28  F65B37D7-6CC3-45AC-8082-D0A15
+    09:17:06  FULLTRUSTNOTIFIER.EXE
+    09:16:52  MSEDGE.EXE
+    09:16:52  MSEDGE.EXE
+    09:16:55  MSEDGE.EXE
+    09:16:54  MSEDGE.EXE
+    09:16:53  MSEDGE.EXE
+    09:17:06  MSEDGE.EXE
+    09:16:53  MSEDGE.EXE
+    09:16:53  MSEDGE.EXE
+    09:17:14  MSEDGE.EXE
+    09:17:05  MSEDGEWEBVIEW2.EXE
+    09:17:05  MSEDGEWEBVIEW2.EXE
+    09:16:58  MSEDGEWEBVIEW2.EXE
+    09:15:11  MSIEXEC.EXE
+    09:14:57  MSIEXEC.EXE
+    09:14:37  MSIEXEC.EXE
+    09:15:56  MSIEXEC.EXE
+    09:14:56  MSIEXEC.EXE
+    09:16:45  OPENWITH.EXE
+    09:11:38  READER_EN_R9BVLF8K_INSTALL.EX
+    09:11:36  READER_EN_R9BVLF8K_INSTALL.EX
+    09:15:54  RUNDLL32.EXE
+    09:17:06  RUNTIMEBROKER.EXE
+    09:14:37  SETUP.EXE
+    09:16:45  SHOWAPPPICKERFORPDF.EXE
+    09:15:59  SINGLECLIENTSERVICESUPDATER.E
+    09:16:54  SMARTSCREEN.EXE
+    09:12:01  SOFTLANDINGTASK.EXE
+    09:15:54  SVCHOST.EXE
+    09:15:53  SVCHOST.EXE
+    09:17:05  SVCHOST.EXE
+    09:16:54  SVCHOST.EXE
+    09:11:42  TASKHOSTW.EXE
+    09:13:03  UPDATER.EXE
+    09:13:03  UPDATER.EXE
+    09:13:03  UPDATER.EXE
+    09:13:03  UPDATER.EXE
+  EVTX (251):
+    Security               Microsoft-Windows-Security-Auditing EID 4688   x94  | Parent process: C:\Windows\explorer.exe
+    Security               Microsoft-Windows-Security-Auditing EID 4689   x73  | A process has exited
+    Security               Microsoft-Windows-Security-Auditing EID 5379   x25  | {"EventData":{"Data":[{"@Name":"SubjectUserSid","#text":"S-1-5-18"},{"@Name":"Su
+    Application            MsiInstaller                        EID 1025   x19  | {"EventData":{"Data":"Adobe Acrobat (64-bit), C:\\WINDOWS\\system32\\vcruntime14
+    Security               Microsoft-Windows-Security-Auditing EID 4624   x5  | Target: NT AUTHORITY\SYSTEM
+    Security               Microsoft-Windows-Security-Auditing EID 4672   x5  | PrivilegeList: SeAssignPrimaryTokenPrivilege, SeTcbPrivilege, SeSecurityPrivileg
+    Security               Microsoft-Windows-Security-Auditing EID 4798   x4  | Target: disstestbedvm\dfanalyst (S-1-5-21-4209295338-567392030-2519289182-1001)
+    System                 Microsoft-Windows-DistributedCOM    EID 10016  x4  | {"EventData":{"Data":[{"@Name":"param1","#text":"application-specific"},{"@Name"
+    Security               Microsoft-Windows-Security-Auditing EID 5061   x3  | {"EventData":{"Data":[{"@Name":"SubjectUserSid","#text":"S-1-5-18"},{"@Name":"Su
+    Security               Microsoft-Windows-Security-Auditing EID 5058   x2  | {"EventData":{"Data":[{"@Name":"SubjectUserSid","#text":"S-1-5-18"},{"@Name":"Su
+    Security               Microsoft-Windows-Security-Auditing EID 4799   x2  | Target: Builtin\Administrators (S-1-5-32-544)
+    Application            MsiInstaller                        EID 1040   x1  | Installer Started
+    Application            Microsoft-Windows-CAPI2             EID 4097   x1  | {"EventData":{"Data":"CN=VeriSign Class 3 Public Primary Certification Authority
+    Application            Microsoft-Windows-Search            EID 1013   x1  | {"EventData":{"Data":{"@Name":"ExtraInfo","#text":", "}}}
+    Application            AdobeARMservice                     EID 0      x1  | {"EventData":{"Data":"Service started","Binary":""}}
+    Application            MsiInstaller                        EID 1022   x1  | {"EventData":{"Data":"Adobe Acrobat (64-bit), Adobe Acrobat Reader (26.001.21771
+    Application            MsiInstaller                        EID 1036   x1  | {"EventData":{"Data":"Adobe Acrobat (64-bit), 26.001.21771, 1033, Adobe Acrobat 
+    Application            MsiInstaller                        EID 11707  x1  | Product: Adobe Acrobat (64-bit) -- Installation operation completed successfully
+    Application            MsiInstaller                        EID 1033   x1  | Name, Version, Lang, Status, Manufacturer: Adobe Acrobat (64-bit), 26.001.21771,
+    Application            MsiInstaller                        EID 1038   x1  | {"EventData":{"Data":"Adobe Acrobat (64-bit), 26.001.21771, 1033, 2, 4, Adobe","
+    Application            MsiInstaller                        EID 1029   x1  | {"EventData":{"Data":"Adobe Acrobat (64-bit), (NULL), (NULL), (NULL), (NULL), (N
+    Application            MsiInstaller                        EID 1042   x1  | Installer Exited
+    Security               Microsoft-Windows-Security-Auditing EID 4663   x1  | ObjectServer: Security
+    Security               Microsoft-Windows-Security-Auditing EID 4696   x1  | Target: disstestbedvm\dfanalyst (S-1-5-21-4209295338-567392030-2519289182-1001)
+    System                 Service Control Manager             EID 7045   x1  | Name: Adobe Acrobat Update Service
+    System                 Service Control Manager             EID 7040   x1  | The start type of the Background Intelligent Transfer Service was changed from d
+  SHELLBAG (0):
+
+## A14  Install Zoom   [09:17:40 to 09:18:28]
+  PREFETCH (23):
+    09:18:22  ADOBEARM.EXE
+    09:18:00  ADOBEARM.EXE
+    09:18:14  ADOBEARMHELPER.EXE
+    09:18:00  ADOBEARMHELPER.EXE
+    09:18:14  ADOBEARM_UCB.EXE
+    09:18:20  ARMSVC.EXE
+    09:18:00  AUDIODG.EXE
+    09:18:25  COMPATTELRUNNER.EXE
+    09:18:25  CONHOST.EXE
+    09:18:00  CONSENT.EXE
+    09:18:00  CTFMON.EXE
+    09:18:04  DLLHOST.EXE
+    09:18:20  INSTALLER.EXE
+    09:18:09  INSTALLER.EXE
+    09:18:02  INSTALLER.EXE
+    09:17:47  INSTALLER.EXE
+    09:18:24  MSIEXEC.EXE
+    09:18:03  MSIEXEC.EXE
+    09:18:15  MSIEXEC.EXE
+    09:18:20  ZOOM.EXE
+    09:18:11  ZOOM.EXE
+    09:18:03  ZOOM.EXE
+    09:17:46  ZOOMINSTALLERFULL.EXE
+  EVTX (72):
+    Security               Microsoft-Windows-Security-Auditing EID 4689   x29  | A process has exited
+    Security               Microsoft-Windows-Security-Auditing EID 4688   x29  | Parent process: C:\Windows\explorer.exe
+    Application            MsiInstaller                        EID 1040   x3  | Installer Started
+    Application            Microsoft-Windows-CAPI2             EID 4097   x2  | {"EventData":{"Data":"CN=AAA Certificate Services, O=Comodo CA Limited, L=Salfor
+    Application            MsiInstaller                        EID 1042   x2  | Installer Exited
+    Security               Microsoft-Windows-Security-Auditing EID 4798   x2  | Target: disstestbedvm\dfanalyst (S-1-5-21-4209295338-567392030-2519289182-1001)
+    Application            MsiInstaller                        EID 11729  x1  | {"EventData":{"Data":"Product: Adobe Acrobat (64-bit) -- Configuration failed., 
+    Application            MsiInstaller                        EID 1035   x1  | {"EventData":{"Data":"Adobe Acrobat (64-bit), 26.001.21789, 1033, 1602, Adobe, (
+    Application            AdobeARMservice                     EID 0      x1  | {"EventData":{"Data":"Service started","Binary":""}}
+    Application            MsiInstaller                        EID 11707  x1  | Product: Adobe Refresh Manager -- Installation operation completed successfully.
+    Application            MsiInstaller                        EID 1033   x1  | Name, Version, Lang, Status, Manufacturer: Adobe Refresh Manager, 1.8.0, 1033, 0
+  SHELLBAG (0):
+
+## A15  Install Notepad++   [09:18:43 to 09:19:21]
+  PREFETCH (3):
+    09:19:06  MSEDGE.EXE
+    09:18:51  NPP.8.9.6.2.INSTALLER.X64.EXE
+    09:19:03  POWERSHELL.EXE
+  EVTX (58):
+    Security               Microsoft-Windows-Security-Auditing EID 4689   x24  | A process has exited
+    Security               Microsoft-Windows-Security-Auditing EID 4688   x22  | Parent process: C:\Program Files\Adobe\Acrobat DC\Acrobat\AcroCEF\SingleClientSe
+    Security               Microsoft-Windows-Security-Auditing EID 4798   x4  | Target: disstestbedvm\dfanalyst (S-1-5-21-4209295338-567392030-2519289182-1001)
+    Security               Microsoft-Windows-Security-Auditing EID 4663   x3  | ObjectServer: Security
+    Application            MsiInstaller                        EID 1022   x1  | {"EventData":{"Data":"Adobe Acrobat (64-bit), Adobe Acrobat Reader (26.001.21789
+    Application            MsiInstaller                        EID 1036   x1  | {"EventData":{"Data":"Adobe Acrobat (64-bit), 26.001.21789, 1033, Adobe Acrobat 
+    Application            MsiInstaller                        EID 11728  x1  | {"EventData":{"Data":"Product: Adobe Acrobat (64-bit) -- Configuration completed
+    Application            MsiInstaller                        EID 1035   x1  | {"EventData":{"Data":"Adobe Acrobat (64-bit), 26.001.21789, 1033, 0, Adobe, (NUL
+    Application            MsiInstaller                        EID 1042   x1  | Installer Exited
+  SHELLBAG (0):
+

@@ -1,0 +1,13 @@
+﻿BagPath,Slot,NodeSlot,MRUPosition,AbsolutePath,ShellType,Value,ChildBags,CreatedOn,ModifiedOn,AccessedOn,LastWriteTime,MFTEntry,MFTSequenceNumber,ExtensionBlockCount,FirstInteracted,LastInteracted,HasExplored,Miscellaneous
+BagMRU,0,0,1,Desktop\Win11 21H2,Root folder: GUID,Win11 21H2,0,,,,2026-08-16 09:26:38,,,0,2026-07-14 09:52:42,,False,
+BagMRU,1,0,0,Desktop\This PC,Root folder: GUID,This PC,1,,,,2026-08-16 09:26:38,,,0,,2026-08-16 09:26:38,False,
+BagMRU,2,0,3,Desktop\Desktop,Root folder: GUID,Desktop,0,,,,2026-08-16 09:26:38,,,1,2026-07-14 10:39:54,,False,
+BagMRU,3,0,2,Desktop\Downloads,Root folder: GUID,Downloads,0,,,,2026-08-16 09:26:38,,,0,2026-07-14 10:39:56,,False,
+BagMRU\1,0,3,0,Desktop\This PC\C:,Drive letter,C:,4,,,,2026-07-14 09:53:05,,,0,,2026-07-14 09:53:05,True,
+BagMRU\1\0,0,4,3,Desktop\This PC\C:\Users,Directory,Users,1,2024-04-01 07:21:18,2026-07-14 08:25:46,2026-07-14 09:50:08,2026-08-16 09:22:56,3534,1,1,,,True,NTFS file system
+BagMRU\1\0,1,6,2,Desktop\This PC\C:\Temp,Directory,Temp,0,2026-07-14 09:53:48,2026-07-14 09:57:22,2026-07-14 09:57:22,2026-08-16 09:22:56,155879,1,1,2026-07-14 09:58:45,,True,NTFS file system
+BagMRU\1\0,2,7,1,Desktop\This PC\C:\DISS_Config,Directory,DISS_Config,0,2026-07-14 10:08:06,2026-07-14 10:08:06,2026-07-14 10:09:22,2026-08-16 09:22:56,157114,3,1,2026-07-14 10:11:28,,True,NTFS file system
+BagMRU\1\0,3,10,0,Desktop\This PC\C:\DISS_TESTDATA,Directory,DISS_TESTDATA,1,2026-07-16 10:29:26,2026-07-16 10:29:26,2026-07-16 10:29:26,2026-08-16 09:22:56,44516,5,1,,2026-08-16 09:22:56,True,NTFS file system
+BagMRU\1\0\0,0,5,0,Desktop\This PC\C:\Users\dfanalyst,Directory,dfanalyst,0,2026-07-14 08:14:38,2026-07-14 09:50:16,2026-07-14 09:50:16,2026-07-14 09:53:09,144607,6,1,2026-07-14 09:53:09,2026-07-14 09:53:09,True,NTFS file system
+BagMRU\1\0\3,0,11,0,Desktop\This PC\C:\DISS_TESTDATA\PILOT,Directory,PILOT,1,2026-07-16 10:29:26,2026-07-16 10:29:26,2026-07-16 10:29:26,2026-07-17 19:29:12,44518,6,1,,2026-07-17 19:29:12,True,NTFS file system
+BagMRU\1\0\3\0,0,12,0,Desktop\This PC\C:\DISS_TESTDATA\PILOT\P00R01_BROWSED_A7K9,Directory,P00R01_BROWSED_A7K9,0,2026-07-16 10:29:26,2026-07-16 10:29:26,2026-08-16 09:22:56,2026-08-16 09:23:06,44525,3,1,2026-08-16 09:23:06,2026-08-16 09:23:06,True,NTFS file system

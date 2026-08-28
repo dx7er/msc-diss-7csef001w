@@ -1,0 +1,8 @@
+﻿"Action","Note","StartUtc","EndUtc","DurationSec"
+"A01","Launch Notepad++ from Start","2026-08-23 00:12:39.847","2026-08-23 00:13:13.346","33.5"
+"A02","Type Scenario 7 test content with UTC marker","2026-08-23 00:13:44.164","2026-08-23 00:14:47.534","63.37"
+"A03","File menu, Save As","2026-08-23 00:15:58.415","2026-08-23 00:16:45.134","46.72"
+"A04","Closing Notepad++","2026-08-23 00:16:58.149","2026-08-23 00:17:14.161","16.01"
+"A05","Opening Documents folder using File Explorer","2026-08-23 00:17:49.544","2026-08-23 00:18:11.206","21.66"
+"A06","Viewing the file created","2026-08-23 00:18:27.354","2026-08-23 00:18:44.814","17.46"
+"A07","Closing File explorer and Applications","2026-08-23 00:19:27.197","2026-08-23 00:19:46.895","19.7"

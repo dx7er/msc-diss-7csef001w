@@ -1,0 +1,169 @@
+# Correlation report: scenario_6
+# Actions: 7 | Prefetch rows: 76 | EVTX rows: 549 | ShellBag rows: 11
+
+## A01  sign out via Start menu   [16:01:14 to 16:03:06]
+  PREFETCH (41):
+    16:02:23  CMD.EXE
+    16:02:19  CONHOST.EXE
+    16:02:19  CONHOST.EXE
+    16:01:23  CONHOST.EXE
+    16:01:52  CONSENT.EXE
+    16:01:42  CROSSDEVICERESUME.EXE
+    16:01:31  CSRSS.EXE
+    16:01:52  CTFMON.EXE
+    16:01:37  CTFMON.EXE
+    16:01:43  DLLHOST.EXE
+    16:01:18  DLLHOST.EXE
+    16:01:52  DLLHOST.EXE
+    16:01:31  DWM.EXE
+    16:02:20  FILECOAUTH.EXE
+    16:01:31  FONTDRVHOST.EXE
+    16:01:31  LOGONUI.EXE
+    16:01:25  LOGONUI.EXE
+    16:01:41  MICROSOFTEDGEUPDATE.EXE
+    16:01:53  MICROSOFTEDGE_X64_151.0.4129.
+    16:02:20  MPCMDRUN.EXE
+    16:02:19  MPCMDRUN.EXE
+    16:02:20  MPCMDRUN.EXE
+    16:02:19  MPCMDRUN.EXE
+    16:02:19  ONEDRIVE.EXE
+    16:01:53  POWERSHELL.EXE
+    16:01:43  RUNTIMEBROKER.EXE
+    16:02:11  SECURITYHEALTHHOST.EXE
+    16:01:48  SMARTSCREEN.EXE
+    16:01:43  SOFTLANDINGTASK.EXE
+    16:01:43  STARTMENUEXPERIENCEHOST.EXE
+    16:01:43  SVCHOST.EXE
+    16:01:31  SVCHOST.EXE
+    16:01:25  SVCHOST.EXE
+    16:02:42  TASKHOSTW.EXE
+    16:01:41  USERINIT.EXE
+    16:01:31  VM3DSERVICE.EXE
+    16:02:18  VMTOOLSD.EXE
+    16:02:32  WEVTUTIL.EXE
+    16:01:23  WEVTUTIL.EXE
+    16:01:31  WINLOGON.EXE
+    16:02:11  WLRMDR.EXE
+  EVTX (295):
+    Security               Microsoft-Windows-Security-Auditing EID 4689   x120  | A process has exited
+    Security               Microsoft-Windows-Security-Auditing EID 4688   x106  | Parent process: C:\Windows\System32\svchost.exe
+    Security               Microsoft-Windows-Security-Auditing EID 5379   x11  | {"EventData":{"Data":[{"@Name":"SubjectUserSid","#text":"S-1-5-18"},{"@Name":"Su
+    Security               Microsoft-Windows-Security-Auditing EID 4797   x8  | Target: disstestbedvm\Administrator
+    Security               Microsoft-Windows-Security-Auditing EID 4798   x7  | Target: disstestbedvm\dfanalyst (S-1-5-21-4209295338-567392030-2519289182-1001)
+    Security               Microsoft-Windows-Security-Auditing EID 4624   x7  | Target: NT AUTHORITY\SYSTEM
+    Security               Microsoft-Windows-Security-Auditing EID 4672   x5  | PrivilegeList: SeAssignPrimaryTokenPrivilege, SeTcbPrivilege, SeSecurityPrivileg
+    Application            Microsoft-Windows-Winlogon          EID 6000   x3  | {"EventData":{"Data":"WSearch","Binary":"D9-06-00-00"}}
+    Security               Microsoft-Windows-Security-Auditing EID 4648   x3  | Target: Font Driver Host\UMFD-2
+    Security               Microsoft-Windows-Security-Auditing EID 4634   x3  | Target: Font Driver Host\UMFD-1
+    System                 Microsoft-Windows-WindowsUpdateClient EID 43     x3  | {"EventData":{"Data":[{"@Name":"updateTitle","#text":"9NRZT3Q9R3DL-Microsoft.Win
+    System                 Microsoft-Windows-WindowsUpdateClient EID 19     x3  | {"EventData":{"Data":[{"@Name":"updateTitle","#text":"9NRZT3Q9R3DL-Microsoft.Win
+    Application            SecurityCenter                      EID 15     x2  | {"EventData":{"Data":"Windows Defender, SECURITY_PRODUCT_STATE_ON","Binary":""}}
+    System                 Microsoft-Windows-Kernel-General    EID 16     x2  | {"EventData":{"Data":[{"@Name":"HiveNameLength","#text":"136"},{"@Name":"HiveNam
+    Application            Microsoft-Windows-Winlogon          EID 6003   x1  | {"EventData":{"Data":"SessionEnv","Binary":"D9-06-00-00"}}
+    Application            Microsoft-Windows-AppXDeploymentServer/Operational EID 2562   x1  | {"EventData":{"Data":"MSIXDeployment, windows.applicationData, DeleteMachineFold
+    Application            edgeupdate                          EID 0      x1  | {"EventData":{"Data":"Service stopped","Binary":""}}
+    Security               Microsoft-Windows-Security-Auditing EID 4647   x1  | User initiated logoff
+    Security               Microsoft-Windows-Security-Auditing EID 4799   x1  | Target: Builtin\Administrators (S-1-5-32-544)
+    Security               Microsoft-Windows-Security-Auditing EID 5038   x1  | {"EventData":{"Data":{"@Name":"param1","#text":"\\Device\\HarddiskVolume3\\Progr
+    Security               Microsoft-Windows-Security-Auditing EID 5058   x1  | {"EventData":{"Data":[{"@Name":"SubjectUserSid","#text":"S-1-5-21-4209295338-567
+    Security               Microsoft-Windows-Security-Auditing EID 5061   x1  | {"EventData":{"Data":[{"@Name":"SubjectUserSid","#text":"S-1-5-21-4209295338-567
+    Security               Microsoft-Windows-Security-Auditing EID 5059   x1  | {"EventData":{"Data":[{"@Name":"SubjectUserSid","#text":"S-1-5-21-4209295338-567
+    System                 winsrvext                           EID 100    x1  | {"EventData":{"Data":[{"@Name":"ProcessImageFileNameWin32","#text":"C:\\Windows\
+    System                 Microsoft-Windows-Winlogon          EID 7002   x1  | UserSID: S-1-5-21-4209295338-567392030-2519289182-1001
+    System                 Microsoft-Windows-Winlogon          EID 7001   x1  | UserSID: S-1-5-21-4209295338-567392030-2519289182-1001
+  SHELLBAG (0):
+
+## A02  sign in as dfanalyst (retrospective)   [16:03:11 to 16:03:21]
+  PREFETCH (0):
+  EVTX (4):
+    Security               Microsoft-Windows-Security-Auditing EID 4689   x3  | A process has exited
+    Security               Microsoft-Windows-Security-Auditing EID 4688   x1  | Parent process: C:\Windows\System32\svchost.exe
+  SHELLBAG (0):
+
+## A03  press Win+L   [16:03:56 to 16:04:12]
+  PREFETCH (5):
+    16:04:08  BACKGROUNDTASKHOST.EXE
+    16:04:08  MOUSOCOREWORKER.EXE
+    16:04:08  SVCHOST.EXE
+    16:04:08  UIEORCHESTRATOR.EXE
+    16:04:08  UIEORCHESTRATORSTUB.EXE
+  EVTX (11):
+    Security               Microsoft-Windows-Security-Auditing EID 4688   x6  | Parent process: C:\Windows\System32\svchost.exe
+    Security               Microsoft-Windows-Security-Auditing EID 4689   x3  | A process has exited
+    Security               Microsoft-Windows-Security-Auditing EID 4624   x1  | Target: NT AUTHORITY\SYSTEM
+    Security               Microsoft-Windows-Security-Auditing EID 4672   x1  | PrivilegeList: SeAssignPrimaryTokenPrivilege, SeTcbPrivilege, SeSecurityPrivileg
+  SHELLBAG (0):
+
+## A04  waited more than 15 s while locked (retrospective marker; exact locked span is A03 end to A05 start)   [16:06:09 to 16:06:21]
+  PREFETCH (0):
+  EVTX (4):
+    Security               Microsoft-Windows-Security-Auditing EID 4689   x3  | A process has exited
+    Security               Microsoft-Windows-Security-Auditing EID 4688   x1  | Parent process: C:\Windows\System32\svchost.exe
+  SHELLBAG (0):
+
+## A05  unlock with password (retrospective)   [16:06:23 to 16:06:33]
+  PREFETCH (0):
+  EVTX (0):
+  SHELLBAG (0):
+
+## A06  sign out again via Start menu   [16:06:35 to 16:07:50]
+  PREFETCH (30):
+    16:07:18  AUDIODG.EXE
+    16:06:42  BACKGROUNDTASKHOST.EXE
+    16:07:20  CONHOST.EXE
+    16:07:18  CONSENT.EXE
+    16:06:46  CSRSS.EXE
+    16:07:18  CTFMON.EXE
+    16:07:00  DEFENDERSESSIONHELPER.EXE
+    16:07:12  DLLHOST.EXE
+    16:07:18  DLLHOST.EXE
+    16:06:46  DWM.EXE
+    16:06:46  FONTDRVHOST.EXE
+    16:06:46  LOGONUI.EXE
+    16:06:45  LOGONUI.EXE
+    16:07:01  MICROSOFTEDGEUPDATE.EXE
+    16:07:01  MICROSOFTEDGEUPDATE.EXE
+    16:06:46  MOUSOCOREWORKER.EXE
+    16:07:20  POWERSHELL.EXE
+    16:06:42  RUNTIMEBROKER.EXE
+    16:07:15  RUNTIMEBROKER.EXE
+    16:06:45  SEARCHPROTOCOLHOST.EXE
+    16:07:31  SECURITYHEALTHHOST.EXE
+    16:07:01  SIHOST.EXE
+    16:07:01  SVCHOST.EXE
+    16:07:01  SVCHOST.EXE
+    16:07:01  SVCHOST.EXE
+    16:06:46  SVCHOST.EXE
+    16:07:01  SVCHOST.EXE
+    16:07:01  USERINIT.EXE
+    16:06:46  WINLOGON.EXE
+    16:07:31  WLRMDR.EXE
+  EVTX (235):
+    Security               Microsoft-Windows-Security-Auditing EID 4689   x91  | A process has exited
+    Security               Microsoft-Windows-Security-Auditing EID 4688   x88  | Parent process: C:\Windows\System32\svchost.exe
+    Security               Microsoft-Windows-Security-Auditing EID 4624   x10  | Target: NT AUTHORITY\SYSTEM
+    Security               Microsoft-Windows-Security-Auditing EID 4797   x8  | Target: disstestbedvm\Administrator
+    Security               Microsoft-Windows-Security-Auditing EID 4672   x8  | PrivilegeList: SeAssignPrimaryTokenPrivilege, SeTcbPrivilege, SeSecurityPrivileg
+    Security               Microsoft-Windows-Security-Auditing EID 4798   x6  | Target: disstestbedvm\dfanalyst (S-1-5-21-4209295338-567392030-2519289182-1001)
+    Security               Microsoft-Windows-Security-Auditing EID 5379   x4  | {"EventData":{"Data":[{"@Name":"SubjectUserSid","#text":"S-1-5-21-4209295338-567
+    Application            Microsoft-Windows-Winlogon          EID 6000   x3  | {"EventData":{"Data":"WSearch","Binary":"D9-06-00-00"}}
+    Security               Microsoft-Windows-Security-Auditing EID 4648   x3  | Target: Font Driver Host\UMFD-3
+    Security               Microsoft-Windows-Security-Auditing EID 4634   x3  | Target: Font Driver Host\UMFD-2
+    Application            Microsoft-Windows-Winlogon          EID 6003   x1  | {"EventData":{"Data":"SessionEnv","Binary":"D9-06-00-00"}}
+    Application            Microsoft-Windows-AppXDeploymentServer/Operational EID 2562   x1  | {"EventData":{"Data":"MSIXDeployment, windows.applicationData, DeleteMachineFold
+    Security               Microsoft-Windows-Security-Auditing EID 4647   x1  | User initiated logoff
+    Security               Microsoft-Windows-Security-Auditing EID 4799   x1  | Target: Builtin\Administrators (S-1-5-32-544)
+    Security               Microsoft-Windows-Security-Auditing EID 5038   x1  | {"EventData":{"Data":{"@Name":"param1","#text":"\\Device\\HarddiskVolume3\\Progr
+    Security               Microsoft-Windows-Security-Auditing EID 5058   x1  | {"EventData":{"Data":[{"@Name":"SubjectUserSid","#text":"S-1-5-21-4209295338-567
+    Security               Microsoft-Windows-Security-Auditing EID 5061   x1  | {"EventData":{"Data":[{"@Name":"SubjectUserSid","#text":"S-1-5-21-4209295338-567
+    Security               Microsoft-Windows-Security-Auditing EID 5059   x1  | {"EventData":{"Data":[{"@Name":"SubjectUserSid","#text":"S-1-5-21-4209295338-567
+    System                 Microsoft-Windows-Winlogon          EID 7002   x1  | UserSID: S-1-5-21-4209295338-567392030-2519289182-1001
+    System                 Service Control Manager             EID 7040   x1  | The start type of the Background Intelligent Transfer Service was changed from a
+    System                 Microsoft-Windows-Winlogon          EID 7001   x1  | UserSID: S-1-5-21-4209295338-567392030-2519289182-1001
+  SHELLBAG (0):
+
+## A07  sign in as dfanalyst (retrospective)   [16:07:51 to 16:07:59]
+  PREFETCH (0):
+  EVTX (0):
+  SHELLBAG (0):
+

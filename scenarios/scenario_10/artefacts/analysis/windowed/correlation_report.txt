@@ -1,0 +1,215 @@
+# Correlation report: scenario_10
+# Actions: 4 | Prefetch rows: 67 | EVTX rows: 881 | ShellBag rows: 11
+
+## A01  VM Shutdown: start -> power -> shutdown   [22:31:28 to 22:35:24]
+  PREFETCH (43):
+    22:31:39  BACKGROUNDTASKHOST.EXE
+    22:33:44  BDEUISRV.EXE
+    22:33:18  CMD.EXE
+    22:33:18  CONHOST.EXE
+    22:34:05  CONSENT.EXE
+    22:34:05  DLLHOST.EXE
+    22:34:05  FILECOAUTH.EXE
+    22:34:58  MICROSOFTEDGEUPDATE.EXE
+    22:34:58  MICROSOFTEDGEUPDATE.EXE
+    22:33:06  MOBSYNC.EXE
+    22:34:59  MOUSOCOREWORKER.EXE
+    22:33:15  ONEDRIVE.EXE
+    22:34:07  POWERSHELL.EXE
+    22:34:05  RUNDLL32.EXE
+    22:33:54  RUNTIMEBROKER.EXE
+    22:31:39  RUNTIMEBROKER.EXE
+    22:33:02  RUNTIMEBROKER.EXE
+    22:33:54  RUNTIMEBROKER.EXE
+    22:34:05  RUNTIMEBROKER.EXE
+    22:34:03  RUNTIMEBROKER.EXE
+    22:33:43  SECURITYHEALTHHOST.EXE
+    22:33:13  SECURITYHEALTHSERVICE.EXE
+    22:33:13  SECURITYHEALTHSYSTRAY.EXE
+    22:33:12  SMARTSCREEN.EXE
+    22:34:58  SPPSVC.EXE
+    22:34:04  STOREDESKTOPEXTENSION.EXE
+    22:34:58  SVCHOST.EXE
+    22:34:58  SVCHOST.EXE
+    22:34:58  SVCHOST.EXE
+    22:33:44  SVCHOST.EXE
+    22:34:58  SVCHOST.EXE
+    22:33:06  SVCHOST.EXE
+    22:33:02  SVCHOST.EXE
+    22:34:58  SVCHOST.EXE
+    22:34:57  SVCHOST.EXE
+    22:33:02  SVCHOST.EXE
+    22:33:59  TASKHOSTW.EXE
+    22:34:05  USEROOBEBROKER.EXE
+    22:33:13  VMTOOLSD.EXE
+    22:33:02  WIDGETSERVICE.EXE
+    22:33:34  WLRMDR.EXE
+    22:33:20  WMIAPSRV.EXE
+    22:33:15  WMIPRVSE.EXE
+  EVTX (746):
+    Security               Microsoft-Windows-Security-Auditing EID 4688   x247  | Parent process: C:\Windows\System32\svchost.exe
+    Security               Microsoft-Windows-Security-Auditing EID 4689   x189  | A process has exited
+    Security               Microsoft-Windows-Security-Auditing EID 4624   x61  | Target: NT AUTHORITY\SYSTEM
+    Security               Microsoft-Windows-Security-Auditing EID 4672   x56  | PrivilegeList: SeAssignPrimaryTokenPrivilege, SeTcbPrivilege, SeSecurityPrivileg
+    Security               Microsoft-Windows-Security-Auditing EID 4799   x17  | Target: Builtin\Administrators (S-1-5-32-544)
+    System                 Microsoft-Windows-HttpService       EID 112    x16  | {"EventData":{"Data":[{"@Name":"Url","#text":"http://*:5357/"},{"@Name":"Reserve
+    System                 Microsoft-Windows-FilterManager     EID 6      x15  | {"EventData":{"Data":[{"@Name":"FinalStatus","#text":"0x0"},{"@Name":"DeviceVers
+    Security               Microsoft-Windows-Security-Auditing EID 5379   x13  | {"EventData":{"Data":[{"@Name":"SubjectUserSid","#text":"S-1-5-18"},{"@Name":"Su
+    Security               Microsoft-Windows-Security-Auditing EID 4648   x5  | Target: Font Driver Host\UMFD-0
+    Security               Microsoft-Windows-Security-Auditing EID 4798   x5  | Target: disstestbedvm\dfanalyst (S-1-5-21-4209295338-567392030-2519289182-1001)
+    Security               Microsoft-Windows-Security-Auditing EID 4663   x5  | ObjectServer: Security
+    System                 Microsoft-Windows-Kernel-Processor-Power EID 55     x4  | {"EventData":{"Data":[{"@Name":"Group","#text":"0"},{"@Name":"Number","#text":"0
+    System                 Microsoft-Windows-DistributedCOM    EID 10016  x4  | {"EventData":{"Data":[{"@Name":"param1","#text":"application-specific"},{"@Name"
+    Application            Microsoft-Windows-Winlogon          EID 6000   x3  | {"EventData":{"Data":"WSearch","Binary":"D9-06-00-00"}}
+    Security               Microsoft-Windows-Security-Auditing EID 6416   x3  | DeviceId: SWD\MMDEVAPI\{0.0.0.00000000}.{cde471c5-037e-400c-b92c-ea22c449e956}
+    Application            Microsoft-Windows-CertificateServicesClient-CertEnroll EID 86     x2  | {"EventData":{"Data":[{"@Name":"Context","#text":"Local system"},{"@Name":"Url",
+    Security               Microsoft-Windows-Security-Auditing EID 5058   x2  | {"EventData":{"Data":[{"@Name":"SubjectUserSid","#text":"S-1-5-21-4209295338-567
+    Security               Microsoft-Windows-Security-Auditing EID 5061   x2  | {"EventData":{"Data":[{"@Name":"SubjectUserSid","#text":"S-1-5-21-4209295338-567
+    Security               Microsoft-Windows-Security-Auditing EID 5059   x2  | {"EventData":{"Data":[{"@Name":"SubjectUserSid","#text":"S-1-5-21-4209295338-567
+    Security               Microsoft-Windows-Security-Auditing EID 4634   x2  | Target: disstestbedvm\dfanalyst
+    System                 Microsoft-Windows-Ntfs              EID 98     x2  | {"EventData":{"Data":[{"@Name":"DriveName","#text":"C:"},{"@Name":"DeviceName","
+    System                 Microsoft-Windows-Dhcp-Client       EID 50036  x2  | {"EventData":""}
+    Application            VMUpgradeHelper                     EID 260    x1  | {"EventData":{"Data":"","Binary":""}}
+    Application            VMUpgradeHelper                     EID 272    x1  | {"EventData":{"Data":"","Binary":""}}
+    Application            VMTools                             EID 108    x1  | {"EventData":{"Data":"","Binary":""}}
+    Application            Microsoft-Windows-User Profiles Service EID 1532   x1  | {"EventData":""}
+    Application            Microsoft-Windows-User Profiles Service EID 1531   x1  | {"EventData":""}
+    Application            Microsoft-Windows-Winlogon          EID 6003   x1  | {"EventData":{"Data":"SessionEnv","Binary":"D9-06-00-00"}}
+    Application            VMTools                             EID 105    x1  | {"EventData":{"Data":"","Binary":""}}
+    Application            Microsoft-Windows-Complus           EID 781    x1  | {"EventData":{"Data":[{"@Name":"param1","#text":"86400"},{"@Name":"param2","#tex
+    Application            Microsoft-Windows-WMI               EID 5615   x1  | {"EventData":""}
+    Application            Microsoft-Windows-WMI               EID 5617   x1  | {"EventData":""}
+    Application            VMUpgradeHelper                     EID 258    x1  | {"EventData":{"Data":"","Binary":""}}
+    Application            VMUpgradeHelper                     EID 271    x1  | {"EventData":{"Data":"","Binary":""}}
+    Application            Microsoft-Windows-MSDTC 2           EID 4202   x1  | {"EventData":{"Data":[{"@Name":"param1","#text":"0"},{"@Name":"param2","#text":"
+    Application            Windows Error Reporting             EID 1001   x1  | Application Crash
+    Application            Microsoft-Windows-Search            EID 1003   x1  | {"EventData":{"Data":{"@Name":"ExtraInfo","#text":", "}}}
+    Application            edgeupdate                          EID 0      x1  | {"EventData":{"Data":"Service stopped","Binary":""}}
+    Application            Microsoft-Windows-Security-SPP      EID 900    x1  | {"EventData":{"Data":"&lt;explicit&gt;","Binary":""}}
+    Application            Microsoft-Windows-Security-SPP      EID 16394  x1  | {"EventData":{"Data":"","Binary":""}}
+    Application            Microsoft-Windows-Security-SPP      EID 1066   x1  | {"EventData":{"Data":"C:\\WINDOWS\\system32\\sppwinob.dll, msft:spp/windowsfunct
+    Application            Microsoft-Windows-Security-SPP      EID 1003   x1  | {"EventData":{"Data":"55c92734-d682-4d71-983e-d6ec3f16059f, \n1: 01eb852c-424d-4
+    Application            Microsoft-Windows-Security-SPP      EID 902    x1  | {"EventData":{"Data":"10.0.26100.8655","Binary":""}}
+    Application            SecurityCenter                      EID 1      x1  | {"EventData":{"Data":"","Binary":""}}
+    Microsoft-Windows-DriverFrameworks-UserMode/Operational Microsoft-Windows-DriverFrameworks-UserMode EID 1000   x1  | {"EventData":""}
+    Microsoft-Windows-Partition/Diagnostic Microsoft-Windows-Partition         EID 1006   x1  | Model: VMware Virtual NVMe Disk
+    Security               Microsoft-Windows-Security-Auditing EID 4647   x1  | User initiated logoff
+    Security               Microsoft-Windows-Eventlog          EID 1100   x1  | The event logging service has shut down
+    Security               Microsoft-Windows-Security-Auditing EID 4696   x1  | Target: -\- (S-1-0-0)
+    Security               Microsoft-Windows-Security-Auditing EID 4826   x1  | {"EventData":{"Data":[{"@Name":"SubjectUserSid","#text":"S-1-5-18"},{"@Name":"Su
+    Security               Microsoft-Windows-Security-Auditing EID 6417   x1  | {"EventData":{"Data":[{"@Name":"ProcessId","#text":"0x380"},{"@Name":"ProcessNam
+    Security               Microsoft-Windows-Security-Auditing EID 4608   x1  | Windows is starting up
+    Security               Microsoft-Windows-Security-Auditing EID 4902   x1  | {"EventData":{"Data":[{"@Name":"PuaCount","#text":"0"},{"@Name":"PuaPolicyId","#
+    Security               Microsoft-Windows-Security-Auditing EID 5033   x1  | {"EventData":""}
+    Security               Microsoft-Windows-Security-Auditing EID 4800   x1  | Target: disstestbedvm\dfanalyst
+    Security               Microsoft-Windows-Security-Auditing EID 5024   x1  | {"EventData":""}
+    Security               Microsoft-Windows-Security-Auditing EID 4801   x1  | Target: disstestbedvm\dfanalyst
+    Security               Microsoft-Windows-Security-Auditing EID 5038   x1  | {"EventData":{"Data":{"@Name":"param1","#text":"\\Device\\HarddiskVolume3\\Progr
+    System                 User32                              EID 1074   x1  | Hostname: DISSTESTBEDVM
+    System                 winsrvext                           EID 100    x1  | {"EventData":{"Data":[{"@Name":"ProcessImageFileNameWin32","#text":"C:\\Windows\
+    System                 Microsoft-Windows-Winlogon          EID 7002   x1  | UserSID: S-1-5-21-4209295338-567392030-2519289182-1001
+    System                 EventLog                            EID 6006   x1  | Computer: disstestbedvm
+    System                 Microsoft-Windows-Dhcp-Client       EID 50104  x1  | {"EventData":""}
+    System                 Microsoft-Windows-Dhcp-Client       EID 50105  x1  | {"EventData":""}
+    System                 Microsoft-Windows-DHCPv6-Client     EID 51047  x1  | {"EventData":{"Data":{"@Name":"DwordVal","#text":"1"}}}
+    System                 Microsoft-Windows-DHCPv6-Client     EID 51057  x1  | {"EventData":{"Data":{"@Name":"DwordVal","#text":"1"}}}
+    System                 Microsoft-Windows-Dhcp-Client       EID 50106  x1  | {"EventData":""}
+    System                 Microsoft-Windows-Dhcp-Client       EID 50037  x1  | {"EventData":{"Data":{"@Name":"DwordVal","#text":"1"}}}
+    System                 EventLog                            EID 6009   x1  | {"EventData":{"Data":"10.00., 26200, Multiprocessor Free, 0","Binary":""}}
+    System                 EventLog                            EID 6005   x1  | Computer: disstestbedvm
+    System                 EventLog                            EID 6013   x1  | The system uptime is 8 seconds
+    System                 Microsoft-Windows-Kernel-Power      EID 109    x1  | {"EventData":{"Data":[{"@Name":"ShutdownActionType","#text":"6"},{"@Name":"Shutd
+    System                 Microsoft-Windows-Kernel-Power      EID 577    x1  | {"EventData":{"Data":[{"@Name":"AdaptiveTargetState","#text":"0"},{"@Name":"IsUn
+    System                 Microsoft-Windows-Kernel-General    EID 13     x1  | StopTime: 2026-08-26 22:31:49.8426646
+    System                 Microsoft-Windows-Kernel-General    EID 12     x1  | StartTime: 2026-08-26 22:32:44.5000000
+    System                 Microsoft-Windows-Kernel-General    EID 25     x1  | {"EventData":{"Data":[{"@Name":"SystemTime","#text":"2026-08-26 22:32:44.5000000
+    System                 Microsoft-Windows-Kernel-Boot       EID 153    x1  | {"EventData":{"Data":[{"@Name":"Status","#text":"0"},{"@Name":"EnableDisableReas
+    System                 Microsoft-Windows-Kernel-Boot       EID 20     x1  | {"EventData":{"Data":[{"@Name":"LastShutdownGood","#text":"True"},{"@Name":"Last
+    System                 Microsoft-Windows-Kernel-Boot       EID 247    x1  | {"EventData":{"Data":[{"@Name":"Status","#text":"0"},{"@Name":"FailureReason","#
+    System                 Microsoft-Windows-Kernel-Boot       EID 238    x1  | {"EventData":{"Data":[{"@Name":"EfiTimeZoneBias","#text":"2047"},{"@Name":"EfiDa
+    System                 Microsoft-Windows-Kernel-Boot       EID 25     x1  | {"EventData":{"Data":{"@Name":"BootMenuPolicy","#text":"1"}}}
+    System                 Microsoft-Windows-Kernel-Boot       EID 27     x1  | {"EventData":{"Data":[{"@Name":"BootType","#text":"0"},{"@Name":"LoadOptions","#
+    System                 Microsoft-Windows-Kernel-Boot       EID 18     x1  | {"EventData":{"Data":{"@Name":"EntryCount","#text":"1"}}}
+    System                 Microsoft-Windows-Kernel-Boot       EID 32     x1  | {"EventData":{"Data":{"@Name":"BitlockerUserInputTime","#text":"0"}}}
+    System                 Microsoft-Windows-Kernel-General    EID 20     x1  | {"EventData":{"Data":[{"@Name":"UpdateReason","#text":"0"},{"@Name":"EnabledNew"
+    System                 Microsoft-Windows-HAL               EID 16     x1  | {"EventData":""}
+    System                 vmci                                EID 3      x1  | {"EventData":{"Data":"VMCI: Using capabilities (0x1c).\n","Binary":"00-00-00-00-
+    System                 Microsoft-Windows-Kernel-Power      EID 172    x1  | {"EventData":{"Data":[{"@Name":"State","#text":"2"},{"@Name":"Reason","#text":"6
+    System                 e1i68x64                            EID 32     x1  | {"EventData":{"Data":"Intel(R) 82574L Gigabit Network Connection","Binary":"00-0
+    System                 Microsoft-Windows-Kernel-General    EID 24     x1  | {"EventData":{"Data":[{"@Name":"ExitReason","#text":"0"},{"@Name":"CurrentBias",
+    System                 Microsoft-Windows-Wininit           EID 19     x1  | {"EventData":{"Data":[{"@Name":"HRESULT","#text":"0"},{"@Name":"NewLatchTimerNee
+    System                 Microsoft-Windows-Wininit           EID 24     x1  | {"EventData":{"Data":[{"@Name":"win32Error","#text":"0"},{"@Name":"FileStartTime
+    System                 Microsoft-Windows-Wininit           EID 25     x1  | {"EventData":{"Data":[{"@Name":"HRESULT","#text":"0"},{"@Name":"PreviousTimerExi
+    System                 Microsoft-Windows-Wininit           EID 23     x1  | {"EventData":{"Data":[{"@Name":"HRESULT","#text":"0"},{"@Name":"NewTimerNeeded",
+    System                 Microsoft-Windows-Wininit           EID 14     x1  | {"EventData":{"Data":[{"@Name":"Config","#text":"0"},{"@Name":"IsTestConfig","#t
+    System                 Microsoft-Windows-Wininit           EID 12     x1  | {"EventData":{"Data":{"@Name":"Level","#text":"4"}}}
+    System                 LsaSrv                              EID 6156   x1  | {"EventData":{"Data":[{"@Name":"HardwareChecks","#text":"1"},{"@Name":"ADDomainJ
+    System                 Microsoft-Windows-Directory-Services-SAM EID 16962  x1  | {"EventData":{"@Name":"SAMMSG_RESTRICT_REMOTE_SAM_DEFAULT_SD","Data":{"@Name":"D
+    System                 Microsoft-Windows-Directory-Services-SAM EID 16977  x1  | {"EventData":{"@Name":"SAMMSG_MINPWDLEN_SETTINGS_IN_EFFECT","Data":[{"@Name":"Mi
+    System                 Microsoft-Windows-Directory-Services-SAM EID 16983  x1  | {"EventData":{"@Name":"SAMMSG_AUDIT_LEGACY_PWD_RPC_METHODS_OFF"}}
+    System                 Microsoft-Windows-FilterManager     EID 1      x1  | {"EventData":{"Data":[{"@Name":"FinalStatus","#text":"0x0"},{"@Name":"DeviceVers
+    System                 Microsoft-Windows-Dhcp-Client       EID 50103  x1  | {"EventData":""}
+    System                 Microsoft-Windows-DHCPv6-Client     EID 51046  x1  | {"EventData":""}
+    System                 Microsoft-Windows-Winlogon          EID 7001   x1  | UserSID: S-1-5-21-4209295338-567392030-2519289182-1001
+    System                 Microsoft-Windows-TPM-WMI           EID 1041   x1  | {"EventData":{"Data":{"@Name":"Json","#text":"{\"Version\":1,\"HealthStatus\":\"
+    System                 Microsoft-Windows-TPM-WMI           EID 1038   x1  | {"EventData":{"Data":{"@Name":"Path","#text":"C:\\WINDOWS\\Logs\\MeasuredBoot\\0
+    System                 Service Control Manager             EID 7026   x1  | {"EventData":{"Data":{"@Name":"param1","#text":", dam, uiomap"}}}
+    System                 TPM                                 EID 18     x1  | {"EventData":{"Data":[{"@Name":"driverFile","#text":"0x14"},{"@Name":"lineNumber
+    System                 Microsoft-Windows-TPM-WMI           EID 1282   x1  | {"EventData":""}
+    System                 Microsoft-Windows-TPM-WMI           EID 1025   x1  | {"EventData":""}
+    System                 Service Control Manager             EID 7040   x1  | The start type of the Background Intelligent Transfer Service was changed from d
+  SHELLBAG (0):
+
+## A02  VM powered off; host UTC = 2026-08-26T22:31:55.2974385Z   [22:36:04 to 22:36:42]
+  PREFETCH (0):
+  EVTX (0):
+  SHELLBAG (0):
+
+## A03  VM powered on; host UTC = 2026-08-26T22:34:18.9453068Z   [22:37:08 to 22:37:20]
+  PREFETCH (0):
+  EVTX (1):
+    Security               Microsoft-Windows-Security-Auditing EID 4689   x1  | A process has exited
+  SHELLBAG (0):
+
+## A04  Wait 90s for post-boot   [22:39:07 to 22:41:26]
+  PREFETCH (24):
+    22:40:04  APPLICATIONFRAMEHOST.EXE
+    22:39:50  BACKGROUNDTASKHOST.EXE
+    22:41:22  COMPATTELRUNNER.EXE
+    22:40:21  DLLHOST.EXE
+    22:40:21  MICROSOFTEDGEUPDATE.EXE
+    22:39:50  MOUSOCOREWORKER.EXE
+    22:39:50  RUNTIMEBROKER.EXE
+    22:41:26  SVCHOST.EXE
+    22:40:31  SVCHOST.EXE
+    22:40:31  SVCHOST.EXE
+    22:40:22  SVCHOST.EXE
+    22:40:23  SVCHOST.EXE
+    22:40:22  SVCHOST.EXE
+    22:39:50  SVCHOST.EXE
+    22:40:22  SVCHOST.EXE
+    22:40:22  SVCHOST.EXE
+    22:40:22  SVCHOST.EXE
+    22:40:05  SVCHOST.EXE
+    22:40:06  SVCHOST.EXE
+    22:40:22  SVCHOST.EXE
+    22:40:21  TASKHOSTW.EXE
+    22:40:35  TIWORKER.EXE
+    22:40:35  TRUSTEDINSTALLER.EXE
+    22:41:26  WMIPRVSE.EXE
+  EVTX (134):
+    Security               Microsoft-Windows-Security-Auditing EID 4688   x47  | Parent process: C:\Windows\System32\svchost.exe
+    Security               Microsoft-Windows-Security-Auditing EID 4689   x27  | A process has exited
+    Security               Microsoft-Windows-Security-Auditing EID 5379   x27  | {"EventData":{"Data":[{"@Name":"SubjectUserSid","#text":"S-1-5-18"},{"@Name":"Su
+    Security               Microsoft-Windows-Security-Auditing EID 4624   x12  | Target: NT AUTHORITY\SYSTEM
+    Security               Microsoft-Windows-Security-Auditing EID 4672   x12  | PrivilegeList: SeAssignPrimaryTokenPrivilege, SeTcbPrivilege, SeSecurityPrivileg
+    Security               Microsoft-Windows-Security-Auditing EID 4799   x2  | Target: Builtin\Administrators (S-1-5-32-544)
+    Application            Microsoft-Windows-Security-SPP      EID 16394  x1  | {"EventData":{"Data":"","Binary":""}}
+    Application            Microsoft-Windows-Security-SPP      EID 16384  x1  | {"EventData":{"Data":"2026-10-12T10:03:19Z, RulesEngine","Binary":""}}
+    Security               Microsoft-Windows-Security-Auditing EID 4663   x1  | ObjectServer: Security
+    Security               Microsoft-Windows-Security-Auditing EID 4798   x1  | Target: disstestbedvm\dfanalyst (S-1-5-21-4209295338-567392030-2519289182-1001)
+    Security               Microsoft-Windows-Security-Auditing EID 5382   x1  | {"EventData":{"Data":[{"@Name":"SubjectUserSid","#text":"S-1-5-18"},{"@Name":"Su
+    System                 Service Control Manager             EID 7040   x1  | The start type of the Background Intelligent Transfer Service was changed from d
+    System                 Microsoft-Windows-Kernel-General    EID 16     x1  | {"EventData":{"Data":[{"@Name":"HiveNameLength","#text":"52"},{"@Name":"HiveName
+  SHELLBAG (0):
+

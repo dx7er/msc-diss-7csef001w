@@ -1,0 +1,149 @@
+# Correlation report: scenario_9
+# Actions: 8 | Prefetch rows: 63 | EVTX rows: 654 | ShellBag rows: 12
+
+## A01  Launch chrome from Start   [09:03:36 to 09:04:02]
+  PREFETCH (14):
+    09:03:45  CHROME.EXE
+    09:03:46  CHROME.EXE
+    09:03:45  CHROME.EXE
+    09:03:46  CHROME.EXE
+    09:03:46  CHROME.EXE
+    09:03:46  CHROME.EXE
+    09:03:58  CHROME.EXE
+    09:03:58  CHROME.EXE
+    09:03:58  CHROME.EXE
+    09:03:51  CHROME.EXE
+    09:03:50  CHROME.EXE
+    09:03:49  CHROME.EXE
+    09:03:45  DLLHOST.EXE
+    09:03:46  ELEVATION_SERVICE.EXE
+  EVTX (102):
+    Security               Microsoft-Windows-Security-Auditing EID 4688   x51  | Parent process: C:\Windows\System32\svchost.exe
+    Security               Microsoft-Windows-Security-Auditing EID 4689   x42  | A process has exited
+    Security               Microsoft-Windows-Security-Auditing EID 5379   x4  | {"EventData":{"Data":[{"@Name":"SubjectUserSid","#text":"S-1-5-21-4209295338-567
+    Application            VSS                                 EID 8224   x1  | {"EventData":{"Data":"","Binary":"2D-20-43-6F-64-65-3A-20-20-43-4F-52-53-56-43-4
+    Security               Microsoft-Windows-Security-Auditing EID 4624   x1  | Target: NT AUTHORITY\SYSTEM
+    Security               Microsoft-Windows-Security-Auditing EID 4672   x1  | PrivilegeList: SeAssignPrimaryTokenPrivilege, SeTcbPrivilege, SeSecurityPrivileg
+    Security               Microsoft-Windows-Security-Auditing EID 5058   x1  | {"EventData":{"Data":[{"@Name":"SubjectUserSid","#text":"S-1-5-18"},{"@Name":"Su
+    Security               Microsoft-Windows-Security-Auditing EID 5061   x1  | {"EventData":{"Data":[{"@Name":"SubjectUserSid","#text":"S-1-5-18"},{"@Name":"Su
+  SHELLBAG (0):
+
+## A02  Navigate to UoW website   [09:04:37 to 09:05:28]
+  PREFETCH (6):
+    09:05:01  CHROME.EXE
+    09:05:00  CHROME.EXE
+    09:04:59  CHROME.EXE
+    09:04:57  CHROME.EXE
+    09:04:55  CHROME.EXE
+    09:05:18  TASKHOSTW.EXE
+  EVTX (155):
+    Security               Microsoft-Windows-Security-Auditing EID 4688   x80  | Parent process: C:\Windows\System32\services.exe
+    Security               Microsoft-Windows-Security-Auditing EID 4689   x74  | A process has exited
+    Application            Microsoft-Windows-CAPI2             EID 4097   x1  | {"EventData":{"Data":"CN=GlobalSign, O=GlobalSign, OU=GlobalSign Root CA - R3, D
+  SHELLBAG (0):
+
+## A03  Navigate to bbc & Open first headline   [09:06:03 to 09:06:57]
+  PREFETCH (1):
+    09:06:46  SEARCHPROTOCOLHOST.EXE
+  EVTX (107):
+    Security               Microsoft-Windows-Security-Auditing EID 4688   x55  | Parent process: C:\Windows\System32\services.exe
+    Security               Microsoft-Windows-Security-Auditing EID 4689   x52  | A process has exited
+  SHELLBAG (0):
+
+## A04  Open digital forensics in wikipedia & scroll   [09:08:04 to 09:09:35]
+  PREFETCH (13):
+    09:08:38  COMPATTELRUNNER.EXE
+    09:09:25  COMPPKGSRV.EXE
+    09:09:16  DLLHOST.EXE
+    09:09:16  MICROSOFTEDGEUPDATE.EXE
+    09:09:16  MICROSOFTEDGEUPDATE.EXE
+    09:09:16  MICROSOFTEDGEUPDATE.EXE
+    09:09:16  MOUSOCOREWORKER.EXE
+    09:09:16  SOFTLANDINGTASK.EXE
+    09:09:16  SOFTLANDINGTASK.EXE
+    09:09:16  SVCHOST.EXE
+    09:09:17  SVCHOST.EXE
+    09:08:39  SVCHOST.EXE
+    09:09:21  TRUSTEDINSTALLER.EXE
+  EVTX (146):
+    Security               Microsoft-Windows-Security-Auditing EID 4688   x63  | Parent process: C:\Program Files\Google\Chrome\Application\chrome.exe
+    Security               Microsoft-Windows-Security-Auditing EID 4689   x43  | A process has exited
+    Security               Microsoft-Windows-Security-Auditing EID 5379   x20  | {"EventData":{"Data":[{"@Name":"SubjectUserSid","#text":"S-1-5-18"},{"@Name":"Su
+    Security               Microsoft-Windows-Security-Auditing EID 4624   x7  | Target: NT AUTHORITY\SYSTEM
+    Security               Microsoft-Windows-Security-Auditing EID 4672   x7  | PrivilegeList: SeAssignPrimaryTokenPrivilege, SeTcbPrivilege, SeSecurityPrivileg
+    Application            Windows Error Reporting             EID 1001   x1  | Application Crash
+    Application            Microsoft-Windows-Security-SPP      EID 16394  x1  | {"EventData":{"Data":"","Binary":""}}
+    Security               Microsoft-Windows-Security-Auditing EID 4663   x1  | ObjectServer: Security
+    Security               Microsoft-Windows-Security-Auditing EID 4798   x1  | Target: disstestbedvm\dfanalyst (S-1-5-21-4209295338-567392030-2519289182-1001)
+    Security               Microsoft-Windows-Security-Auditing EID 5382   x1  | {"EventData":{"Data":[{"@Name":"SubjectUserSid","#text":"S-1-5-18"},{"@Name":"Su
+    System                 Microsoft-Windows-DistributedCOM    EID 10016  x1  | {"EventData":{"Data":[{"@Name":"param1","#text":"application-specific"},{"@Name"
+  SHELLBAG (0):
+
+## A05  Download a sample pdf from File Examples   [09:11:30 to 09:12:47]
+  PREFETCH (20):
+    09:12:38  ACROBAT.EXE
+    09:12:14  ACROBAT.EXE
+    09:12:06  ACROBAT.EXE
+    09:12:04  ACROBAT.EXE
+    09:12:04  ACROBAT.EXE
+    09:12:38  ACROBAT.EXE
+    09:12:06  ACROBAT.EXE
+    09:12:06  ACROCEF.EXE
+    09:12:14  ACROCEF.EXE
+    09:12:07  ACROCEF.EXE
+    09:12:19  ADNOTIFICATIONMANAGER.EXE
+    09:12:18  ADOBEARM.EXE
+    09:11:40  CHROME.EXE
+    09:11:37  CHROME.EXE
+    09:11:37  CHROME.EXE
+    09:11:50  CHROME.EXE
+    09:12:07  MSEDGEWEBVIEW2.EXE
+    09:12:16  MSEDGEWEBVIEW2.EXE
+    09:12:15  MSEDGEWEBVIEW2.EXE
+    09:12:05  SEARCHFILTERHOST.EXE
+  EVTX (95):
+    Security               Microsoft-Windows-Security-Auditing EID 4688   x41  | Parent process: C:\Program Files\Google\Chrome\Application\chrome.exe
+    Security               Microsoft-Windows-Security-Auditing EID 4689   x21  | A process has exited
+    Security               Microsoft-Windows-Security-Auditing EID 5379   x19  | {"EventData":{"Data":[{"@Name":"SubjectUserSid","#text":"S-1-5-21-4209295338-567
+    System                 Microsoft-Windows-DistributedCOM    EID 10016  x4  | {"EventData":{"Data":[{"@Name":"param1","#text":"application-specific"},{"@Name"
+    Security               Microsoft-Windows-Security-Auditing EID 4696   x3  | Target: disstestbedvm\dfanalyst (S-1-5-21-4209295338-567392030-2519289182-1001)
+    System                 Microsoft-Windows-WindowsUpdateClient EID 43     x3  | {"EventData":{"Data":[{"@Name":"updateTitle","#text":"9NRZT3Q9R3DL-Microsoft.Win
+    System                 Microsoft-Windows-WindowsUpdateClient EID 19     x3  | {"EventData":{"Data":[{"@Name":"updateTitle","#text":"9NRZT3Q9R3DL-Microsoft.Win
+    Security               Microsoft-Windows-Security-Auditing EID 4798   x1  | Target: disstestbedvm\dfanalyst (S-1-5-21-4209295338-567392030-2519289182-1001)
+  SHELLBAG (0):
+
+## A06  Close Chrome   [09:12:56 to 09:13:10]
+  PREFETCH (4):
+    09:13:03  UPDATER.EXE
+    09:13:03  UPDATER.EXE
+    09:13:03  UPDATER.EXE
+    09:13:03  UPDATER.EXE
+  EVTX (34):
+    Security               Microsoft-Windows-Security-Auditing EID 4689   x27  | A process has exited
+    Security               Microsoft-Windows-Security-Auditing EID 4688   x6  | Parent process: C:\Windows\System32\svchost.exe
+    Security               Microsoft-Windows-Security-Auditing EID 5379   x1  | {"EventData":{"Data":[{"@Name":"SubjectUserSid","#text":"S-1-5-21-4209295338-567
+  SHELLBAG (0):
+
+## A07  Open Downloads using File Explorer   [09:13:38 to 09:14:00]
+  PREFETCH (5):
+    09:13:43  BACKGROUNDTASKHOST.EXE
+    09:13:46  DLLHOST.EXE
+    09:13:47  FILECOAUTH.EXE
+    09:13:49  MSEDGEWEBVIEW2.EXE
+    09:13:47  RUNDLL32.EXE
+  EVTX (14):
+    Security               Microsoft-Windows-Security-Auditing EID 4688   x5  | Parent process: C:\Windows\System32\svchost.exe
+    Security               Microsoft-Windows-Security-Auditing EID 4689   x5  | A process has exited
+    Security               Microsoft-Windows-Security-Auditing EID 4663   x4  | ObjectServer: Security
+  SHELLBAG (4):
+    UsrClass  09:13:47  Desktop\Win11 21H2
+    UsrClass  09:13:47  Desktop\This PC
+    UsrClass  09:13:47  Desktop\Desktop
+    UsrClass  09:13:47  Desktop\Downloads
+
+## A08  Close File Explorer   [09:14:51 to 09:15:04]
+  PREFETCH (0):
+  EVTX (1):
+    Security               Microsoft-Windows-Security-Auditing EID 4689   x1  | A process has exited
+  SHELLBAG (0):
+

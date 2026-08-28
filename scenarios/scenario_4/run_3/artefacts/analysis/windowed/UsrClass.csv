@@ -1,0 +1,14 @@
+﻿BagPath,Slot,NodeSlot,MRUPosition,AbsolutePath,ShellType,Value,ChildBags,CreatedOn,ModifiedOn,AccessedOn,LastWriteTime,MFTEntry,MFTSequenceNumber,ExtensionBlockCount,FirstInteracted,LastInteracted,HasExplored,Miscellaneous
+BagMRU,0,0,2,Desktop\Win11 21H2,Root folder: GUID,Win11 21H2,0,,,,2026-08-22 21:03:13,,,0,2026-07-14 09:52:42,,False,
+BagMRU,1,0,0,Desktop\This PC,Root folder: GUID,This PC,1,,,,2026-08-22 21:03:13,,,0,,2026-08-22 21:03:13,False,
+BagMRU,2,0,4,Desktop\Desktop,Root folder: GUID,Desktop,0,,,,2026-08-22 21:03:13,,,1,2026-07-14 10:39:54,,False,
+BagMRU,3,0,3,Desktop\Downloads,Root folder: GUID,Downloads,0,,,,2026-08-22 21:03:13,,,0,2026-07-14 10:39:56,,False,
+BagMRU,4,0,1,Desktop\E:\,Users property view: Drive letter,E:\,1,,,,2026-08-22 21:03:13,,,0,,,False,
+BagMRU\1,0,3,0,Desktop\This PC\C:,Drive letter,C:,4,,,,2026-07-14 09:53:05,,,0,,2026-07-14 09:53:05,True,
+BagMRU\1\0,0,4,3,Desktop\This PC\C:\Users,Directory,Users,1,2024-04-01 07:21:18,2026-07-14 08:25:46,2026-07-14 09:50:08,2026-07-17 19:29:15,3534,1,1,,,True,NTFS file system
+BagMRU\1\0,1,6,2,Desktop\This PC\C:\Temp,Directory,Temp,0,2026-07-14 09:53:48,2026-07-14 09:57:22,2026-07-14 09:57:22,2026-07-17 19:29:15,155879,1,1,2026-07-14 09:58:45,,True,NTFS file system
+BagMRU\1\0,2,7,0,Desktop\This PC\C:\DISS_Config,Directory,DISS_Config,0,2026-07-14 10:08:06,2026-07-14 10:08:06,2026-07-14 10:09:22,2026-07-17 19:29:15,157114,3,1,2026-07-14 10:11:28,2026-07-17 19:29:15,True,NTFS file system
+BagMRU\1\0,3,10,1,Desktop\This PC\C:\DISS_TESTDATA,Directory,DISS_TESTDATA,1,2026-07-16 10:29:26,2026-07-16 10:29:26,2026-07-16 10:29:26,2026-07-17 19:29:15,44516,5,1,,,True,NTFS file system
+BagMRU\1\0\0,0,5,0,Desktop\This PC\C:\Users\dfanalyst,Directory,dfanalyst,0,2026-07-14 08:14:38,2026-07-14 09:50:16,2026-07-14 09:50:16,2026-07-14 09:53:09,144607,6,1,2026-07-14 09:53:09,2026-07-14 09:53:09,True,NTFS file system
+BagMRU\1\0\3,0,11,0,Desktop\This PC\C:\DISS_TESTDATA\PILOT,Directory,PILOT,0,2026-07-16 10:29:26,2026-07-16 10:29:26,2026-07-16 10:29:26,2026-07-17 19:29:12,44518,6,1,2026-07-17 19:29:12,2026-07-17 19:29:12,True,NTFS file system
+BagMRU\4,0,13,0,Desktop\E:\\PORTABLE,Directory,PORTABLE,0,2026-08-22 11:15:50,2026-08-22 11:15:50,2026-08-22 19:49:24,2026-08-22 21:01:54,38,1,1,2026-08-22 21:01:54,2026-08-22 21:01:54,True,NTFS file system

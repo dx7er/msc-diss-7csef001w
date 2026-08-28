@@ -1,0 +1,112 @@
+# Correlation report: run_3
+# Actions: 7 | Prefetch rows: 28 | EVTX rows: 181 | ShellBag rows: 15
+
+## A01  Launch Notepad++ from Start   [01:37:08 to 01:37:38]
+  PREFETCH (3):
+    01:37:16  GUP.EXE
+    01:37:09  MSEDGE.EXE
+    01:37:15  NOTEPAD++.EXE
+  EVTX (27):
+    Security               Microsoft-Windows-Security-Auditing EID 4689   x13  | A process has exited
+    Security               Microsoft-Windows-Security-Auditing EID 5379   x7  | {"EventData":{"Data":[{"@Name":"SubjectUserSid","#text":"S-1-5-21-4209295338-567
+    Security               Microsoft-Windows-Security-Auditing EID 4688   x6  | Parent process: C:\Windows\System32\svchost.exe
+    Application            Edge                                EID 256    x1  | {"EventData":{"Data":"[10688:10948:0823/013709.227:INFO:chrome\\browser\\extensi
+  SHELLBAG (0):
+
+## A02  Type Scenario 7 test content with UTC marker   [01:37:46 to 01:38:27]
+  PREFETCH (15):
+    01:38:02  FILECOAUTH.EXE
+    01:37:53  MSEDGEWEBVIEW2.EXE
+    01:37:53  MSEDGEWEBVIEW2.EXE
+    01:38:24  RUNTIMEBROKER.EXE
+    01:38:01  RUNTIMEBROKER.EXE
+    01:38:02  RUNTIMEBROKER.EXE
+    01:38:24  RUNTIMEBROKER.EXE
+    01:38:01  RUNTIMEBROKER.EXE
+    01:37:47  SPPSVC.EXE
+    01:38:01  STOREDESKTOPEXTENSION.EXE
+    01:37:47  SVCHOST.EXE
+    01:37:47  SVCHOST.EXE
+    01:37:47  SVCHOST.EXE
+    01:38:02  USEROOBEBROKER.EXE
+    01:38:10  WMIAPSRV.EXE
+  EVTX (91):
+    Security               Microsoft-Windows-Security-Auditing EID 4688   x42  | Parent process: C:\Windows\System32\services.exe
+    Security               Microsoft-Windows-Security-Auditing EID 4689   x19  | A process has exited
+    Security               Microsoft-Windows-Security-Auditing EID 5379   x7  | {"EventData":{"Data":[{"@Name":"SubjectUserSid","#text":"S-1-5-21-4209295338-567
+    Security               Microsoft-Windows-Security-Auditing EID 4624   x4  | Target: NT AUTHORITY\SYSTEM
+    Security               Microsoft-Windows-Security-Auditing EID 4672   x4  | PrivilegeList: SeAssignPrimaryTokenPrivilege, SeTcbPrivilege, SeSecurityPrivileg
+    Security               Microsoft-Windows-Security-Auditing EID 5382   x4  | {"EventData":{"Data":[{"@Name":"SubjectUserSid","#text":"S-1-5-21-4209295338-567
+    System                 Microsoft-Windows-DistributedCOM    EID 10016  x3  | {"EventData":{"Data":[{"@Name":"param1","#text":"application-specific"},{"@Name"
+    Application            edgeupdate                          EID 0      x1  | {"EventData":{"Data":"Service stopped","Binary":""}}
+    Application            Microsoft-Windows-Security-SPP      EID 900    x1  | {"EventData":{"Data":"&lt;explicit&gt;","Binary":""}}
+    Application            Microsoft-Windows-Security-SPP      EID 16394  x1  | {"EventData":{"Data":"","Binary":""}}
+    Application            SecurityCenter                      EID 1      x1  | {"EventData":{"Data":"","Binary":""}}
+    Application            SecurityCenter                      EID 15     x1  | {"EventData":{"Data":"Windows Defender, SECURITY_PRODUCT_STATE_ON","Binary":""}}
+    Application            Microsoft-Windows-Security-SPP      EID 16384  x1  | {"EventData":{"Data":"2026-10-12T10:04:17Z, RulesEngine","Binary":""}}
+    System                 Microsoft-Windows-Time-Service      EID 37     x1  | ServerAddress: time.windows.com
+    System                 Microsoft-Windows-Kernel-General    EID 16     x1  | {"EventData":{"Data":[{"@Name":"HiveNameLength","#text":"111"},{"@Name":"HiveNam
+  SHELLBAG (0):
+
+## A03  File menu, Save As in Docuemts folder   [01:38:35 to 01:39:39]
+  PREFETCH (6):
+    01:39:35  AM_DELTA.EXE
+    01:39:35  MPSIGSTUB.EXE
+    01:38:39  MSEDGE.EXE
+    01:39:18  SEARCHFILTERHOST.EXE
+    01:39:18  SEARCHPROTOCOLHOST.EXE
+    01:39:35  WUAUCLTCORE.EXE
+  EVTX (38):
+    Security               Microsoft-Windows-Security-Auditing EID 4689   x22  | A process has exited
+    Security               Microsoft-Windows-Security-Auditing EID 4688   x9  | Parent process: C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe
+    Security               Microsoft-Windows-Security-Auditing EID 4663   x3  | ObjectServer: Security
+    Application            Windows Error Reporting             EID 1001   x1  | Application Crash
+    Application            VSS                                 EID 8224   x1  | {"EventData":{"Data":"","Binary":"2D-20-43-6F-64-65-3A-20-20-43-4F-52-53-56-43-4
+    Security               Microsoft-Windows-Security-Auditing EID 4798   x1  | Target: disstestbedvm\dfanalyst (S-1-5-21-4209295338-567392030-2519289182-1001)
+    System                 Microsoft-Windows-WindowsUpdateClient EID 43     x1  | {"EventData":{"Data":[{"@Name":"updateTitle","#text":"Security Intelligence Upda
+  SHELLBAG (7):
+    UsrClass  01:38:48  Desktop\Documents
+    UsrClass  01:38:43  Desktop\This PC\C:\Users
+    UsrClass  01:38:43  Desktop\This PC\C:\Temp
+    UsrClass  01:38:43  Desktop\This PC\C:\DISS_Config
+    UsrClass  01:38:43  Desktop\This PC\C:\DISS_TESTDATA
+    UsrClass  01:38:43  Desktop\This PC\C:\Program Files
+    UsrClass  01:38:43  Desktop\This PC\C:\Program Files\Notepad++
+
+## A04  Closing Notepad++   [01:39:45 to 01:40:02]
+  PREFETCH (0):
+  EVTX (2):
+    Application            SecurityCenter                      EID 15     x1  | {"EventData":{"Data":"Windows Defender, SECURITY_PRODUCT_STATE_ON","Binary":""}}
+    Security               Microsoft-Windows-Security-Auditing EID 4689   x1  | A process has exited
+  SHELLBAG (0):
+
+## A05  Opening Documents folder using File Explorer   [01:40:09 to 01:40:35]
+  PREFETCH (3):
+    01:40:18  FILECOAUTH.EXE
+    01:40:18  RUNDLL32.EXE
+    01:40:33  TASKHOSTW.EXE
+  EVTX (13):
+    Security               Microsoft-Windows-Security-Auditing EID 4689   x5  | A process has exited
+    Security               Microsoft-Windows-Security-Auditing EID 4688   x5  | Parent process: C:\Windows\System32\svchost.exe
+    Security               Microsoft-Windows-Security-Auditing EID 4663   x3  | ObjectServer: Security
+  SHELLBAG (5):
+    UsrClass  01:40:18  Desktop\Win11 21H2
+    UsrClass  01:40:18  Desktop\This PC
+    UsrClass  01:40:18  Desktop\Desktop
+    UsrClass  01:40:18  Desktop\Downloads
+    UsrClass  01:40:18  Desktop\Documents
+
+## A06  Viewing the file created   [01:40:43 to 01:40:59]
+  PREFETCH (1):
+    01:40:48  NOTEPAD.EXE
+  EVTX (6):
+    Security               Microsoft-Windows-Security-Auditing EID 4689   x4  | A process has exited
+    Security               Microsoft-Windows-Security-Auditing EID 4688   x2  | Parent process: C:\Windows\System32\svchost.exe
+  SHELLBAG (0):
+
+## A07  Closing File explorer and Applications   [01:41:04 to 01:41:27]
+  PREFETCH (0):
+  EVTX (4):
+    Security               Microsoft-Windows-Security-Auditing EID 4689   x4  | A process has exited
+  SHELLBAG (0):
+

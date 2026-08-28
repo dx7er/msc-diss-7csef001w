@@ -1,0 +1,62 @@
+# Correlation report: scenario_5
+# Actions: 4 | Prefetch rows: 15 | EVTX rows: 58 | ShellBag rows: 12
+
+## A01  Open Explorer, navigate to C:\DISS_TESTDATA\scenario5_delete   [08:28:53 to 08:29:25]
+  PREFETCH (2):
+    08:29:01  RUNDLL32.EXE
+    08:29:24  SPPSVC.EXE
+  EVTX (21):
+    Security               Microsoft-Windows-Security-Auditing EID 4689   x10  | A process has exited
+    Security               Microsoft-Windows-Security-Auditing EID 4688   x4  | Parent process: C:\Windows\System32\svchost.exe
+    Security               Microsoft-Windows-Security-Auditing EID 4663   x3  | ObjectServer: Security
+    Security               Microsoft-Windows-Security-Auditing EID 4798   x2  | Target: disstestbedvm\dfanalyst (S-1-5-21-4209295338-567392030-2519289182-1001)
+    Application            Microsoft-Windows-Security-SPP      EID 16384  x1  | {"EventData":{"Data":"2026-10-12T10:03:19Z, RulesEngine","Binary":""}}
+    Application            Microsoft-Windows-Security-SPP      EID 16394  x1  | {"EventData":{"Data":"","Binary":""}}
+  SHELLBAG (10):
+    UsrClass  08:29:01  Desktop\Win11 21H2
+    UsrClass  08:29:01  Desktop\This PC
+    UsrClass  08:29:01  Desktop\Desktop
+    UsrClass  08:29:01  Desktop\Downloads
+    UsrClass  08:29:01  Desktop\This PC\C:\Users
+    UsrClass  08:29:01  Desktop\This PC\C:\Temp
+    UsrClass  08:29:01  Desktop\This PC\C:\DISS_Config
+    UsrClass  08:29:01  Desktop\This PC\C:\DISS_TESTDATA
+    UsrClass  08:29:01  Desktop\This PC\C:\DISS_TESTDATA\PILOT
+    UsrClass  08:29:01  Desktop\This PC\C:\DISS_TESTDATA\scenario5_delete
+
+## A02  Delete scenario5_target.txt to Recycle Bin   [08:29:57 to 08:30:23]
+  PREFETCH (0):
+  EVTX (2):
+    Security               Microsoft-Windows-Security-Auditing EID 4689   x1  | A process has exited
+    System                 Service Control Manager             EID 7040   x1  | The start type of the Background Intelligent Transfer Service was changed from a
+  SHELLBAG (0):
+
+## A03  Open Recycle Bin from Desktop   [08:30:46 to 08:31:07]
+  PREFETCH (0):
+  EVTX (0):
+  SHELLBAG (0):
+
+## A05  Empty Recycle Bin   [08:32:11 to 08:32:32]
+  PREFETCH (13):
+    08:32:18  CONHOST.EXE
+    08:32:18  CONHOST.EXE
+    08:32:18  DLLHOST.EXE
+    08:32:18  MPCMDRUN.EXE
+    08:32:18  MPCMDRUN.EXE
+    08:32:18  MPCMDRUN.EXE
+    08:32:18  MPCMDRUN.EXE
+    08:32:31  SECURITYHEALTHHOST.EXE
+    08:32:27  SPPSVC.EXE
+    08:32:31  SVCHOST.EXE
+    08:32:31  TASKHOSTW.EXE
+    08:32:27  TIWORKER.EXE
+    08:32:27  TRUSTEDINSTALLER.EXE
+  EVTX (35):
+    Security               Microsoft-Windows-Security-Auditing EID 4688   x17  | Parent process: C:\ProgramData\Microsoft\Windows Defender\Platform\4.18.26070.9-
+    Security               Microsoft-Windows-Security-Auditing EID 4689   x11  | A process has exited
+    Application            SecurityCenter                      EID 15     x2  | {"EventData":{"Data":"Windows Defender, SECURITY_PRODUCT_STATE_ON","Binary":""}}
+    Security               Microsoft-Windows-Security-Auditing EID 4624   x2  | Target: NT AUTHORITY\SYSTEM
+    Security               Microsoft-Windows-Security-Auditing EID 4672   x2  | PrivilegeList: SeAssignPrimaryTokenPrivilege, SeTcbPrivilege, SeSecurityPrivileg
+    Application            Microsoft-Windows-Security-SPP      EID 16394  x1  | {"EventData":{"Data":"","Binary":""}}
+  SHELLBAG (0):
+

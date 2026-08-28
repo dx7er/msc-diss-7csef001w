@@ -1,0 +1,131 @@
+# Correlation report: scenario_2
+# Actions: 6 | Prefetch rows: 64 | EVTX rows: 462 | ShellBag rows: 12
+
+## A01  Iter 1 - launch notepad.exe   [18:29:47 to 18:30:35]
+  PREFETCH (12):
+    18:30:10  BACKGROUNDTASKHOST.EXE
+    18:30:09  CONHOST.EXE
+    18:30:09  MPCMDRUN.EXE
+    18:30:09  MPCMDRUN.EXE
+    18:30:09  MPCMDRUN.EXE
+    18:29:53  NOTEPAD.EXE
+    18:30:10  SECURITYHEALTHHOST.EXE
+    18:30:10  SECURITYHEALTHHOST.EXE
+    18:30:10  SVCHOST.EXE
+    18:30:19  SVCHOST.EXE
+    18:30:10  TASKHOSTW.EXE
+    18:30:19  WMIPRVSE.EXE
+  EVTX (30):
+    Security               Microsoft-Windows-Security-Auditing EID 4688   x15  | Parent process: C:\Windows\explorer.exe
+    Security               Microsoft-Windows-Security-Auditing EID 4689   x10  | A process has exited
+    Security               Microsoft-Windows-Security-Auditing EID 4624   x2  | Target: NT AUTHORITY\SYSTEM
+    Security               Microsoft-Windows-Security-Auditing EID 4672   x2  | PrivilegeList: SeAssignPrimaryTokenPrivilege, SeTcbPrivilege, SeSecurityPrivileg
+    System                 Microsoft-Windows-WindowsUpdateClient EID 44     x1  | {"EventData":{"Data":[{"@Name":"updateTitle","#text":"Security Intelligence Upda
+  SHELLBAG (0):
+
+## A02  Iter 1 - launch calc.exe   [18:31:02 to 18:31:47]
+  PREFETCH (8):
+    18:31:29  AM_DELTA_PATCH_1.457.187.0.EX
+    18:31:08  CALCULATORAPP.EXE
+    18:31:08  DLLHOST.EXE
+    18:31:29  MPSIGSTUB.EXE
+    18:31:08  RUNTIMEBROKER.EXE
+    18:31:08  SVCHOST.EXE
+    18:31:06  SVCHOST.EXE
+    18:31:29  WUAUCLTCORE.EXE
+  EVTX (32):
+    Security               Microsoft-Windows-Security-Auditing EID 5379   x10  | {"EventData":{"Data":[{"@Name":"SubjectUserSid","#text":"S-1-5-18"},{"@Name":"Su
+    Security               Microsoft-Windows-Security-Auditing EID 4689   x9  | A process has exited
+    Security               Microsoft-Windows-Security-Auditing EID 4688   x8  | Parent process: C:\Windows\System32\services.exe
+    Application            SecurityCenter                      EID 15     x1  | {"EventData":{"Data":"Windows Defender, SECURITY_PRODUCT_STATE_ON","Binary":""}}
+    Security               Microsoft-Windows-Security-Auditing EID 4624   x1  | Target: NT AUTHORITY\SYSTEM
+    Security               Microsoft-Windows-Security-Auditing EID 4672   x1  | PrivilegeList: SeAssignPrimaryTokenPrivilege, SeTcbPrivilege, SeSecurityPrivileg
+    System                 Microsoft-Windows-WindowsUpdateClient EID 43     x1  | {"EventData":{"Data":[{"@Name":"updateTitle","#text":"Security Intelligence Upda
+    System                 Microsoft-Windows-WindowsUpdateClient EID 19     x1  | {"EventData":{"Data":[{"@Name":"updateTitle","#text":"Security Intelligence Upda
+  SHELLBAG (0):
+
+## A03  Iter 1 - launch chrome.exe   [18:32:02 to 18:33:11]
+  PREFETCH (22):
+    18:32:07  CHROME.EXE
+    18:32:20  CHROME.EXE
+    18:32:19  CHROME.EXE
+    18:32:19  CHROME.EXE
+    18:32:19  CHROME.EXE
+    18:32:19  CHROME.EXE
+    18:32:19  CHROME.EXE
+    18:32:08  CHROME.EXE
+    18:32:07  CHROME.EXE
+    18:32:16  CHROME.EXE
+    18:32:08  CHROME.EXE
+    18:32:08  CHROME.EXE
+    18:32:22  CHROME.EXE
+    18:32:21  CHROME.EXE
+    18:32:21  CHROME.EXE
+    18:32:13  CHROME.EXE
+    18:32:12  CHROME.EXE
+    18:32:11  CHROME.EXE
+    18:32:08  ELEVATION_SERVICE.EXE
+    18:32:08  SVCHOST.EXE
+    18:32:27  UPDATER.EXE
+    18:32:27  UPDATER.EXE
+  EVTX (303):
+    Security               Microsoft-Windows-Security-Auditing EID 4689   x149  | A process has exited
+    Security               Microsoft-Windows-Security-Auditing EID 4688   x145  | Parent process: C:\Windows\System32\svchost.exe
+    Security               Microsoft-Windows-Security-Auditing EID 5379   x4  | {"EventData":{"Data":[{"@Name":"SubjectUserSid","#text":"S-1-5-21-4209295338-567
+    Application            Chrome                              EID 256    x1  | {"EventData":{"Data":"[5884:8428:0817/183238.396:INFO:chrome\\browser\\extension
+    Security               Microsoft-Windows-Security-Auditing EID 5058   x1  | {"EventData":{"Data":[{"@Name":"SubjectUserSid","#text":"S-1-5-18"},{"@Name":"Su
+    Security               Microsoft-Windows-Security-Auditing EID 5061   x1  | {"EventData":{"Data":[{"@Name":"SubjectUserSid","#text":"S-1-5-18"},{"@Name":"Su
+    Security               Microsoft-Windows-Security-Auditing EID 4624   x1  | Target: NT AUTHORITY\SYSTEM
+    Security               Microsoft-Windows-Security-Auditing EID 4672   x1  | PrivilegeList: SeAssignPrimaryTokenPrivilege, SeTcbPrivilege, SeSecurityPrivileg
+  SHELLBAG (0):
+
+## A04  Iter 1 - launch winrar.exe   [18:34:12 to 18:34:58]
+  PREFETCH (18):
+    18:34:49  BACKGROUNDTASKHOST.EXE
+    18:34:17  DLLHOST.EXE
+    18:34:49  MOUSOCOREWORKER.EXE
+    18:34:19  MSEDGEWEBVIEW2.EXE
+    18:34:19  MSEDGEWEBVIEW2.EXE
+    18:34:19  MSEDGEWEBVIEW2.EXE
+    18:34:19  MSEDGEWEBVIEW2.EXE
+    18:34:19  MSEDGEWEBVIEW2.EXE
+    18:34:19  MSEDGEWEBVIEW2.EXE
+    18:34:18  RAREXTINSTALLER.EXE
+    18:34:49  RUNTIMEBROKER.EXE
+    18:34:49  SPPSVC.EXE
+    18:34:53  SVCHOST.EXE
+    18:34:49  SVCHOST.EXE
+    18:34:49  TASKHOSTW.EXE
+    18:34:50  TIWORKER.EXE
+    18:34:50  TRUSTEDINSTALLER.EXE
+    18:34:18  WINRAR.EXE
+  EVTX (71):
+    Security               Microsoft-Windows-Security-Auditing EID 5379   x25  | {"EventData":{"Data":[{"@Name":"SubjectUserSid","#text":"S-1-5-21-4209295338-567
+    Security               Microsoft-Windows-Security-Auditing EID 4688   x22  | Parent process: C:\Windows\System32\svchost.exe
+    Security               Microsoft-Windows-Security-Auditing EID 4689   x16  | A process has exited
+    Security               Microsoft-Windows-Security-Auditing EID 4624   x3  | Target: NT AUTHORITY\SYSTEM
+    Security               Microsoft-Windows-Security-Auditing EID 4672   x3  | PrivilegeList: SeAssignPrimaryTokenPrivilege, SeTcbPrivilege, SeSecurityPrivileg
+    Application            Microsoft-Windows-Security-SPP      EID 16394  x1  | {"EventData":{"Data":"","Binary":""}}
+    Security               Microsoft-Windows-Security-Auditing EID 4798   x1  | Target: disstestbedvm\dfanalyst (S-1-5-21-4209295338-567392030-2519289182-1001)
+  SHELLBAG (0):
+
+## A05  Iter 1 - launch vlc.exe   [18:35:34 to 18:36:50]
+  PREFETCH (1):
+    18:35:40  VLC.EXE
+  EVTX (11):
+    Security               Microsoft-Windows-Security-Auditing EID 4689   x5  | A process has exited
+    Security               Microsoft-Windows-Security-Auditing EID 5379   x4  | {"EventData":{"Data":[{"@Name":"SubjectUserSid","#text":"S-1-5-21-4209295338-567
+    Security               Microsoft-Windows-Security-Auditing EID 4688   x2  | Parent process: C:\Windows\System32\svchost.exe
+  SHELLBAG (0):
+
+## A06  Iter 1 - launch notepad++.exe   [18:37:20 to 18:38:31]
+  PREFETCH (3):
+    18:37:37  AUDIODG.EXE
+    18:37:33  GUP.EXE
+    18:37:32  NOTEPAD++.EXE
+  EVTX (15):
+    Security               Microsoft-Windows-Security-Auditing EID 4688   x6  | Parent process: C:\Windows\System32\svchost.exe
+    Security               Microsoft-Windows-Security-Auditing EID 4689   x5  | A process has exited
+    Security               Microsoft-Windows-Security-Auditing EID 5379   x4  | {"EventData":{"Data":[{"@Name":"SubjectUserSid","#text":"S-1-5-21-4209295338-567
+  SHELLBAG (0):
+

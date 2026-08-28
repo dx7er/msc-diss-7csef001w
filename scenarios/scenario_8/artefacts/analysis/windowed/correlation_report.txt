@@ -1,0 +1,93 @@
+# Correlation report: scenario_8
+# Actions: 7 | Prefetch rows: 29 | EVTX rows: 133 | ShellBag rows: 11
+
+## A01  Launch cmd.exe from Start   [20:18:08 to 20:18:31]
+  PREFETCH (6):
+    20:18:13  BACKGROUNDTASKHOST.EXE
+    20:18:19  CMD.EXE
+    20:18:19  CONHOST.EXE
+    20:18:19  OPENCONSOLE.EXE
+    20:18:13  RUNTIMEBROKER.EXE
+    20:18:19  WINDOWSTERMINAL.EXE
+  EVTX (7):
+    Security               Microsoft-Windows-Security-Auditing EID 4688   x6  | Parent process: C:\Windows\System32\svchost.exe
+    Security               Microsoft-Windows-Security-Auditing EID 4689   x1  | A process has exited
+  SHELLBAG (0):
+
+## A02  cmd: whoami   [20:18:47 to 20:19:00]
+  PREFETCH (4):
+    20:18:48  COMPATTELRUNNER.EXE
+    20:18:53  SVCHOST.EXE
+    20:18:51  WHOAMI.EXE
+    20:18:53  WMIPRVSE.EXE
+  EVTX (29):
+    Security               Microsoft-Windows-Security-Auditing EID 4689   x7  | A process has exited
+    Security               Microsoft-Windows-Security-Auditing EID 4688   x7  | Parent process: C:\Windows\System32\svchost.exe
+    Security               Microsoft-Windows-Security-Auditing EID 5379   x7  | {"EventData":{"Data":[{"@Name":"SubjectUserSid","#text":"S-1-5-18"},{"@Name":"Su
+    Security               Microsoft-Windows-Security-Auditing EID 4798   x5  | Target: disstestbedvm\Administrator (S-1-5-21-4209295338-567392030-2519289182-50
+    Security               Microsoft-Windows-Security-Auditing EID 4799   x3  | Target: Builtin\Administrators (S-1-5-32-544)
+  SHELLBAG (0):
+
+## A03  cmd: dir C:\Windows   [20:19:24 to 20:20:02]
+  PREFETCH (6):
+    20:19:29  MPCMDRUN.EXE
+    20:19:29  MPCMDRUN.EXE
+    20:19:29  MPCMDRUN.EXE
+    20:19:29  MPCMDRUN.EXE
+    20:19:47  SECURITYHEALTHHOST.EXE
+    20:19:47  SVCHOST.EXE
+  EVTX (26):
+    Security               Microsoft-Windows-Security-Auditing EID 4688   x12  | Parent process: C:\ProgramData\Microsoft\Windows Defender\Platform\4.18.26070.9-
+    Security               Microsoft-Windows-Security-Auditing EID 4689   x10  | A process has exited
+    Application            SecurityCenter                      EID 15     x2  | {"EventData":{"Data":"Windows Defender, SECURITY_PRODUCT_STATE_ON","Binary":""}}
+    Security               Microsoft-Windows-Security-Auditing EID 4624   x1  | Target: NT AUTHORITY\SYSTEM
+    Security               Microsoft-Windows-Security-Auditing EID 4672   x1  | PrivilegeList: SeAssignPrimaryTokenPrivilege, SeTcbPrivilege, SeSecurityPrivileg
+  SHELLBAG (0):
+
+## A04  Close cmd   [20:20:12 to 20:20:27]
+  PREFETCH (6):
+    20:20:17  POWERSHELL.EXE
+    20:20:13  RUNTIMEBROKER.EXE
+    20:20:13  RUNTIMEBROKER.EXE
+    20:20:17  SPPSVC.EXE
+    20:20:18  TIWORKER.EXE
+    20:20:18  TRUSTEDINSTALLER.EXE
+  EVTX (27):
+    Security               Microsoft-Windows-Security-Auditing EID 4688   x11  | Parent process: C:\Windows\System32\svchost.exe
+    Security               Microsoft-Windows-Security-Auditing EID 4689   x11  | A process has exited
+    Application            SecurityCenter                      EID 15     x2  | {"EventData":{"Data":"Windows Defender, SECURITY_PRODUCT_STATE_ON","Binary":""}}
+    Application            Microsoft-Windows-Security-SPP      EID 16394  x1  | {"EventData":{"Data":"","Binary":""}}
+    Security               Microsoft-Windows-Security-Auditing EID 4624   x1  | Target: NT AUTHORITY\SYSTEM
+    Security               Microsoft-Windows-Security-Auditing EID 4672   x1  | PrivilegeList: SeAssignPrimaryTokenPrivilege, SeTcbPrivilege, SeSecurityPrivileg
+  SHELLBAG (0):
+
+## A05  Launch powershell   [20:20:46 to 20:21:21]
+  PREFETCH (7):
+    20:20:50  BACKGROUNDTASKHOST.EXE
+    20:21:16  MOUSOCOREWORKER.EXE
+    20:20:53  OPENCONSOLE.EXE
+    20:21:16  SVCHOST.EXE
+    20:21:16  UIEORCHESTRATOR.EXE
+    20:21:16  UIEORCHESTRATORSTUB.EXE
+    20:20:53  WINDOWSTERMINAL.EXE
+  EVTX (33):
+    Security               Microsoft-Windows-Security-Auditing EID 4688   x14  | Parent process: C:\Windows\System32\svchost.exe
+    Security               Microsoft-Windows-Security-Auditing EID 4689   x12  | A process has exited
+    Security               Microsoft-Windows-Security-Auditing EID 5379   x4  | {"EventData":{"Data":[{"@Name":"SubjectUserSid","#text":"S-1-5-21-4209295338-567
+    Application            Microsoft-Windows-Security-SPP      EID 16384  x1  | {"EventData":{"Data":"2026-10-12T10:03:57Z, RulesEngine","Binary":""}}
+    Security               Microsoft-Windows-Security-Auditing EID 4624   x1  | Target: NT AUTHORITY\SYSTEM
+    Security               Microsoft-Windows-Security-Auditing EID 4672   x1  | PrivilegeList: SeAssignPrimaryTokenPrivilege, SeTcbPrivilege, SeSecurityPrivileg
+  SHELLBAG (0):
+
+## A06  PS: Get-Process   [20:21:42 to 20:22:34]
+  PREFETCH (0):
+  EVTX (7):
+    Security               Microsoft-Windows-Security-Auditing EID 4689   x7  | A process has exited
+  SHELLBAG (0):
+
+## A07  Close powershell   [20:22:47 to 20:23:02]
+  PREFETCH (0):
+  EVTX (4):
+    Security               Microsoft-Windows-Security-Auditing EID 4689   x4  | A process has exited
+  SHELLBAG (0):
+

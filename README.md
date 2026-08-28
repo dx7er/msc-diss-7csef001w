@@ -26,17 +26,16 @@ Investigate the evidential value of Prefetch, Windows Event Logs and ShellBags o
 6. **O6**: Evaluate correlation output against ground truth for completeness, accuracy and evidential sufficiency.
 7. **O7**: Compare open source methodology against a commercial baseline (Magnet AXIOM, optional).
 
-
 ## Scope of this repository
 
-This repository holds the **practical and technical output** of the dissertation only:
+This repository holds the practical and technical output of the dissertation only:
 - Windows 11 testbed preparation, configuration and specifications
 - Executable scenarios that generate ground truth user activity
-- Collected forensic artefacts (raw where sharable; parsed CSV/JSON)
+- Parsed and window-filtered CSV outputs derived from the collected artefacts
 - Analysis scripts that correlate artefacts across sources
-- Findings tables and reconstructed timelines
+- Per-scenario findings, correlation tables and reconstructed timelines
 
-The **written dissertation** is a separate Word document submitted to the University of Westminster. The following are **not** in this repository, by design:
+The written dissertation is a separate Word document submitted to the University of Westminster. The following are not in this repository, by design:
 - Report chapters, discussion, conclusion
 - Literature review and theoretical background
 - Written methodology chapter (the prose version)
@@ -44,53 +43,78 @@ The **written dissertation** is a separate Word document submitted to the Univer
 
 The report cites this repository for reproducibility. This repository does not reproduce the report.
 
+## Access, ownership, and publication
+
+The raw forensic artefacts collected from the study's controlled Windows 11 testbed (Prefetch `.pf` binaries, `.evtx` event log files, registry hive binaries such as NTUSER.DAT, UsrClass.dat, SYSTEM, SOFTWARE, and Amcache.hve) are property of the University of Westminster and were produced under Ethics reference ETH2526-2077 (Class 1, approved 11 June 2026). These raw evidence files are retained on the author's local disk and in the VM snapshot library for the purposes of submission and viva examination only, and are excluded from this repository's public GitHub mirror via `.gitignore`. Every per-scenario `acquisition_manifest.csv` (SHA-256 chain-of-custody manifest) is committed so that the identity and integrity of the retained raw files can be independently verified during examination.
+
+The parsed CSV outputs and window-filtered CSV subsets derived from those raw files are committed to the repository so that a reader can inspect the evidence a correlation claim is based on without needing to re-run the parsers.
+
+Similarly, the final dissertation report (the written Word document submitted to the University of Westminster) is University property and is not published to this repository.
 
 ## Repository structure
 
 ```
 msc-diss-7csef001w/
-├── README.md
+├── README.md                       (this file)
 ├── LICENSE.md
 ├── CITATION.cff
-├── .gitignore
-├── vm_testbed.md
+├── .gitignore                      (excludes raw forensic binaries)
+├── vm_testbed.md                   (VM baseline documentation)
 ├── scenarios/
-│   ├── catalogue.md
+│   ├── catalogue.md                (list of all 10 scenarios and matrix)
+│   ├── correlation_table_TEMPLATE.md
 │   ├── testbed_evidence/           (baseline VM configuration outputs)
-│   ├── scenario_1/                 (single run: artefacts land flat under scenario)
+│   ├── scenario_1/                 (single run: no run_M/ subfolder)
+│   │   ├── README.md               (what user did, what artefacts showed, verdict summary, key findings)
 │   │   ├── artefacts/
-│   │   │   ├── prefetch/
-│   │   │   ├── event_logs/
-│   │   │   ├── shellbags/
-│   │   │   └── supporting/         (SYSTEM, SOFTWARE, Amcache.hve, acquisition_manifest.csv)
-│   │   └── evaluation/             (ground_truth.csv, per run notes)
-│   ├── scenario_2/                 (single run, same layout as scenario_1)
-│   ├── scenario_4/                 (multi run: 3 reps, each in run_N/)
-│   │   ├── run_1/
-│   │   │   ├── artefacts/{prefetch,event_logs,shellbags,supporting}/
-│   │   │   └── evaluation/
-│   │   ├── run_2/ ...
-│   │   └── run_3/ ...
+│   │   │   ├── prefetch/           (raw .pf binaries; gitignored, local only)
+│   │   │   ├── event_logs/         (raw .evtx binaries; gitignored)
+│   │   │   ├── shellbags/          (raw NTUSER.DAT, UsrClass.dat; gitignored)
+│   │   │   ├── supporting/         (raw SYSTEM, SOFTWARE, Amcache.hve; gitignored except acquisition_manifest.csv)
+│   │   │   └── analysis/           (parsed CSVs, flat, committed)
+│   │   │       └── windowed/       (per-action window-filtered CSVs, flat, committed)
+│   │   └── evaluation/
+│   │       ├── ground_truth.csv    (action log with UTC timestamps)
+│   │       └── correlation_table.md (per-action verdict + analyst notes)
+│   ├── scenario_2/                 (same layout)
+│   ├── scenario_3/
+│   ├── scenario_4/                 (multi run: 3 reps under run_M/)
+│   │   ├── README.md               (scenario overview + 3-run reproducibility summary)
+│   │   ├── evaluation/             (scenario-level notes and usb_identity.txt)
+│   │   ├── run_1/                  (each run has its own artefacts/ + evaluation/)
+│   │   │   ├── artefacts/{prefetch,event_logs,shellbags,supporting,analysis}/
+│   │   │   └── evaluation/{ground_truth.csv, correlation_table.md}
+│   │   ├── run_2/
+│   │   └── run_3/
+│   ├── scenario_5/
+│   ├── scenario_6/
 │   ├── scenario_7/                 (multi run, same layout as scenario_4)
-│   └── ... (scenarios 3, 5, 6, 8, 9, 10 all single run)
+│   ├── scenario_8/
+│   ├── scenario_9/
+│   └── scenario_10/
 └── scripts/
-    ├── testbed/                    (Windows setup scripts, 01 to 12)
-    ├── scenarios/                  (log_action.ps1, acquire_artefacts.ps1)
-    └── evaluation/                 (evaluation_matrix.csv, template)
+    ├── testbed/                    (VM baseline setup, 01_ to 12_)
+    ├── scenarios/                  (log_action.ps1, acquire_artefacts.ps1, per-scenario prep scripts)
+    ├── analysis/                   (window_filter.ps1, correlate_scenario.py, extract_artefacts.ps1)
+    └── evaluation/                 (evaluation_matrix.csv, evaluation_matrix.md)
 ```
 
 ## Methodology
 
 Framing is forensic analysis, not software engineering. The candidate acts as the documented user on a controlled Windows 11 testbed, generating known input activity that produces artefacts of known provenance.
-<br>Approach:
-1. Snapshot a clean Windows 11 baseline before any scenario runs.
-2. Execute scripted user activity scenarios (Scenario 1 to Scenario 10) with timestamps logged externally.
-3. Snapshot post scenario state; compute SHA 256 hashes for each artefact source.
-4. Parse artefacts with open source tools; export structured CSV/JSON output.
-5. Correlate across artefact classes using a shared timeline schema.
-6. Evaluate reconstruction fidelity against externally logged ground truth.
-Evaluation draws on the TER Model (Breitinger, Studiawan and Hargreaves, 2025) and the tamper resistance factors of Vanini, Hargreaves and Breitinger (2024).
 
+Approach:
+
+1. Snapshot a clean Windows 11 baseline before any scenario runs.
+2. Execute scripted user activity scenarios (Scenario 1 to Scenario 10) with timestamps logged externally via `log_action.ps1`.
+3. Snapshot post-scenario state; compute SHA-256 hashes for each artefact source.
+4. Acquire raw artefacts offline from the post-scenario snapshot via `acquire_artefacts.ps1`.
+5. Parse artefacts with open source tools (PECmd, EvtxECmd, SBECmd); export structured CSV output into each scenario's `artefacts/analysis/` folder.
+6. Filter parsed CSVs to per-action time windows using `window_filter.ps1`; outputs land in `artefacts/analysis/windowed/`.
+7. Correlate windowed artefacts against ground truth per action; verdict scored CONFIRMED, PARTIAL or MISSED in `evaluation/correlation_table.md` with an analyst-notes column for critical evaluation.
+8. Aggregate per-scenario findings into a cross-scenario evaluation matrix in `scripts/evaluation/evaluation_matrix.md` (with CSV mirror at `evaluation_matrix.csv`).
+
+Evaluation draws on the TER Model (Breitinger, Studiawan and Hargreaves, 2025) and the tamper resistance factors of Vanini, Hargreaves and Breitinger (2024).
 
 ## Testbed specification
 
@@ -114,44 +138,30 @@ Full setup in `vm_testbed.md`.
 |------|------|
 | PECmd (EricZimmermanTools) | Prefetch parsing |
 | EvtxECmd (EricZimmermanTools) | Windows Event Log parsing |
-| SBECmd / ShellBags Explorer | ShellBags parsing |
+| SBECmd (EricZimmermanTools) | ShellBags parsing |
 | Timeline Explorer | Merged timeline review |
-| Python 3.12 with Pandas | Correlation scripts |
-| Jupyter | Analysis notebooks |
-| Arsenal Image Mounter | Read only VMDK mount for offline acquisition |
+| Python 3.10+ | Correlation script (`scripts/analysis/correlate_scenario.py`) |
+| PowerShell 5+ | Acquisition, logging, window-filtering scripts |
+| Arsenal Image Mounter | Read-only VMDK mount for offline acquisition |
 | Magnet AXIOM (student licence) | Commercial baseline comparison (optional) |
 
 Parser versions and CLI flags used for each artefact class are recorded per run alongside the parsed outputs.
 
 ## Reproducibility and integrity
 
-- Every artefact source is SHA 256 hashed on collection and again before parsing.
-- Snapshot names encode ISO 8601 date; snapshot log lives in `vm_testbed.md`.
+- Every artefact source is SHA-256 hashed on collection.
+- Snapshot names encode the scenario and run identifier; snapshot list lives in `vm_testbed.md`.
 - Ground truth for each scenario is logged externally at the moment of execution, independent of the artefacts being tested.
-- Per run acquisition manifests live at `scenarios/scenario_N/artefacts/supporting/acquisition_manifest.csv` (single run scenarios) or `scenarios/scenario_N/run_M/artefacts/supporting/acquisition_manifest.csv` (multi run scenarios 4 and 7).
+- Per-run acquisition manifests live at `scenarios/scenario_N/artefacts/supporting/acquisition_manifest.csv` (single run) or `scenarios/scenario_N/run_M/artefacts/supporting/acquisition_manifest.csv` (multi run). These are committed to the repository even though the raw binaries they hash are not.
 - Baseline VM configuration state is captured in `scenarios/testbed_evidence/` and summarised in `vm_testbed.md`.
 
 ## How to reproduce
 
-1. Build the VM per `vm_testbed.md` using the scripts in `scripts/testbed/`.
-2. Take the baseline snapshot; record it in `vm_testbed.md`.
-3. Execute a scenario against `baseline_pre_scenarios`; log wall clock UTC via `scripts/scenarios/log_action.ps1`.
-4. Take the post scenario snapshot. Naming: `scenario1_post` for single run scenarios, `scenario4_run1_post` for multi run scenarios.
-5. From the host, close VMware Workstation, then run one of:
-   ```powershell
-   # Single run scenario
-   scripts\scenarios\acquire_artefacts.ps1 -Scenario 1
-   # Multi run scenario
-   scripts\scenarios\acquire_artefacts.ps1 -Scenario 4 -Run 1
-   ```
-6. Outputs land under `scenarios/scenario_N/artefacts/{prefetch,event_logs,shellbags,supporting}/` (single run) or `scenarios/scenario_N/run_M/artefacts/...` (multi run).
-7. Parse with PECmd, EvtxECmd and SBECmd; write findings into the same run's `evaluation/` folder.
-8. Compare parsed output against ground truth; update the master evaluation matrix under `scripts/evaluation/`.
+Complete step by step reproduction instructions live in `REPRODUCIBILITY.md` at the repository root. That file covers host prerequisites, VM baseline build, the six phase per scenario workflow, the exact commands used for acquisition, parsing and window filtering, per scenario reproduction steps for all ten scenarios, and troubleshooting notes. Read it before attempting any reproduction of the study.
 
 ## Ethics
 
 Ethics reference **ETH2526-2077** (Class 1) was signed off as not requiring approval on 11 June 2026 and expires 9 September 2026. No human subjects, no personal data, no third party systems. All data originates from a controlled virtual machine operated solely by the author.
-
 
 ## Key references
 
@@ -160,8 +170,6 @@ Hargreaves, C. and Patterson, J. (2012) 'An automated timeline reconstruction ap
 Vanini, C., Hargreaves, C. and Breitinger, F. (2024) 'Tamper resistance of Windows event logs and other artefacts'.
 Zhu, Y., Gladyshev, P. and James, J. (2009) 'Using ShellBag information to reconstruct user activities'.
 Case, A., Cristina, A., Marziale, L., Richard, G.G. and Roussev, V. (2008) 'FACE: Automated digital evidence discovery and correlation'.
-
-
 
 ## Licence
 

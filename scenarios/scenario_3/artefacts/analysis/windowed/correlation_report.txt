@@ -1,0 +1,96 @@
+# Correlation report: scenario_3
+# Actions: 8 | Prefetch rows: 9 | EVTX rows: 82 | ShellBag rows: 17
+
+## A01  Open File Explorer   [07:20:30 to 07:20:54]
+  PREFETCH (0):
+  EVTX (5):
+    Security               Microsoft-Windows-Security-Auditing EID 4663   x3  | ObjectServer: Security
+    Security               Microsoft-Windows-Security-Auditing EID 4688   x1  | Parent process: C:\Windows\System32\svchost.exe
+    Security               Microsoft-Windows-Security-Auditing EID 4689   x1  | A process has exited
+  SHELLBAG (0):
+
+## A02  Navigate to C:\DISS_TESTDATA\scenario3_nav   [07:21:30 to 07:21:50]
+  PREFETCH (1):
+    07:21:39  RUNDLL32.EXE
+  EVTX (4):
+    Security               Microsoft-Windows-Security-Auditing EID 4798   x2  | Target: disstestbedvm\dfanalyst (S-1-5-21-4209295338-567392030-2519289182-1001)
+    Security               Microsoft-Windows-Security-Auditing EID 4688   x1  | Parent process: C:\Windows\System32\svchost.exe
+    Security               Microsoft-Windows-Security-Auditing EID 4689   x1  | A process has exited
+  SHELLBAG (6):
+    UsrClass  07:21:39  Desktop\This PC\C:\Users
+    UsrClass  07:21:39  Desktop\This PC\C:\Temp
+    UsrClass  07:21:39  Desktop\This PC\C:\DISS_Config
+    UsrClass  07:21:39  Desktop\This PC\C:\DISS_TESTDATA
+    UsrClass  07:21:39  Desktop\This PC\C:\DISS_TESTDATA\PILOT
+    UsrClass  07:21:39  Desktop\This PC\C:\DISS_TESTDATA\scenario3_nav
+
+## A03  Double click level1_a   [07:22:46 to 07:23:03]
+  PREFETCH (1):
+    07:22:58  SPPSVC.EXE
+  EVTX (7):
+    Security               Microsoft-Windows-Security-Auditing EID 4689   x4  | A process has exited
+    Security               Microsoft-Windows-Security-Auditing EID 4688   x2  | Parent process: C:\Windows\System32\svchost.exe
+    Application            Microsoft-Windows-Security-SPP      EID 16394  x1  | {"EventData":{"Data":"","Binary":""}}
+  SHELLBAG (1):
+    UsrClass  07:22:51  Desktop\This PC\C:\DISS_TESTDATA\scenario3_nav\level1_a
+
+## A04  Double click level2_a   [07:23:18 to 07:23:35]
+  PREFETCH (0):
+  EVTX (5):
+    Security               Microsoft-Windows-Security-Auditing EID 4689   x3  | A process has exited
+    Application            Microsoft-Windows-Security-SPP      EID 16384  x1  | {"EventData":{"Data":"2026-10-12T10:03:28Z, RulesEngine","Binary":""}}
+    Security               Microsoft-Windows-Security-Auditing EID 4688   x1  | Parent process: C:\Windows\System32\svchost.exe
+  SHELLBAG (1):
+    UsrClass  07:23:23  Desktop\This PC\C:\DISS_TESTDATA\scenario3_nav\level1_a\level2_a
+
+## A05  Double click level3_a   [07:23:47 to 07:24:06]
+  PREFETCH (5):
+    07:23:54  AM_DELTA_PATCH_1.457.219.0.EX
+    07:23:54  MPSIGSTUB.EXE
+    07:23:49  RUNTIMEBROKER.EXE
+    07:23:49  SVCHOST.EXE
+    07:23:54  WUAUCLTCORE.EXE
+  EVTX (31):
+    Security               Microsoft-Windows-Security-Auditing EID 4689   x13  | A process has exited
+    Security               Microsoft-Windows-Security-Auditing EID 4688   x9  | Parent process: C:\Windows\System32\svchost.exe
+    Application            SecurityCenter                      EID 15     x3  | {"EventData":{"Data":"Windows Defender, SECURITY_PRODUCT_STATE_ON","Binary":""}}
+    Security               Microsoft-Windows-Security-Auditing EID 4624   x1  | Target: NT AUTHORITY\SYSTEM
+    Security               Microsoft-Windows-Security-Auditing EID 4672   x1  | PrivilegeList: SeAssignPrimaryTokenPrivilege, SeTcbPrivilege, SeSecurityPrivileg
+    System                 Microsoft-Windows-WindowsUpdateClient EID 44     x1  | {"EventData":{"Data":[{"@Name":"updateTitle","#text":"Security Intelligence Upda
+    System                 Microsoft-Windows-WindowsUpdateClient EID 43     x1  | {"EventData":{"Data":[{"@Name":"updateTitle","#text":"Security Intelligence Upda
+    System                 Service Control Manager             EID 7040   x1  | The start type of the Background Intelligent Transfer Service was changed from a
+    System                 Microsoft-Windows-WindowsUpdateClient EID 19     x1  | {"EventData":{"Data":[{"@Name":"updateTitle","#text":"Security Intelligence Upda
+  SHELLBAG (1):
+    UsrClass  07:23:52  Desktop\This PC\C:\DISS_TESTDATA\scenario3_nav\level1_a\level2_a\level3_a
+
+## A06  Double click level4_a   [07:24:16 to 07:24:39]
+  PREFETCH (1):
+    07:24:17  SVCHOST.EXE
+  EVTX (16):
+    Security               Microsoft-Windows-Security-Auditing EID 4688   x7  | Parent process: C:\Windows\System32\svchost.exe
+    Security               Microsoft-Windows-Security-Auditing EID 4689   x7  | A process has exited
+    Security               Microsoft-Windows-Security-Auditing EID 4624   x1  | Target: NT AUTHORITY\SYSTEM
+    Security               Microsoft-Windows-Security-Auditing EID 4672   x1  | PrivilegeList: SeAssignPrimaryTokenPrivilege, SeTcbPrivilege, SeSecurityPrivileg
+  SHELLBAG (1):
+    UsrClass  07:24:21  Desktop\This PC\C:\DISS_TESTDATA\scenario3_nav\level1_a\level2_a\level3_a\level4_a
+
+## A07  Double click level5_a   [07:24:50 to 07:25:11]
+  PREFETCH (1):
+    07:24:56  POWERSHELL.EXE
+  EVTX (9):
+    Security               Microsoft-Windows-Security-Auditing EID 4689   x5  | A process has exited
+    Security               Microsoft-Windows-Security-Auditing EID 4688   x4  | Parent process: C:\Windows\System32\CompatTelRunner.exe
+  SHELLBAG (5):
+    UsrClass  07:24:55  Desktop\Win11 21H2
+    UsrClass  07:24:55  Desktop\This PC
+    UsrClass  07:24:55  Desktop\Desktop
+    UsrClass  07:24:55  Desktop\Downloads
+    UsrClass  07:24:55  Desktop\This PC\C:\DISS_TESTDATA\scenario3_nav\level1_a\level2_a\level3_a\level4_a\level5_a
+
+## A08  Close Explorer   [07:25:22 to 07:25:39]
+  PREFETCH (0):
+  EVTX (5):
+    Security               Microsoft-Windows-Security-Auditing EID 4689   x4  | A process has exited
+    Application            Microsoft-Windows-Security-SPP      EID 16384  x1  | {"EventData":{"Data":"2026-10-12T10:03:23Z, RulesEngine","Binary":""}}
+  SHELLBAG (0):
+

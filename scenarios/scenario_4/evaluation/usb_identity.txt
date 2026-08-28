@@ -1,0 +1,24 @@
+﻿Scenario 4 DISS-USB identity
+Captured: 2026-08-22T11:15:50Z
+Host:     SKYNET
+User:     SSNAQVI
+
+Disk index:      2
+Model:           General UDisk USB Device
+Size (GB):       3.75
+PNPDeviceID:     USBSTOR\DISK&VEN_GENERAL&PROD_UDISK&REV_5.00\6&38E547A7&2&_&0
+VID:             (unknown)
+PID:             (unknown)
+Serial (PnP):    6&38E547A7&2&_&0
+Hardware ID:     USB\VID_(unknown)&PID_(unknown)
+
+Drive letter:    H:
+Volume label:    DISS-USB
+Filesystem:      NTFS
+Volume serial:   B0920497
+
+Payload:
+  Path:          \PORTABLE\HelloWorld.exe
+  SHA-256:       0C1F7FDF4A47F67D36042559E0B2B91E557CC1DD12B097BB78BA01EC7182954A
+  Source:        scenarios/scenario_4/setup/HelloWorld.exe
+  Same physical stick across Run 1, Run 2, Run 3 (per catalogue).

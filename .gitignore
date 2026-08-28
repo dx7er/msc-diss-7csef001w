@@ -1,65 +1,39 @@
-# VM images and hypervisor state
-*.vmdk
-*.vmx
-*.vmxf
-*.vmsd
-*.vmss
-*.vmem
-*.nvram
-*.log
-*.scoreboard
-DISS-Win11-Testbed-VM/
-*-flat.vmdk
+# ---------------------------------------------------------------
+# Raw forensic artefacts: property of University of Westminster,
+# excluded from public GitHub mirror per ethics scope
+# (ETH2526-2077). Retained locally for submission and viva only.
+# ---------------------------------------------------------------
 
-# Raw acquisition outputs. Layouts:
-#   Single run scenarios : scenarios/scenario_N/artefacts/{class}/
-#   Multi run scenarios  : scenarios/scenario_N/run_M/artefacts/{class}/
-# Evidence blobs are too large and PII adjacent for git; only the SHA 256
-# manifest per run is committed for chain of custody documentation.
-scenarios/scenario_*/artefacts/**
-scenarios/scenario_*/run_*/artefacts/**
-!scenarios/scenario_*/artefacts/supporting/acquisition_manifest.csv
-!scenarios/scenario_*/run_*/artefacts/supporting/acquisition_manifest.csv
+# Prefetch (.pf binaries)
+scenarios/*/artefacts/prefetch/**
+scenarios/*/run_*/artefacts/prefetch/**
 
-# Office lock files and temporary drafts
-~$*.docx
-~$*.xlsx
-~$*.pptx
-*.tmp
+# Event log binaries (.evtx)
+scenarios/*/artefacts/event_logs/**
+scenarios/*/run_*/artefacts/event_logs/**
 
-# Python
+# Registry hive binaries (NTUSER.DAT, UsrClass.dat, transaction logs)
+scenarios/*/artefacts/shellbags/**
+scenarios/*/run_*/artefacts/shellbags/**
+
+# System hives (SYSTEM, SOFTWARE, Amcache.hve)
+scenarios/*/artefacts/supporting/**
+scenarios/*/run_*/artefacts/supporting/**
+
+# Explicit allow: chain-of-custody manifest per scenario
+!scenarios/*/artefacts/supporting/acquisition_manifest.csv
+!scenarios/*/run_*/artefacts/supporting/acquisition_manifest.csv
+
+# Explicit allow: USB identity for Scenario 4
+!scenarios/*/evaluation/usb_identity.txt
+
+# ---------------------------------------------------------------
+# Standard noise
+# ---------------------------------------------------------------
 __pycache__/
-*.py[cod]
-*.egg-info/
-.venv/
-venv/
-env/
-.ipynb_checkpoints/
-
-# Node
-node_modules/
-
-# IDE
-.vscode/
-.idea/
-*.swp
-
-# OS
+*.pyc
 .DS_Store
 Thumbs.db
-desktop.ini
-
-# Secrets
-.env
-.env.*
-*.key
-*.pem
-credentials.json
-
-# Large forensic binaries anywhere (belt and braces alongside scenarios/*/*/artefacts/**)
-*.evtx
-*.pf
-
-# Housekeeping folders local to scripts (never committed)
-scripts/**/_to_delete/
-_to_delete/
+*.swp
+.vscode/
+.idea/

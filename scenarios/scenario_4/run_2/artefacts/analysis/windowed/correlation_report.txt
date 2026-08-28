@@ -1,0 +1,131 @@
+# Correlation report: run_2
+# Actions: 6 | Prefetch rows: 31 | EVTX rows: 216 | ShellBag rows: 13
+
+## A01  USB attach via VMWare Removable devices Connect   [20:33:32 to 20:34:18]
+  PREFETCH (9):
+    20:33:49  BDEUISRV.EXE
+    20:33:43  DLLHOST.EXE
+    20:33:49  DRVINST.EXE
+    20:33:50  RUNTIMEBROKER.EXE
+    20:33:50  SHELLEXPERIENCEHOST.EXE
+    20:33:49  SVCHOST.EXE
+    20:33:43  SVCHOST.EXE
+    20:33:49  SVCHOST.EXE
+    20:33:50  WUDFHOST.EXE
+  EVTX (82):
+    Microsoft-Windows-DriverFrameworks-UserMode/Operational Microsoft-Windows-DriverFrameworks-UserMode EID 2005   x14  | {"UserData":{"UMDFHostModuleLoad":{"LifetimeId":"e8851c34-d3e5-40ec-8757-deb6fa9
+    Security               Microsoft-Windows-Security-Auditing EID 4688   x12  | Parent process: C:\Windows\System32\services.exe
+    Security               Microsoft-Windows-Security-Auditing EID 4689   x11  | A process has exited
+    Security               Microsoft-Windows-Security-Auditing EID 6416   x6  | DeviceId: USB\VID_0E0F&amp;PID_0002\6&amp;39d724fe&amp;0&amp;7
+    Microsoft-Windows-DriverFrameworks-UserMode/Operational Microsoft-Windows-DriverFrameworks-UserMode EID 2100   x3  | InstanceId: SWD\WPDBUSENUM\_??_USBSTOR#DISK&amp;VEN_GENERAL&amp;PROD_UDISK&amp;R
+    Microsoft-Windows-DriverFrameworks-UserMode/Operational Microsoft-Windows-DriverFrameworks-UserMode EID 2105   x3  | {"UserData":{"UMDFHostDeviceRequest":{"LifetimeId":"e8851c34-d3e5-40ec-8757-deb6
+    Microsoft-Windows-DriverFrameworks-UserMode/Operational Microsoft-Windows-DriverFrameworks-UserMode EID 2106   x3  | {"UserData":{"UMDFHostDeviceRequest":{"LifetimeId":"e8851c34-d3e5-40ec-8757-deb6
+    Microsoft-Windows-DriverFrameworks-UserMode/Operational Microsoft-Windows-DriverFrameworks-UserMode EID 2101   x3  | {"UserData":{"UMDFHostDeviceRequest":{"LifetimeId":"e8851c34-d3e5-40ec-8757-deb6
+    Security               Microsoft-Windows-Security-Auditing EID 4624   x3  | Target: NT AUTHORITY\SYSTEM
+    Security               Microsoft-Windows-Security-Auditing EID 4672   x3  | PrivilegeList: SeAssignPrimaryTokenPrivilege, SeTcbPrivilege, SeSecurityPrivileg
+    Security               Microsoft-Windows-Security-Auditing EID 4798   x3  | Target: disstestbedvm\dfanalyst (S-1-5-21-4209295338-567392030-2519289182-1001)
+    Microsoft-Windows-DriverFrameworks-UserMode/Operational Microsoft-Windows-DriverFrameworks-UserMode EID 1003   x1  | {"UserData":{"UMDFDriverManagerHostCreateStart":{"LifetimeId":"e8851c34-d3e5-40e
+    Microsoft-Windows-DriverFrameworks-UserMode/Operational Microsoft-Windows-DriverFrameworks-UserMode EID 2000   x1  | {"UserData":{"UMDFHostStartupBegin":{"LifetimeId":"e8851c34-d3e5-40ec-8757-deb6f
+    Microsoft-Windows-DriverFrameworks-UserMode/Operational Microsoft-Windows-DriverFrameworks-UserMode EID 2001   x1  | {"UserData":{"UMDFHostStartupEnd":{"LifetimeId":"e8851c34-d3e5-40ec-8757-deb6fa9
+    Microsoft-Windows-DriverFrameworks-UserMode/Operational Microsoft-Windows-DriverFrameworks-UserMode EID 1004   x1  | {"UserData":{"UMDFDriverManagerHostCreateEnd":{"LifetimeId":"e8851c34-d3e5-40ec-
+    Microsoft-Windows-DriverFrameworks-UserMode/Operational Microsoft-Windows-DriverFrameworks-UserMode EID 2003   x1  | {"UserData":{"UMDFHostDeviceArrivalBegin":{"LifetimeId":"e8851c34-d3e5-40ec-8757
+    Microsoft-Windows-DriverFrameworks-UserMode/Operational Microsoft-Windows-DriverFrameworks-UserMode EID 2010   x1  | {"UserData":{"UMDFHostDeviceArrivalEnd":{"LifetimeId":"e8851c34-d3e5-40ec-8757-d
+    Microsoft-Windows-DriverFrameworks-UserMode/Operational Microsoft-Windows-DriverFrameworks-UserMode EID 2004   x1  | {"UserData":{"UMDFHostAddDeviceBegin":{"LifetimeId":"e8851c34-d3e5-40ec-8757-deb
+    Microsoft-Windows-DriverFrameworks-UserMode/Operational Microsoft-Windows-DriverFrameworks-UserMode EID 2006   x1  | {"UserData":{"UMDFHostAddDeviceEnd":{"LifetimeId":"e8851c34-d3e5-40ec-8757-deb6f
+    Microsoft-Windows-Partition/Diagnostic Microsoft-Windows-Partition         EID 1006   x1  | Model: UDisk
+    System                 Microsoft-Windows-WPDClassInstaller EID 24576  x1  | {"EventData":{"Data":"WPD Device","Binary":""}}
+    System                 Microsoft-Windows-WPDClassInstaller EID 24577  x1  | {"EventData":{"Data":"","Binary":""}}
+    System                 Microsoft-Windows-WPDClassInstaller EID 24579  x1  | {"EventData":{"Data":"","Binary":""}}
+    System                 Microsoft-Windows-DriverFrameworks-UserMode EID 10000  x1  | DeviceId: SWD\WPDBUSENUM\_??_USBSTOR#DISK&amp;VEN_GENERAL&amp;PROD_UDISK&amp;REV
+    System                 Microsoft-Windows-DriverFrameworks-UserMode EID 10001  x1  | {"UserData":{"UMDFServiceInstall":{"ServiceName":"WpdFs","CLSID":"112de495-ac4c-
+    System                 Microsoft-Windows-DriverFrameworks-UserMode EID 10100  x1  | {"UserData":{"UMDFDeviceInstallEnd":{"FinalStatus":"0"}}}
+    System                 Service Control Manager             EID 7045   x1  | Name: WPD File System driver
+    System                 Microsoft-Windows-UserPnp           EID 20003  x1  | ServiceName: WUDFWpdFs
+    System                 Service Control Manager             EID 7040   x1  | The start type of the Background Intelligent Transfer Service was changed from a
+  SHELLBAG (0):
+
+## A02  Open Explorer, navigate to USB root   [20:34:32 to 20:34:51]
+  PREFETCH (1):
+    20:34:35  BACKGROUNDTASKHOST.EXE
+  EVTX (13):
+    Security               Microsoft-Windows-Security-Auditing EID 4689   x7  | A process has exited
+    Security               Microsoft-Windows-Security-Auditing EID 4688   x3  | Parent process: C:\Windows\System32\svchost.exe
+    Security               Microsoft-Windows-Security-Auditing EID 4663   x3  | ObjectServer: Security
+  SHELLBAG (0):
+
+## A03  Navigate to \PORTABLE\ directory inside USB root   [20:35:18 to 20:35:33]
+  PREFETCH (2):
+    20:35:19  MICROSOFTEDGEUPDATE.EXE
+    20:35:24  RUNDLL32.EXE
+  EVTX (4):
+    Security               Microsoft-Windows-Security-Auditing EID 4688   x2  | Parent process: C:\Windows\System32\svchost.exe
+    Security               Microsoft-Windows-Security-Auditing EID 4689   x2  | A process has exited
+  SHELLBAG (1):
+    UsrClass  20:35:24  Desktop\E:\\PORTABLE
+
+## A04  Launching Hellowworld exe from directory   [20:35:41 to 20:36:03]
+  PREFETCH (4):
+    20:35:47  CONHOST.EXE
+    20:35:47  HELLOWORLD.EXE
+    20:35:47  OPENCONSOLE.EXE
+    20:35:47  WINDOWSTERMINAL.EXE
+  EVTX (5):
+    Security               Microsoft-Windows-Security-Auditing EID 4688   x4  | Parent process: C:\Windows\explorer.exe
+    Security               Microsoft-Windows-Security-Auditing EID 4689   x1  | A process has exited
+  SHELLBAG (0):
+
+## A05  Eject USB from Explorer   [20:36:12 to 20:36:38]
+  PREFETCH (15):
+    20:36:21  DLLHOST.EXE
+    20:36:15  DLLHOST.EXE
+    20:36:15  MOUSOCOREWORKER.EXE
+    20:36:25  RUNDLL32.EXE
+    20:36:25  RUNDLL32.EXE
+    20:36:16  RUNTIMEBROKER.EXE
+    20:36:15  SOFTLANDINGTASK.EXE
+    20:36:26  SVCHOST.EXE
+    20:36:26  SVCHOST.EXE
+    20:36:15  SVCHOST.EXE
+    20:36:16  SVCHOST.EXE
+    20:36:15  SVCHOST.EXE
+    20:36:16  SVCHOST.EXE
+    20:36:30  TIWORKER.EXE
+    20:36:30  TRUSTEDINSTALLER.EXE
+  EVTX (94):
+    Security               Microsoft-Windows-Security-Auditing EID 4688   x33  | Parent process: C:\Windows\System32\svchost.exe
+    Security               Microsoft-Windows-Security-Auditing EID 4689   x24  | A process has exited
+    Security               Microsoft-Windows-Security-Auditing EID 4624   x7  | Target: NT AUTHORITY\SYSTEM
+    Security               Microsoft-Windows-Security-Auditing EID 4672   x7  | PrivilegeList: SeAssignPrimaryTokenPrivilege, SeTcbPrivilege, SeSecurityPrivileg
+    Security               Microsoft-Windows-Security-Auditing EID 5379   x7  | {"EventData":{"Data":[{"@Name":"SubjectUserSid","#text":"S-1-5-18"},{"@Name":"Su
+    Security               Microsoft-Windows-Security-Auditing EID 4797   x4  | Target: disstestbedvm\Administrator
+    Security               Microsoft-Windows-Security-Auditing EID 4663   x2  | ObjectServer: Security
+    Security               Microsoft-Windows-Security-Auditing EID 4798   x2  | Target: disstestbedvm\dfanalyst (S-1-5-21-4209295338-567392030-2519289182-1001)
+    Security               Microsoft-Windows-Security-Auditing EID 4799   x2  | Target: Builtin\Administrators (S-1-5-32-544)
+    Application            Windows Error Reporting             EID 1001   x1  | Application Crash
+    Application            Microsoft-Windows-Security-SPP      EID 16394  x1  | {"EventData":{"Data":"","Binary":""}}
+    Microsoft-Windows-Partition/Diagnostic Microsoft-Windows-Partition         EID 1006   x1  | Model: UDisk
+    Security               Microsoft-Windows-Security-Auditing EID 5382   x1  | {"EventData":{"Data":[{"@Name":"SubjectUserSid","#text":"S-1-5-18"},{"@Name":"Su
+    System                 Service Control Manager             EID 7040   x1  | The start type of the Background Intelligent Transfer Service was changed from d
+    System                 Microsoft-Windows-Kernel-General    EID 16     x1  | {"EventData":{"Data":[{"@Name":"HiveNameLength","#text":"52"},{"@Name":"HiveName
+  SHELLBAG (5):
+    UsrClass  20:36:21  Desktop\Win11 21H2
+    UsrClass  20:36:21  Desktop\This PC
+    UsrClass  20:36:21  Desktop\Desktop
+    UsrClass  20:36:21  Desktop\Downloads
+    UsrClass  20:36:21  Desktop\E:\
+
+## A06  Disconnect USB from guest in VMWare Removable Devices   [20:36:45 to 20:37:12]
+  PREFETCH (0):
+  EVTX (18):
+    Security               Microsoft-Windows-Security-Auditing EID 4689   x6  | A process has exited
+    Microsoft-Windows-DriverFrameworks-UserMode/Operational Microsoft-Windows-DriverFrameworks-UserMode EID 2100   x2  | InstanceId: SWD\WPDBUSENUM\_??_USBSTOR#DISK&amp;VEN_GENERAL&amp;PROD_UDISK&amp;R
+    Microsoft-Windows-DriverFrameworks-UserMode/Operational Microsoft-Windows-DriverFrameworks-UserMode EID 2102   x2  | {"UserData":{"UMDFHostDeviceRequest":{"LifetimeId":"e8851c34-d3e5-40ec-8757-deb6
+    Security               Microsoft-Windows-Security-Auditing EID 4688   x2  | Parent process: C:\Windows\System32\svchost.exe
+    Microsoft-Windows-DriverFrameworks-UserMode/Operational Microsoft-Windows-DriverFrameworks-UserMode EID 1006   x1  | {"UserData":{"UMDFDriverManagerHostShutdown":{"LifetimeId":"e8851c34-d3e5-40ec-8
+    Microsoft-Windows-DriverFrameworks-UserMode/Operational Microsoft-Windows-DriverFrameworks-UserMode EID 2900   x1  | {"UserData":{"UMDFHostShutdown":{"LifetimeId":"e8851c34-d3e5-40ec-8757-deb6fa9fb
+    Microsoft-Windows-DriverFrameworks-UserMode/Operational Microsoft-Windows-DriverFrameworks-UserMode EID 2901   x1  | {"UserData":{"UMDFHostShutdown":{"LifetimeId":"e8851c34-d3e5-40ec-8757-deb6fa9fb
+    Microsoft-Windows-DriverFrameworks-UserMode/Operational Microsoft-Windows-DriverFrameworks-UserMode EID 1008   x1  | {"UserData":{"UMDFDriverManagerHostShutdown":{"LifetimeId":"e8851c34-d3e5-40ec-8
+    Microsoft-Windows-Partition/Diagnostic Microsoft-Windows-Partition         EID 1006   x1  | Model: UDisk
+    Security               Microsoft-Windows-Security-Auditing EID 4798   x1  | Target: disstestbedvm\dfanalyst (S-1-5-21-4209295338-567392030-2519289182-1001)
+  SHELLBAG (0):
+

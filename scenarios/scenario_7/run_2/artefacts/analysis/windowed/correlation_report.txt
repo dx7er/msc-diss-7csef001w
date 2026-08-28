@@ -1,0 +1,82 @@
+# Correlation report: run_2
+# Actions: 7 | Prefetch rows: 17 | EVTX rows: 56 | ShellBag rows: 15
+
+## A01  Launch Notepad++ from Start   [00:44:55 to 00:45:18]
+  PREFETCH (3):
+    00:45:03  DLLHOST.EXE
+    00:45:05  GUP.EXE
+    00:45:05  NOTEPAD++.EXE
+  EVTX (6):
+    Security               Microsoft-Windows-Security-Auditing EID 4689   x3  | A process has exited
+    Security               Microsoft-Windows-Security-Auditing EID 4688   x3  | Parent process: C:\Windows\System32\svchost.exe
+  SHELLBAG (0):
+
+## A02  Type Scenario 7 test content with UTC marker   [00:45:22 to 00:46:14]
+  PREFETCH (6):
+    00:45:24  MPCMDRUN.EXE
+    00:45:24  MPCMDRUN.EXE
+    00:45:44  SECURITYHEALTHHOST.EXE
+    00:45:43  SECURITYHEALTHHOST.EXE
+    00:45:43  SVCHOST.EXE
+    00:45:43  TASKHOSTW.EXE
+  EVTX (25):
+    Security               Microsoft-Windows-Security-Auditing EID 4689   x12  | A process has exited
+    Security               Microsoft-Windows-Security-Auditing EID 4688   x10  | Parent process: C:\ProgramData\Microsoft\Windows Defender\Platform\4.18.26070.9-
+    Security               Microsoft-Windows-Security-Auditing EID 4624   x1  | Target: NT AUTHORITY\SYSTEM
+    Security               Microsoft-Windows-Security-Auditing EID 4672   x1  | PrivilegeList: SeAssignPrimaryTokenPrivilege, SeTcbPrivilege, SeSecurityPrivileg
+    System                 Service Control Manager             EID 7040   x1  | The start type of the Background Intelligent Transfer Service was changed from a
+  SHELLBAG (0):
+
+## A03  File menu, Save As in Docuemts folder   [00:46:26 to 00:47:13]
+  PREFETCH (2):
+    00:46:59  SEARCHFILTERHOST.EXE
+    00:46:59  SEARCHPROTOCOLHOST.EXE
+  EVTX (9):
+    Security               Microsoft-Windows-Security-Auditing EID 4688   x4  | Parent process: C:\Windows\System32\SearchIndexer.exe
+    Security               Microsoft-Windows-Security-Auditing EID 4663   x3  | ObjectServer: Security
+    Security               Microsoft-Windows-Security-Auditing EID 4798   x1  | Target: disstestbedvm\dfanalyst (S-1-5-21-4209295338-567392030-2519289182-1001)
+    Security               Microsoft-Windows-Security-Auditing EID 4689   x1  | A process has exited
+  SHELLBAG (7):
+    UsrClass  00:46:40  Desktop\Documents
+    UsrClass  00:46:34  Desktop\This PC\C:\Users
+    UsrClass  00:46:34  Desktop\This PC\C:\Temp
+    UsrClass  00:46:34  Desktop\This PC\C:\DISS_Config
+    UsrClass  00:46:34  Desktop\This PC\C:\DISS_TESTDATA
+    UsrClass  00:46:34  Desktop\This PC\C:\Program Files
+    UsrClass  00:46:34  Desktop\This PC\C:\Program Files\Notepad++
+
+## A04  Closing Notepad++   [00:47:16 to 00:47:29]
+  PREFETCH (1):
+    00:47:17  MICROSOFTEDGEUPDATE.EXE
+  EVTX (2):
+    Security               Microsoft-Windows-Security-Auditing EID 4688   x1  | Parent process: C:\Windows\System32\svchost.exe
+    Security               Microsoft-Windows-Security-Auditing EID 4689   x1  | A process has exited
+  SHELLBAG (0):
+
+## A05  Opening Documents folder using File Explorer   [00:47:35 to 00:47:45]
+  PREFETCH (0):
+  EVTX (2):
+    Security               Microsoft-Windows-Security-Auditing EID 4689   x2  | A process has exited
+  SHELLBAG (0):
+
+## A06  Viewing the file created   [00:48:10 to 00:48:30]
+  PREFETCH (5):
+    00:48:17  DLLHOST.EXE
+    00:48:15  NOTEPAD.EXE
+    00:48:19  SVCHOST.EXE
+    00:48:17  SVCHOST.EXE
+    00:48:19  WMIPRVSE.EXE
+  EVTX (10):
+    Security               Microsoft-Windows-Security-Auditing EID 4688   x6  | Parent process: C:\Windows\explorer.exe
+    Security               Microsoft-Windows-Security-Auditing EID 4624   x1  | Target: NT AUTHORITY\SYSTEM
+    Security               Microsoft-Windows-Security-Auditing EID 4672   x1  | PrivilegeList: SeAssignPrimaryTokenPrivilege, SeTcbPrivilege, SeSecurityPrivileg
+    Security               Microsoft-Windows-Security-Auditing EID 4689   x1  | A process has exited
+    System                 Microsoft-Windows-DistributedCOM    EID 10016  x1  | {"EventData":{"Data":[{"@Name":"param1","#text":"application-specific"},{"@Name"
+  SHELLBAG (0):
+
+## A07  Closing File explorer and Applications   [00:48:39 to 00:48:54]
+  PREFETCH (0):
+  EVTX (2):
+    Security               Microsoft-Windows-Security-Auditing EID 4689   x2  | A process has exited
+  SHELLBAG (0):
+

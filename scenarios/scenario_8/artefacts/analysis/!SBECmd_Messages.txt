@@ -1,0 +1,32 @@
+[22:33:13.053 INF] SBECmd version 2026.5.0
+
+Author: Eric Zimmerman (saericzimmerman@gmail.com)
+https://github.com/EricZimmerman
+[22:33:13.068 INF] Command line: -d D:\UOW\SEM3\msc-diss-7csef001w\scenarios\scenario_8\artefacts\shellbags --csv D:\UOW\SEM3\msc-diss-7csef001w\scenarios\scenario_8\analysis\shellbags --nl
+[22:33:13.069 INF] Directory to process: D:\UOW\SEM3\msc-diss-7csef001w\scenarios\scenario_8\artefacts\shellbags
+[22:33:13.069 INF] Deduplication: false
+[22:33:13.070 INF] All messages will be saved to D:\UOW\SEM3\msc-diss-7csef001w\scenarios\scenario_8\analysis\shellbags\!SBECmd_Messages.txt
+[22:33:13.081 INF] Processing D:\UOW\SEM3\msc-diss-7csef001w\scenarios\scenario_8\artefacts\shellbags\UsrClass.dat
+[22:33:13.265 WRN] Setting output path to D:\UOW\SEM3\msc-diss-7csef001w\scenarios\scenario_8\analysis\shellbags\0_UsrClass.csv due to existing file D:\UOW\SEM3\msc-diss-7csef001w\scenarios\scenario_8\analysis\shellbags\UsrClass.csv
+[22:33:13.320 INF] Parse time: 0.18 seconds
+[22:33:13.324 INF] Total ShellBags found: 11
+[22:33:13.324 INF] Totals by bag type
+[22:33:13.325 INF] Root folder: GUID: 4
+[22:33:13.325 INF] Directory: 6
+[22:33:13.326 INF] Drive letter: 1
+[22:33:13.326 INF] Finished processing D:\UOW\SEM3\msc-diss-7csef001w\scenarios\scenario_8\artefacts\shellbags\UsrClass.dat
+[22:33:13.326 INF] Exported to: D:\UOW\SEM3\msc-diss-7csef001w\scenarios\scenario_8\analysis\shellbags\0_UsrClass.csv
+[22:33:13.326 INF] ---------------------------------------------------------------------
+[22:33:13.327 INF] Processing D:\UOW\SEM3\msc-diss-7csef001w\scenarios\scenario_8\artefacts\shellbags\NTUSER.DAT
+[22:33:13.409 WRN] Setting output path to D:\UOW\SEM3\msc-diss-7csef001w\scenarios\scenario_8\analysis\shellbags\0_NTUSER.csv due to existing file D:\UOW\SEM3\msc-diss-7csef001w\scenarios\scenario_8\analysis\shellbags\NTUSER.csv
+[22:33:13.412 INF] Parse time: 0.08 seconds
+[22:33:13.412 INF] Total ShellBags found: 0
+[22:33:13.413 INF] Totals by bag type
+[22:33:13.413 INF] Finished processing D:\UOW\SEM3\msc-diss-7csef001w\scenarios\scenario_8\artefacts\shellbags\NTUSER.DAT
+[22:33:13.413 INF] Exported to: D:\UOW\SEM3\msc-diss-7csef001w\scenarios\scenario_8\analysis\shellbags\0_NTUSER.csv
+[22:33:13.414 INF] ---------------------------------------------------------------------
+[22:33:13.414 INF] Processing complete!
+[22:33:13.415 INF] Processed 2 files in 0.27 seconds!
+[22:33:13.415 INF] Total ShellBags found: 11
+
+

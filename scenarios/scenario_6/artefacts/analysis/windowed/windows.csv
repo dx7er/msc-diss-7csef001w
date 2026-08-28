@@ -1,0 +1,8 @@
+﻿"Action","Note","StartUtc","EndUtc","DurationSec"
+"A01","sign out via Start menu","2026-08-18 16:01:14.442","2026-08-18 16:03:06.588","112.15"
+"A02","sign in as dfanalyst (retrospective)","2026-08-18 16:03:11.940","2026-08-18 16:03:21.261","9.32"
+"A03","press Win+L","2026-08-18 16:03:56.414","2026-08-18 16:04:12.497","16.08"
+"A04","waited more than 15 s while locked (retrospective marker; exact locked span is A03 end to A05 start)","2026-08-18 16:06:09.498","2026-08-18 16:06:21.748","12.25"
+"A05","unlock with password (retrospective)","2026-08-18 16:06:23.741","2026-08-18 16:06:33.255","9.51"
+"A06","sign out again via Start menu","2026-08-18 16:06:35.568","2026-08-18 16:07:50.047","74.48"
+"A07","sign in as dfanalyst (retrospective)","2026-08-18 16:07:51.276","2026-08-18 16:07:59.337","8.06"

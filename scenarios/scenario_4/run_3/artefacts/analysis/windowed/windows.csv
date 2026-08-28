@@ -1,0 +1,7 @@
+﻿"Action","Note","StartUtc","EndUtc","DurationSec"
+"A01","USB attach via VMWare Removable devices Connect","2026-08-22 21:00:13.516","2026-08-22 21:00:55.830","42.31"
+"A02","Open Explorer, navigate to USB root","2026-08-22 21:01:05.722","2026-08-22 21:01:32.049","26.33"
+"A03","Navigate to \PORTABLE\ directory inside USB root","2026-08-22 21:01:49.149","2026-08-22 21:02:24.941","35.79"
+"A04","Launching Hellowworld exe from directory","2026-08-22 21:02:38.794","2026-08-22 21:03:03.176","24.38"
+"A05","Eject USB from Explorer","2026-08-22 21:03:08.506","2026-08-22 21:03:33.856","25.35"
+"A06","Disconnect USB from guest in VMWare Removable Devices","2026-08-22 21:03:37.302","2026-08-22 21:03:57.241","19.94"

@@ -1,0 +1,5 @@
+﻿"Action","Note","StartUtc","EndUtc","DurationSec"
+"A01","Open Explorer, navigate to C:\DISS_TESTDATA\scenario5_delete","2026-08-18 08:28:53.092","2026-08-18 08:29:25.888","32.8"
+"A02","Delete scenario5_target.txt to Recycle Bin","2026-08-18 08:29:57.235","2026-08-18 08:30:23.295","26.06"
+"A03","Open Recycle Bin from Desktop","2026-08-18 08:30:46.441","2026-08-18 08:31:07.519","21.08"
+"A05","Empty Recycle Bin","2026-08-18 08:32:11.259","2026-08-18 08:32:32.328","21.07"
