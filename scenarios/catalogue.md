@@ -2,7 +2,7 @@
 
 Formal set of user activity scenarios executed against the working baseline (`baseline_pre_scenarios`, child of `baseline_candidate`) to generate ground truth artefacts for Prefetch, Windows Event Logs, and ShellBags correlation.
 
-Designed to Jade's 2026-08-06 guidance: 10 scenarios total, 5 to 10 per artefact class, 3 headline scenarios in main body, remaining in appendix, every scenario has a row in the [evaluation matrix](../scripts/evaluation/evaluation_matrix_template.md).
+Designed to Jade's 2026-08-06 guidance: 10 scenarios total, 5 to 10 per artefact class, 3 headline scenarios in main body, remaining in appendix, every scenario has a row in the [evaluation matrix](../scripts/evaluation/evaluation_matrix.md).
 
 ## Constraints
 
