@@ -99,7 +99,7 @@ msc-diss-7csef001w/
     └── evaluation/                 (evaluation_matrix.csv, evaluation_matrix.md)
 ```
 
-## Scenarios in numeric order
+## Scenarios
 
 GitHub sorts the `scenarios/` directory tree alphabetically, which puts `scenario_10` between `scenario_1` and `scenario_2`. The correct execution and reporting order is numeric. Use this index rather than the alphabetic folder listing when navigating the repository, and see [`scenarios/catalogue.md`](scenarios/catalogue.md) for the full scenario descriptions and per-run methodology.
 
