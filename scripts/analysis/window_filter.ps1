@@ -8,10 +8,10 @@
     action's start and end rows, expands each pair into a [start-Pad, end+Pad]
     UTC window, then filters:
 
-        analysis/prefetch/scenario_N[_runM]_prefetch_Timeline.csv   by RunTime
-        analysis/event_logs/*_EvtxECmd_Output.csv                   by TimeCreated
+        artefacts/analysis/prefetch/scenario_N[_runM]_prefetch_Timeline.csv   by RunTime
+        artefacts/analysis/event_logs/*_EvtxECmd_Output.csv                   by TimeCreated
 
-    Outputs land under analysis/windowed/ preserving the same subfolder layout.
+    Outputs land under artefacts/analysis/windowed/ preserving the same subfolder layout.
     A windows.csv summary is also written so the exact bounds used are
     auditable alongside the filtered evidence.
 
@@ -20,7 +20,7 @@
     folder may have been navigated to before the scenario started; the whole
     UsrClass.csv is small enough (<20 rows in every scenario) to review as a
     block. They are copied through unchanged so the correlation step still
-    finds them under analysis/windowed/shellbags/.
+    finds them under artefacts/analysis/windowed/shellbags/.
 
     The PECmd main CSV (scenario_N[_runM]_prefetch.csv) is also NOT filtered:
     each row already carries up to 8 run timestamps (LastRun plus 7
@@ -87,8 +87,8 @@ else {
 }
 
 $GtCsv      = Join-Path $WorkRoot 'evaluation\ground_truth.csv'
-$AnalysisIn = Join-Path $WorkRoot 'analysis'
-$WindowedOut = Join-Path $WorkRoot 'analysis\windowed'
+$AnalysisIn = Join-Path $WorkRoot 'artefacts\analysis'
+$WindowedOut = Join-Path $WorkRoot 'artefacts\analysis\windowed'
 
 foreach ($p in @($GtCsv, $AnalysisIn)) {
     if (-not (Test-Path $p)) { throw "Required path missing: $p" }

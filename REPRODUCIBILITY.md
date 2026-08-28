@@ -24,7 +24,7 @@ This document explains how to reproduce every part of the MSc dissertation "Corr
 
 ## 1. What you will reproduce
 
-The study takes 10 controlled user activity scenarios on a Windows 11 testbed, records ground truth externally at the moment of execution, then acquires and parses three Windows forensic artefact classes (Prefetch, Windows Event Logs, ShellBags) and correlates them against the ground truth. Success looks like a per action verdict of CONFIRMED, PARTIAL or MISSED for each of the ~80 total actions across the 10 scenarios, plus a cross scenario evaluation matrix.
+The study takes 10 controlled user activity scenarios on a Windows 11 testbed, records ground truth in guest PowerShell at the moment of execution via `log_action.ps1` (a method-independent CSV that reads the same guest clock as the artefacts), then acquires and parses three Windows forensic artefact classes (Prefetch, Windows Event Logs, ShellBags) and correlates them against the ground truth. Success looks like a per action verdict of CONFIRMED, PARTIAL or MISSED for each of the ~80 total actions across the 10 scenarios, plus a cross scenario evaluation matrix.
 
 Expected outputs at the end of a full reproduction:
 

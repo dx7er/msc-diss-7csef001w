@@ -10,7 +10,7 @@
         EvtxECmd  against artefacts/event_logs/  -> combined events CSV
         SBECmd    against artefacts/shellbags/   -> shellbags CSV
 
-    Outputs land in a fresh analysis/ folder beside artefacts/, mirroring the
+    Outputs land in a fresh analysis/ folder inside artefacts/, mirroring the
     three artefact classes as subfolders. The raw evidence is never touched;
     only parsed CSVs are written.
 
@@ -89,7 +89,7 @@ if (-not (Test-Path $ArtefactsRoot)) {
     throw "Artefacts folder not found under $WorkRoot. If this is a multi-run scenario, pass -Run."
 }
 
-$AnalysisRoot = Join-Path $WorkRoot 'analysis'
+$AnalysisRoot = Join-Path $ArtefactsRoot 'analysis'
 
 # ---------------------------------------------------------------------------
 # 3. Prepare a fresh analysis/ tree

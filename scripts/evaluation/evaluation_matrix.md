@@ -119,17 +119,22 @@ Percentage of ground-truth items whose unified per-scenario timeline was scored 
 
 Correlated PASS-or-PART attribution: 49 of 56 = 87.5%.
 
-### Correlation lift
+### Correlation contribution
 
-Percentage of PASS rows where at least one single-artefact column is FAIL or PART, indicating the correlation across classes added attribution the single-class view alone would have missed. Denominator is the 35 Correlated=PASS rows.
+The 2026-08-06 meeting posed one question: "does correlation across classes add attribution beyond what any single class gives?" A single "lift" number cannot answer it honestly, because "adds attribution" has three distinct senses in this corpus. Each is reported separately, with a clear numerator and denominator, so the reader is never asked to swap definitions mid-sentence.
 
-Rows contributing to lift: 13 of 35 = 37.1%.
+Denominator throughout is the 35 Correlated=PASS rows.
 
-- S01: 10 install rows where Prefetch and EVTX both PASS but ShellBags FAIL (12 rows contribute 10 because 2 of the 12 install rows land at Correlated=PART).
-- S04: 1 row (USB attach, where EVTX PASS + SBags FAIL).
-- S09: 2 rows (File downloaded where SBags FAIL, Downloads opened where PF PART).
+1. **Incremental detection**: rows where no single artefact class was PASS on its own and the correlated timeline is nevertheless PASS. This is the strongest possible sense of lift (correlation reveals attribution that no class alone would have surfaced). Count: **0 of 35 = 0.0%**. In this corpus every correlated-PASS row has at least one single-class PASS, so correlation never manufactures a positive verdict from three negatives. This is a truthful null result and it means the strict "single-class blind spot" claim cannot be made from this dataset.
 
-The lift metric answers a specific question posed at the 2026-08-06 meeting: "does correlation across classes add attribution beyond what any single class gives?" The answer is yes for 37% of the study's confirmed cases, principally driven by the install-action scenario (S01) where the negative-space contribution of ShellBags (silence is expected, not a coverage gap) is only visible under a multi-class model.
+2. **Multi-class corroboration**: rows where at least one of the three single-artefact classes is FAIL or PART (i.e. one or two classes fell short, another carried the row, and the correlated verdict integrates them into a coherent narrative). Count: **13 of 35 = 37.1%**. Composition:
+   - S01: 10 install rows where Prefetch and EVTX both PASS but ShellBags FAIL (installers do not open a Save-As dialog, so ShellBag silence is expected).
+   - S04: 1 row (USB attach, where EVTX PASS and ShellBags FAIL).
+   - S09: 2 rows (file downloaded where ShellBags FAIL; Downloads opened where Prefetch is PART).
+
+3. **Negative-space evidence**: rows where the absence of an expected artefact is itself an interpretive signal (an installer that leaves no ShellBag trace, a background service whose Prefetch entry precedes any user session). Negative-space evidence is not scored as a separate verdict class in the current matrix, but it is what makes the S01 corroboration cluster diagnostic rather than merely additive: silence in the ShellBag column is treated as consistent with an installer workflow rather than as a coverage gap. Formalising negative-space evidence as its own scored column is an acknowledged extension for future work.
+
+The honest summary. Correlation in this corpus does not create attribution that a single class would have missed. What it does is (a) corroborate and cross-validate attribution across independent artefact classes in 13 of 35 confirmed rows, (b) reconcile the ground-truth timeline against three independently-timestamped evidence streams so that clock drift and reporting-delay artefacts are visible rather than hidden, and (c) let expected silence in one class be interpreted correctly against expected presence in another. Those are the analytically-useful contributions of the correlation model in this study, and they should be reported as such rather than compressed into a single "lift" percentage.
 
 ### Reproducibility mean
 
@@ -139,7 +144,7 @@ Mean `N/3` across the 10 multi-run rows (5 rows each for S04 and S07):
 - S07: (3+3+0+3+3) / 5 = 2.4/3
 - Combined: (13+12) / (5+5) = 25/30 = 83.3%
 
-Both scenarios exceed the 2.5/3 threshold the template specifies as the stability floor, indicating the testbed reproducibly regenerates the same evidence pattern across independent runs when the same ground-truth actions are performed. The single largest source of variance is S07's "New subfolder created" row, which is a ground-truth-level deviation (the participant never created the subfolder in any run) rather than an artefact-variance issue; excluding it, the S07 mean rises to 3.0/3.
+S04 (2.6/3) exceeds the 2.5/3 threshold the template specifies as the stability floor. S07 (2.4/3) falls just under it, and the single row responsible for the shortfall is "New subfolder created", scored 0/3 because the participant never created the subfolder in any of the three runs. This is a ground-truth-level protocol deviation rather than an artefact-variance issue: the artefacts correctly reflect what the user actually did (no subfolder was created, so no ShellBag was written). If that row is excluded on protocol grounds, the S07 mean rises to 3.0/3. Both raw and protocol-adjusted figures are reported so the reader sees the unadjusted result before the adjustment argument. The candid reading is that S04 clears the reproducibility bar as originally defined, S07 does not clear it under a strict reading, and the shortfall is attributable to execution rather than to the artefacts. Section 6 of the discussion returns to this and recommends a clean re-run of Scenario 7 to the intended protocol as immediate future work.
 
 ### Per-scenario coverage
 

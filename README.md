@@ -99,6 +99,21 @@ msc-diss-7csef001w/
     └── evaluation/                 (evaluation_matrix.csv, evaluation_matrix.md)
 ```
 
+## Scenarios in numeric order
+
+GitHub sorts the `scenarios/` directory tree alphabetically, which puts `scenario_10` between `scenario_1` and `scenario_2`. The correct execution and reporting order is numeric. Use this index rather than the alphabetic folder listing when navigating the repository, and see [`scenarios/catalogue.md`](scenarios/catalogue.md) for the full scenario descriptions and per-run methodology.
+
+1. [Scenario 1. Install 6 applications](scenarios/scenario_1/) (main, 1 run)
+2. [Scenario 2. Application execution baseline](scenarios/scenario_2/) (appendix, 1 run)
+3. [Scenario 3. Nested folder navigation](scenarios/scenario_3/) (appendix, 1 run)
+4. [Scenario 4. USB attach, browse, execute from USB](scenarios/scenario_4/) (main, 3 runs)
+5. [Scenario 5. File deletion via Explorer and Recycle Bin](scenarios/scenario_5/) (appendix, 1 run)
+6. [Scenario 6. Logon, lock, unlock, logoff cycle](scenarios/scenario_6/) (appendix, 1 run)
+7. [Scenario 7. Save As from Notepad++ to new Documents subfolder](scenarios/scenario_7/) (main, 3 runs)
+8. [Scenario 8. Command line execution (cmd, PowerShell)](scenarios/scenario_8/) (appendix, 1 run)
+9. [Scenario 9. Web browsing session with download](scenarios/scenario_9/) (appendix, 1 run)
+10. [Scenario 10. System shutdown and power on](scenarios/scenario_10/) (appendix, 1 run)
+
 ## Methodology
 
 Framing is forensic analysis, not software engineering. The candidate acts as the documented user on a controlled Windows 11 testbed, generating known input activity that produces artefacts of known provenance.
@@ -106,7 +121,7 @@ Framing is forensic analysis, not software engineering. The candidate acts as th
 Approach:
 
 1. Snapshot a clean Windows 11 baseline before any scenario runs.
-2. Execute scripted user activity scenarios (Scenario 1 to Scenario 10) with timestamps logged externally via `log_action.ps1`.
+2. Execute scripted user activity scenarios (Scenario 1 to Scenario 10) with UTC start and end timestamps recorded by `log_action.ps1`, a helper dot-sourced in guest PowerShell that keeps the ground-truth log in memory during the run and exports it to CSV at the end.
 3. Snapshot post-scenario state; compute SHA-256 hashes for each artefact source.
 4. Acquire raw artefacts offline from the post-scenario snapshot via `acquire_artefacts.ps1`.
 5. Parse artefacts with open source tools (PECmd, EvtxECmd, SBECmd); export structured CSV output into each scenario's `artefacts/analysis/` folder.
@@ -151,7 +166,7 @@ Parser versions and CLI flags used for each artefact class are recorded per run 
 
 - Every artefact source is SHA-256 hashed on collection.
 - Snapshot names encode the scenario and run identifier; snapshot list lives in `vm_testbed.md`.
-- Ground truth for each scenario is logged externally at the moment of execution, independent of the artefacts being tested.
+- Ground truth for each scenario is recorded at the moment of execution by `log_action.ps1`, a helper dot-sourced in guest PowerShell that reads the same guest clock as the forensic artefacts. Ground truth is therefore method-independent of the artefacts (a separate CSV produced by a separate script, capturing action names and researcher-defined boundaries that the artefacts do not carry) but not clock-independent of them. The consequence is documented explicitly in the discussion (Scenario 10 demonstrates the failure mode when the guest clock is deliberately skewed).
 - Per-run acquisition manifests live at `scenarios/scenario_N/artefacts/supporting/acquisition_manifest.csv` (single run) or `scenarios/scenario_N/run_M/artefacts/supporting/acquisition_manifest.csv` (multi run). These are committed to the repository even though the raw binaries they hash are not.
 - Baseline VM configuration state is captured in `scenarios/testbed_evidence/` and summarised in `vm_testbed.md`.
 
