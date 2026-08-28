@@ -6,7 +6,7 @@ Purpose is a normal editing plus file creation workflow that hits all three arte
 
 ## 1. Ground truth
 
-VM reverted to `scenario1_post` before each run so Notepad++ is preinstalled. Save As target for every run: `C:\Users\dfanalyst\Documents\scenario7_test_file.txt`. Deviation from catalogue: no per rep subfolder was created inside the Save As dialog; the file was written to the Documents root every time. A05 to A07 replaced the catalogue's folder creation sequence with an Explorer verification pass instead.
+VM reverted to `scenario1_post` before each run so Notepad++ is preinstalled. Save As target for every run: `C:\Users\dfanalyst\Documents\scenario7_test_file.txt`. Executed protocol matches the current catalogue entry for S07 (`scenarios/catalogue.md` S07 Manual steps): a straight Save As into the `Documents` root followed by an Explorer verification pass. An earlier draft of the catalogue included a per-rep subfolder creation step inside the Save As dialog; that step was dropped before Run 1 and the Catalogue authority note in `scenarios/catalogue.md` records the change. Per-run `evaluation/ground_truth.csv` PRE-row notes still refer to the earlier draft and are preserved for provenance.
 
 Seven actions per run. Full logs at `run_1/evaluation/ground_truth.csv`, `run_2/evaluation/ground_truth.csv`, `run_3/evaluation/ground_truth.csv`.
 

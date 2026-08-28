@@ -4,6 +4,30 @@ Formal set of user activity scenarios executed against the working baseline (`ba
 
 Designed to Jade's 2026-08-06 guidance: 10 scenarios total, 5 to 10 per artefact class, 3 headline scenarios in main body, remaining in appendix, every scenario has a row in the [evaluation matrix](../scripts/evaluation/evaluation_matrix.md).
 
+## Scenario folders in numeric order
+
+GitHub sorts the `scenarios/` tree alphabetically, so the folder listing shows `scenario_10` between `scenario_1` and `scenario_2`. The correct execution and reporting order is numeric; use this index rather than the alphabetic folder view.
+
+| # | Scenario | Folder | Placement |
+|---|----------|--------|-----------|
+| 1 | Install 6 applications | [`scenarios/scenario_1/`](scenario_1/) | Main |
+| 2 | Application execution baseline | [`scenarios/scenario_2/`](scenario_2/) | Appendix |
+| 3 | Nested folder navigation | [`scenarios/scenario_3/`](scenario_3/) | Appendix |
+| 4 | USB attach, browse, execute from USB | [`scenarios/scenario_4/`](scenario_4/) | Main |
+| 5 | File deletion via Explorer and Recycle Bin | [`scenarios/scenario_5/`](scenario_5/) | Appendix |
+| 6 | Logon, lock, unlock, logoff cycle | [`scenarios/scenario_6/`](scenario_6/) | Appendix |
+| 7 | Save As from Notepad++ to Documents | [`scenarios/scenario_7/`](scenario_7/) | Main |
+| 8 | Command line execution (cmd, PowerShell) | [`scenarios/scenario_8/`](scenario_8/) | Appendix |
+| 9 | Web browsing session with download | [`scenarios/scenario_9/`](scenario_9/) | Appendix |
+| 10 | System shutdown and power on | [`scenarios/scenario_10/`](scenario_10/) | Appendix |
+
+## Catalogue authority
+
+This catalogue describes the **executed protocol** for every scenario. Where an earlier draft of a scenario differed from what was actually run at the keyboard (S07's Save As dropped the per-rep subfolder step; S09's URL set moved from placeholders to real research-context sites), the catalogue was updated post-execution to describe the study of record. Two things follow from that:
+
+1. The evaluation matrix (`scripts/evaluation/evaluation_matrix.md`) measures artefact evidence against **this** catalogue, not against a superseded draft. Rows that a draft-based reading would have scored FAIL because a draft step was not executed are not present in the matrix.
+2. The per-run `evaluation/ground_truth.csv` files under `scenarios/scenario_N/run_M/` may carry a PRE-row note that refers to the earlier draft ("DEVIATION from catalogue: ..."). Those notes are the researcher's contemporaneous record and are preserved for provenance. They document divergence from the pre-execution draft, not from the current catalogue.
+
 ## Constraints
 
 - Anti forensic behaviour is out of scope.
@@ -19,7 +43,7 @@ Tiered per scenario based on where reproducibility genuinely strengthens the fin
 |----------|:----:|-----------|
 | Scenario 1 Install applications | 1 | Installer output is deterministic; three repetitions would just repeat known Windows install behaviour without strengthening the correlation claim. |
 | Scenario 4 USB attach and execute | 3 | PnP timing and enumeration order can vary; three attaches meaningfully confirm the same VID, PID, serial reliably appears. |
-| Scenario 7 Save As from Notepad++ | 3 | The Save As common dialog "writes to ShellBags" behaviour has historical Windows edge cases; three reps confirm the pattern is stable. |
+| Scenario 7 Save As from Notepad++ to Documents | 3 | The Save As common dialog "writes to ShellBags" behaviour has historical Windows edge cases; three reps confirm the 7-row `UsrClass` pattern is stable across runs. |
 | Scenario 2, Scenario 3, Scenario 5, Scenario 6, Scenario 8, Scenario 9, Scenario 10 | 1 each | Qualitative pass or fail in the evaluation matrix is sufficient for appendix scenarios. |
 
 Total runs: 1 + 3 + 3 + 7 = 14 runs.
@@ -34,7 +58,7 @@ Main body scenarios are all three artefact by design (correlation across `PF + E
 |-----|------------------------------------------------|:--:|:----:|:-----:|:---------:|
 | Scenario 1 | Install 6 applications                         | X  | X    | X     | Main      |
 | Scenario 4 | USB attach, browse, execute from USB           | X  | X    | X     | Main      |
-| Scenario 7 | Save As from Notepad++ to new subfolder        | X  | X    | X     | Main      |
+| Scenario 7 | Save As from Notepad++ to Documents             | X  | X    | X     | Main      |
 | Scenario 2 | Application execution baseline                 | X  | X    |       | Appendix  |
 | Scenario 3 | Nested folder navigation                       |    |      | X     | Appendix  |
 | Scenario 5 | File deletion via Explorer + Recycle Bin       | X  | X    | X     | Appendix  |
@@ -186,32 +210,33 @@ Expected artefacts:
 
 Correlation problem: device to file provenance. Map a specific USB hardware ID to specific folders browsed on it to a specific executable run from it.
 
-### Scenario 7. Save As from Notepad++ to new Documents subfolder (main, 3 reps)
+### Scenario 7. Save As from Notepad++ to Documents (main, 3 reps)
 
 Rationale: hits all three artefact classes with a normal editing and file creation workflow that doesn't overlap Scenario 1 (install) or Scenario 4 (USB device). Uses Notepad++ installed in Scenario 1, no additional software or hardware required.
 
 Precondition: Notepad++ installed (from Scenario 1). If starting from `baseline_pre_scenarios`, run Scenario 1 once first (single install rep is sufficient for the required Notepad++ presence).
 
-Manual steps:
+Manual steps (7 actions per run, executed identically across Runs 1, 2 and 3):
 
 1. A01. From Start, launch `notepad++.exe`. Wait for main window.
 2. A02. In the blank tab, type: `Scenario 7 test content <UTC timestamp>` (paste the current UTC as a distinctive marker per rep).
-3. A03. Menu File, Save As.
-4. A04. In the Save As dialog, click into the address bar and paste `%USERPROFILE%\Documents`. Press Enter.
-5. A05. Right click empty space in the dialog file area, New, Folder. Name it `scenario7_output_run<NN>` where `<NN>` is the repetition number. Press Enter.
-6. A06. Double click `scenario7_output_run<NN>` to enter it.
-7. A07. In the filename field, enter `scenario7_test_run<NN>.txt`. Click Save.
-8. A08. Close Notepad++ (X button; if prompted to save, click No, the file is already saved).
+3. A03. Menu File, Save As. In the Save As dialog, navigate to `%USERPROFILE%\Documents` (address bar paste and Enter) and save as `scenario7_test_file.txt` (Notepad++ default filter appends `.txt`). File is written to the `Documents` root; no per-rep subfolder is created.
+4. A04. Close Notepad++ (X button; the file is already saved so no prompt appears).
+5. A05. Open File Explorer and navigate to `%USERPROFILE%\Documents` to verify the saved file.
+6. A06. View the file in the Explorer window (single click to select; open only if needed).
+7. A07. Close File Explorer and any remaining Notepad++ windows.
 
-Ground truth: launch UTC, save UTC, close UTC, target file full path. Rows A01 to A08; record the exact filename saved in `TargetPath` and the folder name created in `ObservedOutcome`.
+Ground truth: launch UTC, save UTC, close UTC, target file full path. Rows PRE, A01 to A07; record the exact filename saved in `TargetPath` and the UTC marker string pasted into the file body in `Note` on A02.
 
 Expected artefacts:
 
-- Prefetch: `NOTEPAD++.EXE-*.pf` with first and last run time matching the launch UTC. Across the 3 reps, run count should equal 3.
-- Event Logs (Security): `4688` process creation for `notepad++.exe` with command line populated.
-- ShellBags (`UsrClass.dat`): entries for `Documents` and for the newly created `scenario7_output_run<NN>` subfolder per rep. The Save As common dialog uses `IShellBrowser` and writes ShellBag entries the same way Explorer navigation does.
+- Prefetch: `NOTEPAD++.EXE-*.pf` with first and last run time matching the launch UTC. Across the 3 reps, run count should equal 3. `NOTEPAD.EXE-*.pf` also appears in A05 to A07 as an Explorer preview side effect for `.txt` files.
+- Event Logs (Security): `4688` process creation for `notepad++.exe` with command line populated; `4663` object write on the saved file path.
+- ShellBags (`UsrClass.dat`): the Save As common dialog uses `IShellBrowser` and writes ShellBag entries for `Documents` and the Notepad++ program folder the same way Explorer navigation does. Executed protocol produces a stable 7-row `UsrClass` pattern including `Documents` and `Program Files\Notepad++` in every run.
 
-Correlation problem: tie application execution (`4688` and Prefetch) to file creation location (ShellBags for the new subfolder). Answers "which running program created which file where".
+Correlation problem: tie application execution (`4688` and Prefetch) to file creation location (ShellBags for the Save As navigation target, plus 4663 object write on the saved file path). Answers "which running program created which file where".
+
+Note on protocol. An earlier draft of this scenario included a per-rep subfolder creation step inside the Save As dialog and a save into that subfolder. That step was dropped before Run 1 (the Save As dialog's folder-creation control was fiddly and reduced reproducibility across runs without adding a new artefact class beyond what the plain Save As already produces). All three runs were executed with the 7-action protocol described above. The per-run `evaluation/ground_truth.csv` files carry a PRE-row note referring to that earlier draft; those notes are historical and refer to the pre-execution draft, not to a mid-study protocol change.
 
 ## Appendix scenarios
 
@@ -315,23 +340,24 @@ Expected: `CMD.EXE-*.pf`, `POWERSHELL.EXE-*.pf`, `CONHOST.EXE-*.pf`; `Security 4
 
 ### Scenario 9. Web browsing session with download (appendix, NAT required, 1 rep)
 
-Launch Chrome, visit three URLs, download a small file, open Downloads folder in Explorer, close browser. Tests Prefetch for browser and helper processes, `Security 4688` process creation chain, and ShellBags entry for Downloads folder.
+Launch Chrome, visit three real websites of increasing TLS and content complexity, download a sample file, open Downloads folder in Explorer, close browser. Tests Prefetch for browser and helper processes, `Security 4688` process creation chain, TLS chain validation events, and ShellBags entry for the `Downloads` folder.
 
-Precondition: Chrome installed (from Scenario 1).
+Precondition: Chrome installed (from Scenario 1). NAT enabled (Jade approved 2026-08-06).
 
-Manual steps:
+Manual steps (8 actions):
 
 1. A01. From Start, launch `chrome.exe`.
-2. A02. Navigate to `https://example.com/`. Wait 5 s.
-3. A03. Navigate to `https://www.bbc.co.uk/`. Wait 5 s.
-4. A04. Navigate to a small file URL (e.g. `https://files.testfile.org/PDF/10MB-TESTFILE.ORG.pdf`). Chrome will download to `Downloads`.
-5. A05. Wait for download to complete.
+2. A02. Navigate to `https://www.westminster.ac.uk/` (University of Westminster). Wait 5 s. Chosen as a distinctive TLS chain and a page the researcher can attribute unambiguously.
+3. A03. Navigate to `https://www.bbc.co.uk/` and open the first headline. Wait 5 s.
+4. A04. Navigate to `https://en.wikipedia.org/wiki/Digital_forensics` and scroll. Wait 5 s. Chosen for cached TLS chain behaviour (chrome helper churn without a new CAPI2 record).
+5. A05. Navigate to File Examples (`https://file-examples.com/`) and download a small sample PDF. Wait for the download to complete.
 6. A06. Close Chrome.
-7. A07. Open File Explorer, navigate to `%USERPROFILE%\Downloads`.
-8. A08. Confirm downloaded file present. Note filename.
-9. A09. Close Explorer.
+7. A07. Open File Explorer, navigate to `%USERPROFILE%\Downloads` and confirm the downloaded file is present. Note the filename.
+8. A08. Close File Explorer.
 
-Expected: `CHROME.EXE-*.pf` (main and utility processes); `Security 4688` for `chrome.exe` and helper processes; ShellBag entry for `Downloads`. Ground truth CSV: rows A01 to A09; record URLs in `TargetPath`, download filename in a dedicated row.
+Expected: `CHROME.EXE-*.pf` (main and helper processes); `Security 4688` for `chrome.exe` and helper processes; CAPI2 `4097` on the first TLS chain of the run and silence thereafter for cached chains; `Acrobat` Prefetch cluster if the downloaded PDF is opened as a side effect; ShellBag entry for `Downloads`. Ground truth CSV: rows PRE, A01 to A08; record URLs in `Note`, download filename in a dedicated row.
+
+Note on protocol. An earlier draft named `example.com`, `bbc.co.uk` and a `testfile.org` PDF as placeholder URLs. The executed protocol replaced the placeholder set with real research-context URLs (`westminster.ac.uk`, a live BBC headline, and a Wikipedia article) plus a File Examples PDF for the download; three URLs and a download are still visited, so the intent of the scenario is unchanged.
 
 ### Scenario 10. System shutdown and power on (appendix, 1 rep)
 

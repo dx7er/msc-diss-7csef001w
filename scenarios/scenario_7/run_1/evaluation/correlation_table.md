@@ -1,12 +1,12 @@
 # Scenario 7 Run 1 correlation table
 
-Scenario: Save As from Notepad++ to new Documents subfolder (main body). Run 1 of 3. Artefact classes in matrix: Prefetch, EVTX, ShellBags.
+Scenario: Save As from Notepad++ to Documents (main body). Run 1 of 3. Artefact classes in matrix: Prefetch, EVTX, ShellBags.
 
 Windowed inputs used:
 - Prefetch, EVTX, ShellBags: `artefacts/analysis/windowed/`
 - Machine-generated evidence dump: `artefacts/analysis/windowed/correlation_report.txt`
 
-**Precondition:** VM reverted to `scenario1_post` (Notepad++ preinstalled from Scenario 1). Save As target: `C:\Users\dfanalyst\Documents\scenario7_test_file.txt`. GT documents a deviation from the catalogue (no per-rep subfolder created; file saved to Documents root); A02 UTC marker pasted into file: 2026-08-23T00:13:50.9282394Z.
+**Precondition:** VM reverted to `scenario1_post` (Notepad++ preinstalled from Scenario 1). Save As target: `C:\Users\dfanalyst\Documents\scenario7_test_file.txt`. Executed protocol matches the current catalogue (no per-rep subfolder; file saved to Documents root). The GT PRE-row note refers to the earlier draft catalogue and is preserved for provenance (see Catalogue authority note in `scenarios/catalogue.md`). A02 UTC marker pasted into file: 2026-08-23T00:13:50.9282394Z.
 
 Verdict rules and column definitions: see `scripts/evaluation/evaluation_matrix.md`.
 

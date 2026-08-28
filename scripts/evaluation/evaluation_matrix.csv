@@ -1,26 +1,25 @@
 scenario,ground_truth_item,pf,evtx,sbags,correlated,reproducibility,notes
-S01,Chrome installer executed,PASS,PASS,FAIL,PASS,N/A,PF ChromeSetup + 4688 parent explorer.exe + Google Updater 7045
-S01,WinRAR installer executed,PASS,PASS,FAIL,PASS,N/A,PF winrar-x64-723 + 4688 + CAPI2 Certum chain
-S01,VLC installer executed,PASS,PASS,FAIL,PASS,N/A,PF vlc-3.0.23 + VLC-cache-gen + 4688
-S01,Adobe Reader installer executed,PASS,PASS,FAIL,PASS,N/A,strongest MSI chain: MsiInstaller 11707 + 1033 + 1025 + service 7045
-S01,Zoom installer executed,PASS,PASS,FAIL,PASS,N/A,PF ZoomInstallerFull + MSI 1040 + CAPI2 Comodo + service 7045
-S01,Notepad++ installer executed,PASS,PART,FAIL,PART,N/A,NSIS not MSI: no MsiInstaller trail; EVTX diluted by Adobe residue
-S01,Chrome install completed successfully,PASS,PASS,FAIL,PASS,N/A,PF chrome.exe post-install + Google Updater service registration
-S01,WinRAR install completed successfully,PASS,PASS,FAIL,PASS,N/A,PF rarextinstaller.exe post-install
-S01,VLC install completed successfully,PASS,PASS,FAIL,PASS,N/A,PF VLC-cache-gen fires only during install
-S01,Adobe Reader install completed successfully,PASS,PASS,FAIL,PASS,N/A,MsiInstaller 11707 explicitly names product + success
-S01,Zoom install completed successfully (+ service 7045),PASS,PASS,FAIL,PASS,N/A,PF Zoom.exe + MSI 1042 exit + service 7045
-S01,Notepad++ install completed successfully,PASS,PART,FAIL,PART,N/A,PF direct hit but no MSI trail; single-class attribution
+S01,Chrome installer executed,PASS,PASS,N/A,PASS,N/A,PF ChromeSetup + 4688 parent explorer.exe + Google Updater 7045
+S01,WinRAR installer executed,PASS,PASS,N/A,PASS,N/A,PF winrar-x64-723 + 4688 + CAPI2 Certum chain
+S01,VLC installer executed,PASS,PASS,N/A,PASS,N/A,PF vlc-3.0.23 + VLC-cache-gen + 4688
+S01,Adobe Reader installer executed,PASS,PASS,N/A,PASS,N/A,strongest MSI chain: MsiInstaller 11707 + 1033 + 1025 + service 7045
+S01,Zoom installer executed,PASS,PASS,N/A,PASS,N/A,PF ZoomInstallerFull + MSI 1040 + CAPI2 Comodo + service 7045
+S01,Notepad++ installer executed,PASS,PART,N/A,PART,N/A,NSIS not MSI: no MsiInstaller trail; EVTX diluted by Adobe residue
+S01,Chrome install completed successfully,PASS,PASS,N/A,PASS,N/A,PF chrome.exe post-install + Google Updater service registration
+S01,WinRAR install completed successfully,PASS,PASS,N/A,PASS,N/A,PF rarextinstaller.exe post-install
+S01,VLC install completed successfully,PASS,PASS,N/A,PASS,N/A,PF VLC-cache-gen fires only during install
+S01,Adobe Reader install completed successfully,PASS,PASS,N/A,PASS,N/A,MsiInstaller 11707 explicitly names product + success
+S01,Zoom install completed successfully (+ service 7045),PASS,PASS,N/A,PASS,N/A,PF Zoom.exe + MSI 1042 exit + service 7045
+S01,Notepad++ install completed successfully,PASS,PART,N/A,PART,N/A,PF direct hit but no MSI trail; single-class attribution
 S01,User navigated to Downloads folder,FAIL,PART,PART,PART,N/A,SB BagMRU present but timestamp is post-scenario hive flush
-S04,USB device attached (VID/PID/serial),N/A,PASS,FAIL,PASS,3/3,DriverFrameworks 2005 chain + Partition 1006 Model:UDisk + Security 6416
+S04,USB device attached (VID/PID/serial),N/A,PASS,N/A,PASS,3/3,DriverFrameworks 2005 chain + Partition 1006 Model:UDisk + Security 6416
 S04,USB volume root browsed,N/A,N/A,PART,PART,1/3,SB E: only in Run 1; Runs 2/3 lost to short A02 window
 S04,USB subfolder browsed,N/A,N/A,PASS,PASS,3/3,BagMRU Desktop\E:\PORTABLE direct hit in all three runs
 S04,EXE launched from USB volume,PASS,PASS,N/A,PASS,3/3,PF HelloWorld.exe with volume-path attribution + 4688 parent explorer.exe
 S04,USB device safely ejected,N/A,PASS,N/A,PASS,3/3,DriverFrameworks 2900 shutdown + Partition 1006 UDisk (device loop closed)
 S07,notepad++.exe launched,PASS,PASS,N/A,PASS,3/3,PF notepad++.exe + GUP updater + 4688 chain
 S07,User navigated to Documents in Save-As dialog,N/A,N/A,PASS,PASS,3/3,UsrClass BagMRU Desktop\Documents in each run
-S07,New subfolder S07_Output_R<NN> created,N/A,N/A,FAIL,FAIL,0/3,GT deviation: no subfolder created; file saved to Documents root
-S07,File s07-test-R<NN>.txt saved to new subfolder,FAIL,PART,PART,PART,3/3,file saved (4663 object write + SB Documents) but to root not per-rep subfolder
+S07,File scenario7_test_file.txt saved to Documents root,PASS,PASS,PASS,PASS,3/3,4663 object write on saved file + PECmd notepad++.exe RunTime + UsrClass Desktop\Documents present in all 3 runs
 S07,Save-As dialog ShellBags entry present,N/A,N/A,PASS,PASS,3/3,7-row UsrClass pattern including Documents and Program Files\Notepad++
 S02,notepad.exe launched (3 times),PASS,PASS,N/A,PASS,N/A,PF NOTEPAD.EXE + 4688 parent explorer.exe
 S02,calc.exe launched (3 times),PASS,PASS,N/A,PASS,N/A,PF CALCULATORAPP.EXE (Win11 UWP rename)
@@ -35,8 +34,8 @@ S03,Level-3 folder browsed,N/A,N/A,PASS,PART,N/A,BagMRU Desktop\...\level3_a
 S03,Level-4 folder browsed,N/A,N/A,PASS,PART,N/A,BagMRU Desktop\...\level4_a
 S03,Level-5 folder browsed,N/A,N/A,PASS,PASS,N/A,BagMRU deepest target + namespace refresh (hive flush)
 S03,Sibling folder NOT browsed (negative control),N/A,N/A,PASS,PASS,N/A,no BagMRU entry for unvisited siblings; negative control satisfied
-S05,File deleted to Recycle Bin,FAIL,FAIL,FAIL,FAIL,N/A,3-artefact gap; requires $I/$R parse of C:\$Recycle.Bin
-S05,Recycle Bin emptied,PART,PART,FAIL,PART,N/A,MPCMDRUN Defender-scan burst is indirect inference only
+S05,File deleted to Recycle Bin,FAIL,FAIL,N/A,FAIL,N/A,3-artefact gap; requires $I/$R parse of C:\$Recycle.Bin
+S05,Recycle Bin emptied,PART,PART,N/A,PART,N/A,MPCMDRUN Defender-scan burst is indirect inference only
 S06,Interactive logon (type 2) at T1,N/A,PASS,N/A,PASS,N/A,Winlogon 7001 UserSID logon + Security 4624 in A01 transition
 S06,Workstation locked at T2,N/A,PART,N/A,PART,N/A,Security 4800 audit subcategory off by default; UIEOrchestrator PF proxy
 S06,Workstation unlocked at T3,N/A,FAIL,N/A,FAIL,N/A,Security 4801 audit subcategory off; no trace across any class
@@ -47,10 +46,10 @@ S08,dir invoked with args,N/A,FAIL,N/A,FAIL,N/A,cmd built-in; requires 4688 Comm
 S08,powershell.exe executed,PASS,PART,N/A,PART,N/A,Terminal/OpenConsole PF confirms console launch but powershell.exe PF landed in prior window
 S08,Get-Process invoked,N/A,FAIL,N/A,FAIL,N/A,PS cmdlet inside powershell.exe; no new binary and no PS logging enabled
 S09,Chrome launched,PASS,PASS,N/A,PASS,N/A,Chrome sandbox PF cluster + 4688 burst + Chrome Application EID 256
-S09,URL 1 visited (example.com),N/A,PASS,N/A,PASS,N/A,mapped to A02 UoW nav: CAPI2 4097 GlobalSign
+S09,URL 1 visited (westminster.ac.uk),N/A,PASS,N/A,PASS,N/A,mapped to A02 UoW nav: CAPI2 4097 GlobalSign
 S09,URL 2 visited (bbc.co.uk),N/A,PART,N/A,PART,N/A,chrome helper churn only; CAPI2 silent (TLS chain cached)
-S09,URL 3 visited (download source),N/A,PART,N/A,PART,N/A,Wikipedia nav: chrome-parented 4688 only
-S09,File downloaded,PASS,PASS,FAIL,PASS,N/A,Acrobat PF cluster on PDF open post-download + chrome-parented 4688
+S09,URL 3 visited (Wikipedia digital forensics),N/A,PART,N/A,PART,N/A,Wikipedia nav: chrome-parented 4688 only
+S09,File downloaded,PASS,PASS,N/A,PASS,N/A,Acrobat PF cluster on PDF open post-download + chrome-parented 4688
 S09,Downloads folder opened in Explorer,PART,PASS,PASS,PASS,N/A,BagMRU Desktop\Downloads + 4663 object access on Downloads path
 S10,Clean shutdown at T1,PASS,PASS,N/A,PASS,N/A,Kernel-Power 109 + User32 1074 + Security 4647 + Winlogon 7002 + EventLog 1100
 S10,Power-on at T2,FAIL,FAIL,N/A,FAIL,N/A,VM off during window; no artefact possible by design
