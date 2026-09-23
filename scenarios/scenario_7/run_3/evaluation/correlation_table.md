@@ -16,7 +16,7 @@ Verdict rules and column definitions: see `scripts/evaluation/evaluation_matrix.
 |---|---|---|---|---|---|---|---|
 | A01 | 01:37:10 | Launch Notepad++ from Start | NOTEPAD++.EXE 01:37:15 (direct hit); GUP.EXE 01:37:16; MSEDGE.EXE 01:37:09 (Edge background) | Security 4688 x6, 4689 x13, 5379 x7 credential reads, Edge Application EID 256 x1 (an Edge tab logged during window) | no match | CONFIRMED | Reproduces Runs 1 and 2 A01 pattern. Multi-class attribution. |
 | A02 | 01:37:48 | Type Scenario 7 test content with UTC marker | FILECOAUTH, MSEDGEWEBVIEW2 x2, RUNTIMEBROKER x4, SPPSVC, STOREDESKTOPEXTENSION, SVCHOST x3, USEROOBEBROKER, WMIAPSRV (heavier background than Runs 1 and 2) | Security 4688 x42 parent services.exe, 4689 x19, 5379 x7, 4624 SYSTEM x4, 4672 x4, DistributedCOM 10016 x3, Time-Service EID 37 time.windows.com sync, Kernel-General EID 16 hive flush | no match | MISSED | Same MISSED verdict as prior runs for typing. Heavier background activity here (Windows Store first-run initialisation is running concurrently) is noise, not attribution. |
-| A03 | 01:38:37 | File menu, Save As in Documents folder | AM_DELTA 01:39:35, MPSIGSTUB 01:39:35, WUAUCLTCORE 01:39:35 (Defender signature update), MSEDGE 01:38:39, SEARCHFILTERHOST 01:39:18, SEARCHPROTOCOLHOST 01:39:18 | Security 4688 x9 with parent msedge.exe, 4689 x22, 4663 x3 object access, WER 1001 crash x1, VSS EID 8224 | UsrClass BagMRU at 01:38:48: `Desktop\Documents`; UsrClass at 01:38:43: `Desktop\This PC\C:\Users`, `Desktop\This PC\C:\Temp`, `Desktop\This PC\C:\DISS_Config`, `Desktop\This PC\C:\DISS_TESTDATA`, `Desktop\This PC\C:\Program Files`, `Desktop\This PC\C:\Program Files\Notepad++` (same seven-row pattern as Runs 1 and 2) | CONFIRMED | Third consecutive confirmation of the Save-As-writes-to-ShellBags pattern with exact reproducibility across all three runs. This is the study's cleanest reproducibility evidence for the primary research finding of Scenario 7. |
+| A03 | 01:38:37 | File menu, Save As in Documents folder | AM_DELTA 01:39:35, MPSIGSTUB 01:39:35, WUAUCLTCORE 01:39:35 (Defender signature update), MSEDGE 01:38:39, SEARCHFILTERHOST 01:39:18, SEARCHPROTOCOLHOST 01:39:18 | Security 4688 x9 with parent msedge.exe, 4689 x22, 4663 x3 object access (all name the CD-ROM device, not the saved file), WER 1001 crash x1, VSS EID 8224 | UsrClass BagMRU at 01:38:48: `Desktop\Documents`; UsrClass at 01:38:43: `Desktop\This PC\C:\Users`, `Desktop\This PC\C:\Temp`, `Desktop\This PC\C:\DISS_Config`, `Desktop\This PC\C:\DISS_TESTDATA`, `Desktop\This PC\C:\Program Files`, `Desktop\This PC\C:\Program Files\Notepad++` (same seven-row pattern as Runs 1 and 2) | PARTIAL | Downgraded from CONFIRMED in the 6 Sep 2026 record-level verification (see `scripts/evaluation/evaluation_matrix_corrections.md`): the 4663 records in this window name the CD-ROM device, not the saved file, so the save is inferred from the ShellBag and Prefetch sequence rather than recorded directly. Third consecutive confirmation of the Save-As-writes-to-ShellBags pattern with exact reproducibility across all three runs. This is the study's cleanest reproducibility evidence for the primary research finding of Scenario 7. |
 | A04 | 01:39:47 | Closing Notepad++ | no match | Security 4689 x1, SecurityCenter EID 15 x1 | no match | PARTIAL | Same as prior runs. |
 | A05 | 01:40:11 | Opening Documents folder using File Explorer | FILECOAUTH 01:40:18, RUNDLL32 01:40:18 (Explorer namespace); TASKHOSTW 01:40:33 | Security 4688 x5 with parent svchost.exe, 4689 x5, 4663 x3 object access | UsrClass BagMRU at 01:40:18: `Desktop\Win11 21H2`, `Desktop\This PC`, `Desktop\Desktop`, `Desktop\Downloads`, `Desktop\Documents` (identical five-row namespace refresh to Run 1) | CONFIRMED | Reproduces Run 1 A05 pattern (Run 2 lost this due to instrumentation issue). Multi-class attribution restored. |
 | A06 | 01:40:45 | Viewing the file created | NOTEPAD.EXE 01:40:48 (direct hit) | Security 4688 x2 with parent svchost.exe (Windows shell-open dispatcher rather than direct explorer.exe parent this run), 4689 x4 | no match | CONFIRMED | Reproduces Runs 1 and 2 A06: notepad.exe opens the .txt file. The 4688 parent path differs from Runs 1 and 2 (svchost vs explorer.exe) suggesting Windows routed the file open via a different shell-dispatch path this run; this is a documented Win11 behaviour and does not affect attribution. |
@@ -24,8 +24,8 @@ Verdict rules and column definitions: see `scripts/evaluation/evaluation_matrix.
 
 ## Coverage summary
 
-- CONFIRMED: 4 of 7 (A01, A03, A05, A06)
-- PARTIAL: 1 of 7 (A04)
+- CONFIRMED: 3 of 7 (A01, A05, A06)
+- PARTIAL: 2 of 7 (A03, A04)
 - MISSED: 2 of 7 (A02, A07)
 - Per-class hits: Prefetch 6 of 7, EVTX 7 of 7 (mostly generic), ShellBags 2 of 7 (A03, A05)
 
@@ -35,7 +35,7 @@ Verdict rules and column definitions: see `scripts/evaluation/evaluation_matrix.
 |---|---|---|---|---|
 | A01 launch NPP | CONFIRMED | CONFIRMED | CONFIRMED | 3/3 |
 | A02 type content | MISSED | MISSED | MISSED | 3/3 (expected) |
-| A03 Save As | CONFIRMED | CONFIRMED | CONFIRMED | 3/3 |
+| A03 Save As | PARTIAL | PARTIAL | PARTIAL | 3/3 |
 | A04 close NPP | PARTIAL | PARTIAL | PARTIAL | 3/3 |
 | A05 open Docs | CONFIRMED | MISSED | CONFIRMED | 2/3 (Run 2 lost to short-window instrumentation) |
 | A06 view file | CONFIRMED | CONFIRMED | CONFIRMED | 3/3 |

@@ -133,8 +133,8 @@ Full per action analysis in `evaluation/correlation_table.md`.
 
 ### 5.1 Verdict summary
 
-- CONFIRMED: 5 of 8 (A01, A02, A05, A06, A07)
-- PARTIAL: 2 of 8 (A03, A04)
+- CONFIRMED: 4 of 8 (A01, A05, A06, A07)
+- PARTIAL: 3 of 8 (A02, A03, A04)
 - MISSED: 1 of 8 (A08)
 
 ### 5.2 Per action verdicts
@@ -142,12 +142,12 @@ Full per action analysis in `evaluation/correlation_table.md`.
 | Action | Verdict | One line reason |
 |---|---|---|
 | A01 Launch chrome | CONFIRMED | CHROME.EXE prefetch x11 at 09:03:45 to 09:03:58 plus Security 4688 x51 sandbox child spawns plus VSS EID 8224 |
-| A02 Navigate to UoW | CONFIRMED | CAPI2 EID 4097 naming CN=GlobalSign Root CA (UoW's issuer) plus Chrome helper spawn Prefetch entries |
+| A02 Navigate to UoW | PARTIAL | CAPI2 EID 4097 names CN=GlobalSign Root CA (a certificate authority, not a hostname) plus Chrome helper spawn Prefetch entries. Downgraded from CONFIRMED in the 6 Sep 2026 verification: no record names westminster.ac.uk |
 | A03 Navigate to bbc | PARTIAL | Chrome helper process churn confirms browser activity but does not identify bbc; no CAPI2 event this window (TLS chain was cached from earlier) |
 | A04 Wikipedia article | PARTIAL | Chrome parented 4688 events attribute browser activity in the window; WER EID 1001 crash of a Chrome helper is incidental |
 | A05 Download PDF | CONFIRMED | ACROBAT.EXE Prefetch x7 plus ACROCEF.EXE x3 plus ADOBEARM.EXE firing seconds after the download second (shell launched Reader to open the downloaded PDF) plus Chrome parented Security 4688 x41 for the download itself |
 | A06 Close Chrome | CONFIRMED | Security 4689 x27 exit burst (Chrome multi process teardown) plus UPDATER.EXE Prefetch x4 (Chrome Updater fires on exit) |
-| A07 Open Downloads using File Explorer | CONFIRMED | UsrClass BagMRU row for Desktop\Downloads at 09:13:47 plus Security 4663 object access on Downloads folder plus FILECOAUTH Prefetch (Explorer helper) |
+| A07 Open Downloads using File Explorer | CONFIRMED | UsrClass BagMRU row for Desktop\Downloads at 09:13:47 plus FILECOAUTH Prefetch (Explorer helper) |
 | A08 Close File Explorer | MISSED | Same limitation as Scenario 3 A08; Explorer window close leaves no distinctive trace |
 
 ### 5.3 Full row by row correlation table

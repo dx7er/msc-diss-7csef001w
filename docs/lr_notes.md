@@ -284,7 +284,7 @@ Key findings.
 
 Borrow. Legal-admissibility framing motivates why this dissertation captures SHA-256 hashes at acquisition time (`acquisition_manifest.csv`) and separates raw artefacts (gitignored) from parsed outputs (committed): the raw artefact hash chain is what makes the evidence pass the authenticity test. Cite for the "why EVTX matters beyond academic interest" paragraph in the Introduction. VMware methodology precedent for the testbed chapter.
 
-Challenge. Ibrahim asserts the event log is "the most important source of evidence" (p. 254). This dissertation's evaluation matrix shows EVTX single-class completeness is 86.4% but ShellBags carries decisive attribution in S03, S04 and S07 where EVTX is silent, so "most important" is overstated for the user-activity scenario type. Also: no anti-forensic resistance testing (didn't try to clear logs and detect). Palmbach and Breitinger 2020 later show logs CAN be cleared.
+Challenge. Ibrahim asserts the event log is "the most important source of evidence" (p. 254). This dissertation's evaluation matrix shows EVTX single-class completeness is 85.7% (36/42) but ShellBags carries decisive attribution in S03, S04 and S07 where EVTX is silent, so "most important" is overstated for the user-activity scenario type. Also: no anti-forensic resistance testing (didn't try to clear logs and detect). Palmbach and Breitinger 2020 later show logs CAN be cleared.
 
 Quotes.
 - "The Windows event log is the most important source of evidence during digital forensic investigation of a Windows system because the log files connect certain events to a particular point in time" (p. 254).

@@ -114,7 +114,7 @@ Per action analyses in `run_1/evaluation/correlation_table.md`, `run_2/evaluatio
 |---|---|---|---|
 | A01 Launch Notepad++ | CONFIRMED | CONFIRMED | CONFIRMED |
 | A02 Type content | MISSED | MISSED | MISSED |
-| A03 File Save As | CONFIRMED | CONFIRMED | CONFIRMED |
+| A03 File Save As | PARTIAL | PARTIAL | PARTIAL |
 | A04 Close Notepad++ | PARTIAL | PARTIAL | PARTIAL |
 | A05 Open Documents in Explorer | CONFIRMED | MISSED | CONFIRMED |
 | A06 View file (opens in Notepad) | CONFIRMED | CONFIRMED | CONFIRMED |
@@ -128,9 +128,9 @@ Six of seven actions reproduce their verdict exactly across all three runs. A05 
 |---|---|
 | A01 Launch Notepad++ | NOTEPAD++.EXE prefetch plus GUP.EXE prefetch at the launch second plus Security 4688 with parent svchost.exe |
 | A02 Type content | Nothing. Typing into a running process leaves no trace in any of the three artefacts |
-| A03 File Save As | Seven UsrClass BagMRU rows written by the Save As dialog, including the save target (Documents) and the application install directory (Program Files\Notepad++); Windows Search indexing the saved file fires SEARCHFILTERHOST and SEARCHPROTOCOLHOST prefetch entries; Security 4663 object access on the FS resource |
+| A03 File Save As | Seven UsrClass BagMRU rows written by the Save As dialog, including the save target (Documents) and the application install directory (Program Files\Notepad++); Windows Search indexing the saved file fires SEARCHFILTERHOST and SEARCHPROTOCOLHOST prefetch entries; Security 4663 records in the window name `\Device\CdRom0\`, not the saved file, so the save itself is inferred from this sequence rather than recorded directly (verdict PARTIAL after the 6 Sep 2026 verification) |
 | A04 Close Notepad++ | Security 4689 exit for notepad++.exe (single class, weak) |
-| A05 Open Documents in Explorer | UsrClass namespace refresh with Desktop\Documents row (in Runs 1 and 3); Security 4663 object access; FILECOAUTH prefetch |
+| A05 Open Documents in Explorer | UsrClass namespace refresh with Desktop\Documents row (in Runs 1 and 3); FILECOAUTH prefetch. The Security 4663 records here also name the CD-ROM device, so they are not attribution |
 | A06 View file created | NOTEPAD.EXE prefetch (Windows opened the .txt file in default Notepad because Notepad++ was not registered as default .txt handler on this baseline); Security 4688 with parent explorer.exe (user double click origin) |
 | A07 Close all | Security 4689 exit only; generic |
 

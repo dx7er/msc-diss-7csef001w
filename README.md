@@ -96,7 +96,7 @@ msc-diss-7csef001w/
     ├── testbed/                    (VM baseline setup, 01_ to 12_)
     ├── scenarios/                  (log_action.ps1, acquire_artefacts.ps1, per-scenario prep scripts)
     ├── analysis/                   (window_filter.ps1, correlate_scenario.py, extract_artefacts.ps1)
-    └── evaluation/                 (evaluation_matrix.csv, evaluation_matrix.md)
+    └── evaluation/                 (evaluation_matrix.md, evaluation_matrix_corrected.csv, evaluation_matrix_corrections.md, evaluation_matrix.csv = pre-verification coding)
 ```
 
 ## Scenarios
@@ -127,7 +127,8 @@ Approach:
 5. Parse artefacts with open source tools (PECmd, EvtxECmd, SBECmd); export structured CSV output into each scenario's `artefacts/analysis/` folder.
 6. Filter parsed CSVs to per-action time windows using `window_filter.ps1`; outputs land in `artefacts/analysis/windowed/`.
 7. Correlate windowed artefacts against ground truth per action; verdict scored CONFIRMED, PARTIAL or MISSED in `evaluation/correlation_table.md` with an analyst-notes column for critical evaluation.
-8. Aggregate per-scenario findings into a cross-scenario evaluation matrix in `scripts/evaluation/evaluation_matrix.md` (with CSV mirror at `evaluation_matrix.csv`).
+8. Aggregate per-scenario findings into a cross-scenario evaluation matrix in `scripts/evaluation/evaluation_matrix.md` (with CSV mirror at `evaluation_matrix_corrected.csv`).
+9. Record-level verification (6 Sep 2026): every cell citing a specific record was re-checked against the parsed output. Eight matrix cells and four action-level verdicts changed; see `scripts/evaluation/evaluation_matrix_corrections.md`.
 
 Evaluation draws on the TER Model (Breitinger, Studiawan and Hargreaves, 2025) and the tamper resistance factors of Vanini, Hargreaves and Breitinger (2024).
 
